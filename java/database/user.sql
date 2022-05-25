@@ -2,7 +2,7 @@
 -- This script creates the database users and grants them the necessary permissions
 -- ********************************************************************************
 
-CREATE USER final_capstone_owner
+CREATE USER family_reading_owner
 WITH PASSWORD 'finalcapstone';
 
 GRANT ALL
