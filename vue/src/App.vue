@@ -1,9 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <h1>Family Reading</h1>
+    <!-- <home /> -->
+    <nav-bar/>
+    <!-- <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
+    </div> -->
     <router-view />
   </div>
 </template>
+
+<script>
+import NavBar from '@/components/NavBar.vue'
+
+export default {
+  name:'app',
+  component: {
+    NavBar
+  }
+}
+</script>
+
+
+<style >
+
+#nav {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 30px;
+  text-align: center;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
