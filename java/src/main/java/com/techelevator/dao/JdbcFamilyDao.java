@@ -1,13 +1,17 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Family;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
+
 @Component
 public class JdbcFamilyDao implements FamilyDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
@@ -36,7 +40,7 @@ public class JdbcFamilyDao implements FamilyDao {
     }
 
     public Family getFamilyById(Long familyId) {
-        Family family = new Family();
+        Family family = null;
 
         String sql = "SELECT family_id, family_name FROM family WHERE family_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId);
@@ -48,17 +52,15 @@ public class JdbcFamilyDao implements FamilyDao {
     }
 
     @Override
-    public void makeNewFamily(Family newFam) {
+    public Family makeNewFamily(Family newFam) {
         Long returnedFamilyId;
         Family family = new Family();
 
-        String sql = "INSERT INTO family (family_name) VALUES (?)"; // RETURNING family_id;";
-        //returnedFamilyId = jdbcTemplate.queryForObject(sql, Long.class, newFam.getFamilyName());
-        jdbcTemplate.update(sql, newFam.getFamilyName());
+        String sql = "INSERT INTO family (family_name) VALUES (?) RETURNING family_id;";
+        returnedFamilyId = jdbcTemplate.queryForObject(sql, Long.class, newFam.getFamilyName());
+        //jdbcTemplate.update(sql, newFam.getFamilyName());
 
-        //family = getFamilyById(returnedFamilyId);
-        //return getFamilyById(returnedFamilyId);
-        //return family;
+        return getFamilyById(returnedFamilyId);
     }
 
     private Family mapRowToFamily(SqlRowSet results) {
