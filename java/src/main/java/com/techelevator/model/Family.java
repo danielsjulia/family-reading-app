@@ -7,13 +7,20 @@ public class Family {
     private Long familyId;
     private String familyName;
 //    private boolean isParent;
+//    private String username;
+//    private Long userId;
 
 //    private List<>
 
     public Family(Long familyId, String familyName) {
         this.familyId = familyId;
         this.familyName = familyName;
+//        this.isParent = isParent;
+//        this.username = username;
+//        this.userId = userId;
     }
+
+    public Family() {}
 
     public Long getFamilyId() {
         return familyId;

@@ -6,4 +6,43 @@ public class Member {
     private String username;
     private boolean isParent;
     private Long familyId;
+
+    public Member(Long userId, String username, boolean isParent, Long familyId) {
+        this.userId = userId;
+        this.username = username;
+        this.isParent = isParent;
+        this.familyId = familyId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isParent() {
+        return isParent;
+    }
+
+    public void setParent(boolean parent) {
+        isParent = parent;
+    }
+
+    public Long getFamilyId() {
+        return familyId;
+    }
+
+    public void setFamilyId(Long familyId) {
+        this.familyId = familyId;
+    }
 }
