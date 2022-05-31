@@ -2,22 +2,24 @@
   <div id="app">
     <h1>Family Reading</h1>
     <!-- <home /> -->
-    <nav-bar/>
-    <!-- <div id="nav">
+    <!-- <nav-bar/> -->
+    <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div> -->
+      &nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'add-a-book' }" v-if="$store.state.token != ''">Add A Book</router-link>
+    </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+// import NavBar from '@/components/NavBar.vue'
 
 export default {
   name:'app',
   component: {
-    NavBar
+    // NavBar
   }
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <nav-bar />
+    <!-- <nav-bar /> -->
     
     <h1>Home</h1>
-    
+    <add-family />
     
     <!-- <setup-family />
     <log-book /> -->
@@ -14,15 +14,17 @@
 
 
 <script>
-import NavBar from '../components/NavBar.vue';
+// import NavBar from '../components/NavBar.vue';
+import AddFamily from '@/components/AddFamily.vue'
 
 
 export default {
   name: "home",
   components: {
+    AddFamily
     // SetupFamily,
     // LogBook,
-    NavBar
+    // NavBar
     // NavBar, 
   }
 };
