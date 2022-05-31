@@ -28,7 +28,7 @@ CREATE TABLE family_member (
     user_id int NOT NULL,
     family_id int NOT NULL,
     is_Parent boolean NOT NULL,
-    CONSTRAINT PK_family_member PRIMARY KEY (user_id),
+    CONSTRAINT PK_family_member PRIMARY KEY (user_id, family_id),
     CONSTRAINT FK_family_member_user FOREIGN KEY (user_id) REFERENCES users (user_id),
     CONSTRAINT FK_family_member_family FOREIGN KEY (family_id) REFERENCES family (family_id)
 );

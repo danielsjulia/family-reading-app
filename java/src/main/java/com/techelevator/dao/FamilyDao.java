@@ -8,7 +8,7 @@ public interface FamilyDao {
 
     Long getFamilyIdByFamilyName(String name);
 
-    Family makeNewFamily(Family newFam);
+    Family makeNewFamily(Family newFam, String userName);
 
     Family getFamilyById(Long familyId);
 

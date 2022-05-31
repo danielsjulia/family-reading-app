@@ -26,8 +26,8 @@ export default {
         addFamily(){
             familyService.createFamily(this.family)
             .then(response =>{
-                if(response.status=== 201){
-                    this.$router.push("/")
+                if(response.status=== 201) {
+                    this.$router.push("/MyFamily")
                 }
             })
         }

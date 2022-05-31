@@ -1,10 +1,13 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Family;
+import com.techelevator.model.Member;
+import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 
@@ -13,6 +16,12 @@ public class JdbcFamilyDao implements FamilyDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private MemberDao memberDao;
 
     @Override
     public String getFamilyNameByFamilyId(Long familyId) {
@@ -52,15 +61,24 @@ public class JdbcFamilyDao implements FamilyDao {
     }
 
     @Override
-    public Family makeNewFamily(Family newFam) {
-        Long returnedFamilyId;
+    @Transactional
+    public Family makeNewFamily(Family newFam, String name) {
+        Long familyId;
         Family family = new Family();
+        Member member = new Member();
 
         String sql = "INSERT INTO family (family_name) VALUES (?) RETURNING family_id;";
-        returnedFamilyId = jdbcTemplate.queryForObject(sql, Long.class, newFam.getFamilyName());
+        familyId = jdbcTemplate.queryForObject(sql, Long.class, newFam.getFamilyName());
         //jdbcTemplate.update(sql, newFam.getFamilyName());
 
-        return getFamilyById(returnedFamilyId);
+        member.setUserId( (long)userDao.findIdByUsername(name) );
+        member.setFamilyId(familyId);
+        member.setUsername(name);
+        member.setParent(true);
+
+        boolean memberAdded = memberDao.addMember(member);
+
+        return getFamilyById(familyId);
     }
 
     private Family mapRowToFamily(SqlRowSet results) {

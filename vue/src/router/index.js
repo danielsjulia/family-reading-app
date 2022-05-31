@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddABook from '../views/AddABook.vue'
+import FamilyPage from '../views/FamilyPage.vue'
 
 Vue.use(Router)
 
@@ -61,7 +62,17 @@ const router = new Router({
       meta : {
         requiresAuth : false
       }
+    },
+    {
+        path: "/MyFamily",
+        name: "family-page",
+        component: FamilyPage,
+        meta: {
+          requiresAuth: true
+        }
+
     }
+    
   ]
 })
 

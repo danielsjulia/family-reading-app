@@ -7,6 +7,8 @@ public class Member {
     private boolean isParent;
     private Long familyId;
 
+    public Member () {}
+
     public Member(Long userId, String username, boolean isParent, Long familyId) {
         this.userId = userId;
         this.username = username;

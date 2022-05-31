@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @CrossOrigin
 public class FamilyController {
@@ -21,8 +23,10 @@ public class FamilyController {
 
     @ApiOperation("adding a family")
     @RequestMapping(path="/add-family", method = RequestMethod.POST)
-    public Family makeFamily(@RequestBody @ApiParam("family object") Family family) {
-        return familyDao.makeNewFamily(family);
+    public Family makeFamily(@RequestBody @ApiParam("family object") Family family, Principal principal) {
+
+        return familyDao.makeNewFamily(family, principal.getName());
+
     }
 
     @ApiOperation("getting a family")
