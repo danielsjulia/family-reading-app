@@ -5,7 +5,7 @@
     <h1>Home</h1>
     <add-family />
     <family-page />
-    
+    <!-- <add-member /> -->
     <!-- <setup-family />
     <log-book /> -->
 
@@ -17,6 +17,7 @@
 <script>
 // import NavBar from '../components/NavBar.vue';
 import AddFamily from '@/components/AddFamily.vue'
+// import AddMember from '../components/AddMember.vue';
 import FamilyPage from './FamilyPage.vue';
 
 
@@ -24,6 +25,7 @@ export default {
   name: "home",
   components: {
     AddFamily,
+    // AddMember
     FamilyPage
     // SetupFamily,
     // LogBook,

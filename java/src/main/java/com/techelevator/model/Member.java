@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 public class Member {
+    //New RegisterMember object (make it this one)
     // adding new fam member - this class necessary? passing too much data? do we only need to pass isParent
     private Long userId;
     private String username;

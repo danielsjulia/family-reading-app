@@ -6,15 +6,18 @@
       <input type="text" placeholder="Family name" v-model ="family.familyName" v-bind:familyName = "familyName" />
         <input type="submit" value="Submit" />
         </form>
+        <!-- <add-member /> -->
   </div>
 </template>
 
 <script>
 import familyService from '@/services/FamilyService'
+// import addMember from '@/components/AddMember'
+
 export default {
     name : "add-family",
     component:{
-
+        // addMember
     },
     data(){
         return{
@@ -27,8 +30,9 @@ export default {
         addFamily(){
             familyService.createFamily(this.family)
             .then(response =>{
-                if(response.status=== 200) {
-                    this.$router.push("/MyFamily")
+                if(response.status === 200) {
+                    this.$router.push(`/MyFamily`)
+                    this.$store.commit("SET_FAMILY", response.data)
                 }
             })
         }

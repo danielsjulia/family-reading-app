@@ -60,7 +60,12 @@ public class AuthenticationController {
             throw new UserAlreadyExistsException();
         } catch (UsernameNotFoundException e) {
             userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
+            //if according to the member
+            // if from new user then register the new user as child or parent by checkbox
+            //this would keep the register DTO
+            // the two objects way would keep the DTO different
         }
+
     }
 
     /**

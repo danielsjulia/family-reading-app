@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Member;
+import com.techelevator.model.RegisterMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,13 @@ public class JdbcMemberDao implements MemberDao{
 
         if(user_id != null ) return member;
         else return null;
+
+    }
+
+    @Override
+    public void registerNewMember(RegisterMember registerMember) {
+
+        
 
     }
 

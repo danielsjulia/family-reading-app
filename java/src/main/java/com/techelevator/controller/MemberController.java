@@ -4,6 +4,7 @@ import com.techelevator.dao.FamilyDao;
 import com.techelevator.dao.MemberDao;
 import com.techelevator.model.Family;
 import com.techelevator.model.Member;
+import com.techelevator.model.RegisterMember;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,14 @@ public class MemberController {
     @RequestMapping(path="/{id}", method= RequestMethod.GET)
     public Family getFamily(@PathVariable @ApiParam("family id") Long id) {
         return familyDao.getFamilyById(id);
+    }
+
+    @ApiOperation("adding a new member")
+    @RequestMapping(path="/myFamily/add-new-member", method = RequestMethod.POST)
+    public void addMember(@RequestBody @ApiParam("member object") RegisterMember registerMember, Principal principal) {
+
+         memberDao.registerNewMember(registerMember);
+
     }
 
 }
