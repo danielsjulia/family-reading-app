@@ -6,6 +6,7 @@ public class Member {
     private String username;
     private boolean isParent;
     private Long familyId;
+//    private String familyName;
 
     public Member () {}
 

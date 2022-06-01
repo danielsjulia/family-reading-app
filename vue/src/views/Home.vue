@@ -4,6 +4,7 @@
     
     <h1>Home</h1>
     <add-family />
+    <family-page />
     
     <!-- <setup-family />
     <log-book /> -->
@@ -16,12 +17,14 @@
 <script>
 // import NavBar from '../components/NavBar.vue';
 import AddFamily from '@/components/AddFamily.vue'
+import FamilyPage from './FamilyPage.vue';
 
 
 export default {
   name: "home",
   components: {
-    AddFamily
+    AddFamily,
+    FamilyPage
     // SetupFamily,
     // LogBook,
     // NavBar

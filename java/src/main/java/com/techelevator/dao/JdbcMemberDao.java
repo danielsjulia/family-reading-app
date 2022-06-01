@@ -17,9 +17,10 @@ public class JdbcMemberDao implements MemberDao{
     }
 
     @Override
-    public boolean addMember(Member member) {
+    public Member addMember(Member member) {
 
         Long user_id ;
+
 
         String sql = "INSERT INTO family_member(user_id, family_id, is_Parent) " +
                 "VALUES(?, ?, ? ) " +
@@ -31,8 +32,8 @@ public class JdbcMemberDao implements MemberDao{
                 ,member.getFamilyId()
                 ,member.isParent());
 
-        if( user_id != null) return  true;
-        return false;
+        if(user_id != null ) return member;
+        else return null;
 
     }
 

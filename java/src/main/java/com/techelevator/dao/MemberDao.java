@@ -6,6 +6,6 @@ public interface MemberDao {
 
     public Member getMemberById(Long id);
 
-    public boolean addMember(Member member);
+    public Member addMember(Member member);
 
 }

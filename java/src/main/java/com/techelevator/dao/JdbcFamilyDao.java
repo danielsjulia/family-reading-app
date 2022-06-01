@@ -76,7 +76,9 @@ public class JdbcFamilyDao implements FamilyDao {
         member.setUsername(name);
         member.setParent(true);
 
-        boolean memberAdded = memberDao.addMember(member);
+        memberDao.addMember(member);
+
+//        We need to make sure both tables are updated and make Transactional comment work!
 
         return getFamilyById(familyId);
     }

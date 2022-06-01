@@ -68,7 +68,7 @@ const router = new Router({
         name: "family-page",
         component: FamilyPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: false
         }
 
     }

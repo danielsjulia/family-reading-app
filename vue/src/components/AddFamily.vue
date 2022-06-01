@@ -1,8 +1,9 @@
 <template>
+
   <div>
       <h1>Add Family </h1>
       <form @submit.prevent="addFamily">
-      <input type="text" placeholder="Family name" v-model ="family.familyName" />
+      <input type="text" placeholder="Family name" v-model ="family.familyName" v-bind:familyName = "familyName" />
         <input type="submit" value="Submit" />
         </form>
   </div>
@@ -26,7 +27,7 @@ export default {
         addFamily(){
             familyService.createFamily(this.family)
             .then(response =>{
-                if(response.status=== 201) {
+                if(response.status=== 200) {
                     this.$router.push("/MyFamily")
                 }
             })
