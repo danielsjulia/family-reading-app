@@ -8,6 +8,7 @@ import store from '../store/index'
 import AddABook from '../views/AddABook.vue'
 import FamilyPage from '../views/FamilyPage.vue'
 
+
 Vue.use(Router)
 
 /**
@@ -71,8 +72,8 @@ const router = new Router({
           requiresAuth: false
         }
 
-    }
-    
+    },
+
   ]
 })
 
