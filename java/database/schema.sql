@@ -20,7 +20,7 @@ CREATE TABLE users (
 
 CREATE TABLE family (
     family_id serial NOT NULL,
-    family_name varchar(50) NOT NULL,
+    family_name varchar(50) unique NOT NULL,
     CONSTRAINT PK_family PRIMARY KEY (family_id)
 );
 
