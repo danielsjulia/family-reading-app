@@ -21,8 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     family: {
-      familyId: '',
-      familyName: ''
+      //familyId: '',
+      //familyName: ''
     }
     //would need an actual variable (for second option that has different DTO - 2)
   },

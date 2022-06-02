@@ -32,15 +32,31 @@ export default {
     // NavBar
     // NavBar, 
   },
+  data() {
+    return {
+      //showForm: ""
+    }
+  },
   created() {
     //get family info and put in store
     FamilyService.getFamilyFromUser(this.$store.state.user.id)
     .then(
       response => {
           this.$store.commit("SET_FAMILY", response.data)
-          window.alert("working!")
       }
     )
+
+    //this.checkForFamily()
+  },
+  methods: {
+    checkForFamily() {
+      if(this.$store.state.family != {}) {
+        this.showForm = false;
+      } else {
+        this.showForm = true;
+      }
+      //return this.showForm
+    }
   }
 };
 </script>
