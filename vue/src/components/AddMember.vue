@@ -45,7 +45,7 @@ export default {
 
       },
       addMemberToFamily() {
-        memberService.addMember(this.member)
+        memberService.addNewMember(this.member)
           .then(response => {
             if(response.status == 200) {
               this.$router.push("/MyFamily")

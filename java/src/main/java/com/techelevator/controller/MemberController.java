@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.FamilyDao;
 import com.techelevator.dao.MemberDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Family;
 import com.techelevator.model.Member;
 import com.techelevator.model.RegisterMember;
@@ -23,6 +24,9 @@ public class MemberController {
     @Autowired
     private MemberDao memberDao;
 
+    @Autowired
+    private UserDao userDao;
+
 //    public FamilyController(FamilyDao familyDao) {
 //        this.familyDao = familyDao;
 //    }
@@ -41,11 +45,15 @@ public class MemberController {
         return familyDao.getFamilyById(id);
     }
 
+
+    // check for confirm password variable and the logic that checks it matches password.
     @ApiOperation("adding a new member")
     @RequestMapping(path="/myFamily/add-new-member", method = RequestMethod.POST)
     public void addMember(@RequestBody @ApiParam("member object") RegisterMember registerMember, Principal principal) {
 
-         memberDao.registerNewMember(registerMember);
+
+
+        memberDao.registerNewMember(registerMember);
 
     }
 

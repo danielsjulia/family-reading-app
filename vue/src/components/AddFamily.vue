@@ -3,7 +3,7 @@
   <div>
       <h1>Add Family </h1>
       <form @submit.prevent="addFamily">
-      <input type="text" placeholder="Family name" v-model ="family.familyName" v-bind:familyName = "familyName" />
+      <input type="text" placeholder="Family name" v-model ="family.familyName" />
         <input type="submit" value="Submit" />
         </form>
         <!-- <add-member /> -->
@@ -20,7 +20,7 @@ export default {
         // addMember
     },
     data(){
-        return{
+        return {
             family:{
                 familyName:""
             }

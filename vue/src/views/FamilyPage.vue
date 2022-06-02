@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <add-family /> -->
-      <h1>{{familyName}}</h1>
+      <h1>{{this.$store.family.familyName}}</h1>
       <add-member/>
 
 

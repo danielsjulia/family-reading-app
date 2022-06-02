@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 
 public class RegisterMember {
 
-    private Long userId;
+    private Long userId; // get rid may be
     private String username;
     private boolean isParent;
     private Long familyId;

@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Member;
 import com.techelevator.model.RegisterMember;
+import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,9 @@ public class JdbcMemberDao implements MemberDao{
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    UserDao userDao;
 
     @Override
     public Member getMemberById(Long id) {
@@ -41,7 +45,20 @@ public class JdbcMemberDao implements MemberDao{
     @Override
     public void registerNewMember(RegisterMember registerMember) {
 
-        
+        userDao.create(registerMember.getUsername()
+                , registerMember.getPassword()
+                , registerMember.getRole());
+
+
+        Member member = new Member();
+
+
+        member.setUsername(registerMember.getUsername());
+        member.setUserId((long)userDao.findIdByUsername(registerMember.getUsername()));
+        member.setParent(registerMember.isParent());
+        member.setFamilyId(registerMember.getFamilyId());
+
+        addMember(member);
 
     }
 
