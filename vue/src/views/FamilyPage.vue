@@ -2,6 +2,7 @@
   <div>
     <!-- <add-family /> -->
       <h1>{{this.$store.state.family.familyName}}</h1>
+      <members />
       <add-member/>
 
 
@@ -12,10 +13,11 @@
 <script>
 import FamilyService from '@/services/FamilyService.js';
 import addMember from "../components/AddMember"
+import Members from '../components/Members.vue';
  
 export default {
 
-  components: { addMember },
+  components: { addMember, Members },
   name: "FamilyPage",
   created() {
     //get family info and put in store
@@ -28,6 +30,9 @@ export default {
 
     //this.checkForFamily()
   },
+  methods:{
+    
+  }
 
 }
 </script>

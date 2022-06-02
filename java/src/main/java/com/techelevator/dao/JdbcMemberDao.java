@@ -5,7 +5,11 @@ import com.techelevator.model.RegisterMember;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JdbcMemberDao implements MemberDao{
@@ -60,6 +64,36 @@ public class JdbcMemberDao implements MemberDao{
 
         addMember(member);
 
+    }
+
+    @Override
+    public List<Member> getMembers(Long id) {
+        List<Member> members = new ArrayList<>();
+
+        String sql ="SELECT username, family_member.is_parent FROM family_member\n" +
+                "JOIN users ON family_member.user_id = users.user_id\n" +
+                "WHERE family_member.family_id = ?";
+
+
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql,id);
+
+        while(rowSet.next()){
+            Member member = new Member();
+            member = rowToMapMember(rowSet);
+            members.add(member);
+
+        }
+
+
+
+        return members;
+    }
+
+    private Member rowToMapMember(SqlRowSet rowSet) {
+        Member member = new Member();
+        member.setUsername(rowSet.getString("username"));
+        member.setParent(rowSet.getBoolean("is_parent"));
+        return  member;
     }
 
 

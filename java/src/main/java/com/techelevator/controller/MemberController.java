@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -23,8 +24,9 @@ public class MemberController {
     @Autowired
     private MemberDao memberDao;
 
-//    @Autowired
-//    private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
+
 
 //    public FamilyController(FamilyDao familyDao) {
 //        this.familyDao = familyDao;
@@ -45,5 +47,14 @@ public class MemberController {
         System.out.println(registerMember);
         memberDao.registerNewMember(registerMember);
     }
+
+    @ApiOperation("get all members")
+    @RequestMapping(path="/myFamily/all-member", method = RequestMethod.GET)
+    public List<Member> getMembers(@ApiParam("member object") Principal principal) {
+
+        return memberDao.getMembers((long)userDao.findIdByUsername(principal.getName()));
+
+    }
+
 
 }

@@ -8,7 +8,7 @@
     <!-- <add-member /> -->
     <!-- <setup-family />
     <log-book /> -->
-
+  
     <p>You must be authenticated to see this</p>
   </div>
 </template>
@@ -34,9 +34,10 @@ export default {
   },
   data() {
     return {
-      //showForm: ""
+          showForm: false
     }
   },
+  
   created() {
     //get family info and put in store
     FamilyService.getFamilyFromUser(this.$store.state.user.id)
@@ -48,6 +49,7 @@ export default {
 
     //this.checkForFamily()
   },
+  
   methods: {
     checkForFamily() {
       if(this.$store.state.family != {}) {
@@ -58,5 +60,6 @@ export default {
       //return this.showForm
     }
   }
+ 
 };
 </script>
