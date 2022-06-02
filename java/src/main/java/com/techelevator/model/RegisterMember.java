@@ -82,4 +82,18 @@ public class RegisterMember {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public String toString() {
+        return "RegisterMember{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", isParent=" + isParent +
+                ", familyId=" + familyId +
+                ", familyName='" + familyName + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

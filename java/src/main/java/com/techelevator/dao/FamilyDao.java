@@ -12,6 +12,8 @@ public interface FamilyDao {
 
     Family getFamilyById(Long familyId);
 
+    Family getFamilyByUserId(Long userId);
+
 //    List<Members> getFamilyMembersByFamilyId(Long familyId);
     // sql statement
     //

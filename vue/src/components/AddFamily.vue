@@ -2,6 +2,7 @@
 
   <div>
       <h1>Add Family </h1>
+      <!-- add v-if to show only if no family in store, else redirect to familyPage if have family -->
       <form @submit.prevent="addFamily">
       <input type="text" placeholder="Family name" v-model ="family.familyName" />
         <input type="submit" value="Submit" />

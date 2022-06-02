@@ -19,7 +19,7 @@
 import AddFamily from '@/components/AddFamily.vue'
 // import AddMember from '../components/AddMember.vue';
 import FamilyPage from './FamilyPage.vue';
-
+import FamilyService from '@/services/FamilyService.js';
 
 export default {
   name: "home",
@@ -31,6 +31,16 @@ export default {
     // LogBook,
     // NavBar
     // NavBar, 
+  },
+  created() {
+    //get family info and put in store
+    FamilyService.getFamilyFromUser(this.$store.state.user.id)
+    .then(
+      response => {
+          this.$store.commit("SET_FAMILY", response.data)
+          window.alert("working!")
+      }
+    )
   }
 };
 </script>

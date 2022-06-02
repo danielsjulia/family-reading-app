@@ -29,10 +29,16 @@ public class FamilyController {
 
     }
 
-    @ApiOperation("getting a family")
+    @ApiOperation("getting a family by familyId")
     @RequestMapping(path="/{id}", method= RequestMethod.GET)
     public Family getFamily(@PathVariable @ApiParam("family id") Long id) {
         return familyDao.getFamilyById(id);
+    }
+
+    @ApiOperation("getting a family by userId")
+    @RequestMapping(path="/family/{userId}", method= RequestMethod.GET)
+    public Family getFamilyFromUserId(@PathVariable @ApiParam("user id") Long userId) {
+        return familyDao.getFamilyByUserId(userId);
     }
 
 

@@ -44,14 +44,14 @@ public class JdbcMemberDao implements MemberDao{
 
     @Override
     public void registerNewMember(RegisterMember registerMember) {
+        System.out.println(2);
+        System.out.println(registerMember);
 
         userDao.create(registerMember.getUsername()
                 , registerMember.getPassword()
                 , registerMember.getRole());
 
-
         Member member = new Member();
-
 
         member.setUsername(registerMember.getUsername());
         member.setUserId((long)userDao.findIdByUsername(registerMember.getUsername()));

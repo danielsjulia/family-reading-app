@@ -3,7 +3,7 @@
     <button @click="showForm()">Add Member</button>
 
     <form v-show="addMember == true" @submit="addMemberToFamily()">
-      <input type="text" placeholder="userName" v-model="member.user_name" />
+      <input type="text" placeholder="userName" v-model="member.username" />
       <input type="password" placeholder="password" v-model="member.password" />
        <input type="password" placeholder="confirmPassword" v-model="member.confirmPassword" />
       <input type="checkbox" placeholder="isParent" v-model="member.isParent" />
@@ -21,7 +21,7 @@ export default {
       data () {
       return {
         member : {
-          user_name: "",
+          username: "",
           password: "",
           confirmPassword: "",
           isParent: false,
@@ -32,9 +32,9 @@ export default {
         addMember : false
       }
     },
-    props: [
-      'familyName',
-    ],
+    // props: [
+    //   'familyName',
+    // ],
     created() {
       this.member.familyName = this.$store.state.family.familyName;
       this.member.familyId = this.$store.state.family.familyId;

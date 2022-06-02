@@ -7,7 +7,13 @@ createFamily(family) {
 
   getFamily(id) {
     return axios.get(`/${id}`)
+  },
+
+  getFamilyFromUser(userId){
+    return axios.get(`/family/${userId}`)
   }
+
+
   
 
 }

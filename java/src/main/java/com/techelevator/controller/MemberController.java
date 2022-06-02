@@ -9,13 +9,12 @@ import com.techelevator.model.RegisterMember;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
+@RestController
+@CrossOrigin
 public class MemberController {
 
     @Autowired
@@ -24,8 +23,8 @@ public class MemberController {
     @Autowired
     private MemberDao memberDao;
 
-    @Autowired
-    private UserDao userDao;
+//    @Autowired
+//    private UserDao userDao;
 
 //    public FamilyController(FamilyDao familyDao) {
 //        this.familyDao = familyDao;
@@ -39,22 +38,12 @@ public class MemberController {
 
     }
 
-    @ApiOperation("getting a family")
-    @RequestMapping(path="/{id}", method= RequestMethod.GET)
-    public Family getFamily(@PathVariable @ApiParam("family id") Long id) {
-        return familyDao.getFamilyById(id);
-    }
-
-
     // check for confirm password variable and the logic that checks it matches password.
     @ApiOperation("adding a new member")
     @RequestMapping(path="/myFamily/add-new-member", method = RequestMethod.POST)
-    public void addMember(@RequestBody @ApiParam("member object") RegisterMember registerMember, Principal principal) {
-
-
-
+    public void addNewMember(@RequestBody @ApiParam("member object") RegisterMember registerMember) {
+        System.out.println(registerMember);
         memberDao.registerNewMember(registerMember);
-
     }
 
 }

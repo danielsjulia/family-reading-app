@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <add-family /> -->
-      <h1>{{this.$store.family.familyName}}</h1>
+      <h1>{{this.$store.state.family.familyName}}</h1>
       <add-member/>
 
 
@@ -12,7 +12,7 @@
 <script>
 
 import addMember from "../components/AddMember"
-
+ 
 export default {
 
   components: { addMember },
