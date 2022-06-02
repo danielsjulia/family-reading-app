@@ -45,6 +45,8 @@ export default {
 
       },
       addMemberToFamily() {
+        this.member.familyId = this.$store.state.family.familyId;
+        this.member.familyName = this.$store.state.family.familyName;
         memberService.addNewMember(this.member)
           .then(response => {
             if(response.status == 200) {
