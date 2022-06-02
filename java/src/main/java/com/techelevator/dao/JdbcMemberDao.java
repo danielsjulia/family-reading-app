@@ -82,6 +82,7 @@ public class JdbcMemberDao implements MemberDao{
             member = rowToMapMember(rowSet);
             members.add(member);
 
+
         }
 
 
