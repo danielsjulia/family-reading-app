@@ -1,15 +1,20 @@
 <template>
   <div class="home">
     <!-- <nav-bar /> -->
+    <div id="home-header">
+      <h1>Welcome Home</h1>
+    </div>
     
-    <h1>Home</h1>
-    <add-family />
-    <family-page />
+    <div id="familyFormContainer">
+      <add-family />
+    </div>
+    
+    <family-page  />
     <!-- <add-member /> -->
     <!-- <setup-family />
     <log-book /> -->
   
-    <p>You must be authenticated to see this</p>
+
   </div>
 </template>
 
@@ -63,3 +68,38 @@ export default {
  
 };
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+.home {
+  background-color: #FFE7D5;
+}
+
+.home h1 {
+  font-family: 'Dosis', sans-serif;
+  font-size: xx-large;
+}
+
+#home-header h1 {
+  text-shadow: 2px 2px #45547A;
+  color: #FFE7D5;
+}
+
+#home-header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #EC5C67;
+  border: 5px solid #45547A;
+  border-radius: 10px;
+  margin-top: 1vh;
+}
+
+#familyFormContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+</style>
