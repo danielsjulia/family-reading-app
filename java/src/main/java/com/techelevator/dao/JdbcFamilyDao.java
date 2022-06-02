@@ -108,4 +108,21 @@ public class JdbcFamilyDao implements FamilyDao {
 
         return family;
     }
+
+    @Override
+    public long getFamilyIDByUserId(Long userId) {
+        Family family = new Family();
+
+        String sql = "SELECT family.family_id, family.family_name FROM family " +
+                "JOIN family_member ON family.family_id = family_member.family_id " +
+                "WHERE family_member.user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId);
+
+        if (results.next()) {
+            family = mapRowToFamily(results);
+        }
+
+        return family.getFamilyId();
+    }
 }

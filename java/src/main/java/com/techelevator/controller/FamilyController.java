@@ -35,11 +35,16 @@ public class FamilyController {
         return familyDao.getFamilyById(id);
     }
 
+
+
     @ApiOperation("getting a family by userId")
     @RequestMapping(path="/family/{userId}", method= RequestMethod.GET)
     public Family getFamilyFromUserId(@PathVariable @ApiParam("user id") Long userId) {
         return familyDao.getFamilyByUserId(userId);
     }
+
+
+
 
 
 

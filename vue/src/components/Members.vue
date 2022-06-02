@@ -1,6 +1,8 @@
 <template>
   <div class= 'member'>
-      <member-card v-for="member in members" v-bind:key="member.id" v-bind:member = "member" />
+      <member-card v-for="member in members" 
+      v-bind:key="member.id"
+       v-bind:member = "member" />
           
     </div>
 </template>

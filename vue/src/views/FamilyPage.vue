@@ -4,10 +4,9 @@
       <h1>{{this.$store.state.family.familyName}}</h1>
 
       <members />
+      
       <add-member/>
 
-
-      <h2>members</h2>
   </div>
 </template>
 
@@ -31,7 +30,10 @@ export default {
 
     //this.checkForFamily()
   },
-  components: { addMember, Members },
+  components: { 
+    addMember, 
+    Members 
+  },
   methods:{
     
   }

@@ -42,7 +42,6 @@ export default {
     methods: {
       showForm() {
         this.addMember =true
-
       },
       addMemberToFamily() {
         this.member.familyId = this.$store.state.family.familyId;
