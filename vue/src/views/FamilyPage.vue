@@ -6,6 +6,7 @@
       <members />
       
       <add-member/>
+      // v-if = "isParent" 
 
   </div>
 </template>
