@@ -2,11 +2,11 @@
   <div>
     <!-- <add-family /> -->
       <h1>{{this.$store.state.family.familyName}}</h1>
+
       <members />
+      
       <add-member/>
 
-
-      <h2>members</h2>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import Members from '../components/Members.vue';
  
 export default {
 
-  components: { addMember, Members },
+  
   name: "FamilyPage",
   created() {
     //get family info and put in store
@@ -29,6 +29,10 @@ export default {
     )
 
     //this.checkForFamily()
+  },
+  components: { 
+    addMember, 
+    Members 
   },
   methods:{
     

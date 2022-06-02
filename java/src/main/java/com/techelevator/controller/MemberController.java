@@ -52,7 +52,9 @@ public class MemberController {
     @RequestMapping(path="/myFamily/all-member", method = RequestMethod.GET)
     public List<Member> getMembers(@ApiParam("member object") Principal principal) {
 
-        return memberDao.getMembers((long)userDao.findIdByUsername(principal.getName()));
+        long userId =(long)userDao.findIdByUsername(principal.getName());
+
+        return memberDao.getMembers(familyDao.getFamilyIDByUserId(userId));
 
     }
 
