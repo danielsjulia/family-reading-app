@@ -75,7 +75,7 @@ public class JdbcMemberDao implements MemberDao{
                 "WHERE family_member.family_id = ?";
 
 
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql,id);
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, id);
 
         while(rowSet.next()){
             Member member = new Member();
