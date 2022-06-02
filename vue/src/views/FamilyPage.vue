@@ -10,13 +10,24 @@
 </template>
 
 <script>
-
+import FamilyService from '@/services/FamilyService.js';
 import addMember from "../components/AddMember"
  
 export default {
 
   components: { addMember },
-    name: "FamilyPage"
+  name: "FamilyPage",
+  created() {
+    //get family info and put in store
+    FamilyService.getFamilyFromUser(this.$store.state.user.id)
+    .then(
+      response => {
+          this.$store.commit("SET_FAMILY", response.data)
+      }
+    )
+
+    //this.checkForFamily()
+  },
 
 }
 </script>

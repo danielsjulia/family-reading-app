@@ -1,6 +1,6 @@
 <template>
 
-  <div v-if="showForm == true">
+  <div v-if="!familyName">
       <h1>Add Family </h1>
       <!-- add v-if to show only if no family in store, else redirect to familyPage if have family -->
       <form @submit.prevent="addFamily">
@@ -25,12 +25,21 @@ export default {
             family:{
                 familyName:""
             },
-            showForm: false
+            showForm: ""
         }
     },
-    mounted () {
-        if (this.$store.state.family.familyName == "") {
-            this.showForm = true;
+    // created () {
+    //     setTimeout(() => {}, 100);
+
+    //     if (this.$store.state.family.familyName == "") {
+                
+    //             this.showForm = true;
+    //         }
+
+    // },
+    computed: {
+        familyName() {
+            return this.$store.state.family.familyName
         }
     },
     methods:{
