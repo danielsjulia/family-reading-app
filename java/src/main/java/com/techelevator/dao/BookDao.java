@@ -10,6 +10,8 @@ public interface BookDao {
 
     public List<Book> getListOfBooksByUser(Long userId);
 
+    public List<Book> getAllBooks();
+
     public Book addBook(Book book);
 
 }

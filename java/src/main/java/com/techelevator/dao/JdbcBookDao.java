@@ -23,7 +23,7 @@ public class JdbcBookDao implements BookDao{
     @Override
     public Book getBookById(Long bookId) {
 
-        Book book = new Book();
+        Book book  = new Book();
 
         String sql = "SELECT * From book Where book_id = ?";
 
@@ -42,11 +42,30 @@ public class JdbcBookDao implements BookDao{
         List<Book> books = new ArrayList<>();
         Book book = new Book();
 
-        String sql = "SELECT * From book " +
+        String sql = "SELECT book_id,title,author,isbn,format  From book " +
                 "Join user_book On book.book_id = user_book.book_id " +
                 "Where user_id = ?";
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userId);
+
+        while(rowSet.next()){
+            book = rowToMapBook(rowSet);
+            books.add(book);
+        }
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+
+
+        List<Book> books = new ArrayList<>();
+        Book book = new Book();
+
+        String sql = "SELECT book_id,title,author,isbn,format  From book " ;
+
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
 
         while(rowSet.next()){
             book = rowToMapBook(rowSet);
@@ -77,7 +96,7 @@ public class JdbcBookDao implements BookDao{
     private Book rowToMapBook(SqlRowSet sqlRowSet) {
         Book book = new Book();
 
-        book.setBookId(sqlRowSet.getLong("user_id"));
+        book.setBookId(sqlRowSet.getLong("book_id"));
         book.setTitle(sqlRowSet.getString("title"));
         book.setAuthor(sqlRowSet.getString("author"));
         book.setIsbn(sqlRowSet.getString("isbn"));
