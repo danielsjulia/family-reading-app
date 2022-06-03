@@ -25,6 +25,7 @@ import AddFamily from '@/components/AddFamily.vue'
 // import AddMember from '../components/AddMember.vue';
 import FamilyPage from './FamilyPage.vue';
 import FamilyService from '@/services/FamilyService.js';
+import MemberService from '@/services/MemberService.js';
 
 export default {
   name: "home",
@@ -49,6 +50,20 @@ export default {
     .then(
       response => {
           this.$store.commit("SET_FAMILY", response.data)
+      }
+    );
+
+    MemberService.getUserBooks()
+    .then(
+      response => {
+        this.$store.commit("SET_USER_BOOKS", response.data)
+      }
+    );
+
+    MemberService.getAllBooks()
+    .then(
+      response => {
+        this.$store.commit("SET_ALL_BOOKS", response.data);
       }
     )
 

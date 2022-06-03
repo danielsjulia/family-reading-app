@@ -25,7 +25,7 @@ public class JdbcBookDao implements BookDao{
 
         Book book  = new Book();
 
-        String sql = "SELECT * From book Where book_id = ?";
+        String sql = "SELECT book_id, title, author, isbn From book Where book_id = ?;";
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, bookId);
 
@@ -42,7 +42,7 @@ public class JdbcBookDao implements BookDao{
         List<Book> books = new ArrayList<>();
         Book book = new Book();
 
-        String sql = "SELECT book_id,title,author,isbn,format  From book " +
+        String sql = "SELECT book.book_id,book.title,book.author,book.isbn  From book " +
                 "Join user_book On book.book_id = user_book.book_id " +
                 "Where user_id = ?";
 
@@ -63,7 +63,7 @@ public class JdbcBookDao implements BookDao{
         List<Book> books = new ArrayList<>();
         Book book = new Book();
 
-        String sql = "SELECT book_id,title,author,isbn,format  From book " ;
+        String sql = "SELECT book_id,title,author,isbn  From book " ;
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
 
@@ -81,11 +81,11 @@ public class JdbcBookDao implements BookDao{
         Book bookCheck;
         Long bookId;
 
-        String sql = "INSERT INTO book (title, author, isbn, format)\n" +
+        String sql = "INSERT INTO book (title, author, isbn) " +
                 "VALUES (?,?,?,?) RETURNING book_id;";
 
         bookId = jdbcTemplate.queryForObject(sql, Long.class, book.getTitle(),
-                book.getAuthor(), book.getIsbn(), book.getFormat());
+                book.getAuthor(), book.getIsbn());
 
         bookCheck = getBookById(bookId);
 
@@ -100,7 +100,6 @@ public class JdbcBookDao implements BookDao{
         book.setTitle(sqlRowSet.getString("title"));
         book.setAuthor(sqlRowSet.getString("author"));
         book.setIsbn(sqlRowSet.getString("isbn"));
-        book.setFormat(sqlRowSet.getString("format"));
 
         return book;
     }

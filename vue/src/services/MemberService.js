@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-addMember(member) {
+  addMember(member) {
     return axios.post('/myFamily/add-member', member)
   },
 
@@ -12,6 +12,14 @@ addMember(member) {
 
   getMembers() {
     return axios.get(`/myFamily/all-member`)
+  },
+
+  getUserBooks() {
+    return axios.get('/myBooks');
+  },
+
+  getAllBooks() {
+    return axios.get('/books');
   }
   
 

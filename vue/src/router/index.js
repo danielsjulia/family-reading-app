@@ -8,6 +8,7 @@ import store from '../store/index'
 import AddABook from '../views/AddABook.vue'
 import FamilyPage from '../views/FamilyPage.vue'
 import ProfilePage from '../views/ProfilePage.vue'
+import AllBooks from '../views/AllBooks.vue'
 
 
 Vue.use(Router)
@@ -89,10 +90,16 @@ const router = new Router({
     component: ProfilePage,
     meta: {
       requiresAuth: false
+    },
+  },
+  {
+    path: "/allBooks",
+    name: "all-books",
+    component: AllBooks,
+    meta: {
+      requiresAuth: false
     }
-
-},
-
+  }
   ]
 })
 

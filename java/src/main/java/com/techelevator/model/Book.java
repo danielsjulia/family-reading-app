@@ -6,18 +6,16 @@ public class Book {
     private String title;
     private String author;
     private String isbn;
-    private String format;
 
     public Book() {
     }
 
     public Book(Long bookId, String title, String author,
-                String isbn, String format) {
+                String isbn) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.format = format;
     }
 
     public Long getBookId() {
@@ -52,11 +50,4 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public String getFormat() {
-        return format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
 }

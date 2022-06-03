@@ -23,15 +23,19 @@ export default new Vuex.Store({
     family: {
       familyId: "",
       familyName: ""
-    }
-    //would need an actual variable (for second option that has different DTO - 2)
+    },
+    userBooks: [],
+    allBooks: []
   },
   mutations: {
-    // 2 will need a mutator (takes two params: state, payload)
-    // 2 will describe what the mutator is changing
-    //will call it with this.$state.commit(METHOD, params)) - remember this call is on another .vue
     SET_FAMILY(state, family) {
       state.family = family;
+    },
+    SET_USER_BOOKS(state, books) {
+      state.userBooks = books;
+    },
+    SET_ALL_BOOKS(state, books) {
+      state.allBooks = books;
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
