@@ -35,11 +35,11 @@ public class RegisterMember {
         this.username = username;
     }
 
-    public boolean isParent() {
+    public boolean getIsParent() {
         return isParent;
     }
 
-    public void setParent(boolean parent) {
+    public void setIsParent(boolean parent) {
         isParent = parent;
     }
 

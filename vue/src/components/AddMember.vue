@@ -6,8 +6,9 @@
       <input type="text" placeholder="userName" v-model="member.username" />
       <input type="password" placeholder="password" v-model="member.password" />
        <input type="password" placeholder="confirmPassword" v-model="member.confirmPassword" />
-      <input type="checkbox" placeholder="isParent" v-model="member.isParent" />
-      <input type="submit" value="submit" />
+      <!-- <input type="checkbox" placeholder="isParent" v-model="member.isParent" /> -->
+      <input type="checkbox" placeholder="isParent" :checked="member.isParent"  @change="checkParent()"/>
+       <input type="submit" value="submit" />
     </form>
   </div>
 </template>
@@ -42,6 +43,9 @@ export default {
     methods: {
       showForm() {
         this.addMember =true
+      },
+      checkParent(){
+          this.member.isParent = true
       },
       addMemberToFamily() {
         this.member.familyId = this.$store.state.family.familyId;
