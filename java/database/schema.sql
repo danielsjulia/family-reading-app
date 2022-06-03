@@ -66,5 +66,12 @@ CREATE TABLE reading_log (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+INSERT INTO book (title, author, isbn, format)
+VALUES ('Kafka by the Shore','Haruki Murakami','9781400079278','PaperBook');
+INSERT INTO book (title, author, isbn, format)
+VALUES ('The Girl With All the Gifts','M.R. Carey','9781400079278','PaperBook');
+INSERT INTO book (title, author, isbn, format)
+VALUES ('The Old Man and the Sea','Ernest Hemingway','9780684830490','PaperBook');
+
 
 COMMIT TRANSACTION;
