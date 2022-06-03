@@ -7,7 +7,6 @@
     >
       <member-card v-bind:member = "member" />
     </router-link>
-          
     </div>
 </template>
 
@@ -31,26 +30,18 @@ export default {
             this.members = response.data
         })
     }
-
-
 }
 </script>
 
 <style>
 
 .member {
-    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhEVefyG__HG9qOL6aQOvd0UQ1Xg9on00YWg&usqp=CAU"
-    ) ;
-    background-position: center;
-    background-size: 100vh; */
     background-color: #FFC75F;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content:space-between;
     align-content: center;
     border: 1px solid black;
-    /* width: 100vw;
-    height: 50vh; */
 }
 .member .member-card
 {
