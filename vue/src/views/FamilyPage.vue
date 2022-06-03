@@ -2,12 +2,9 @@
   <div>
     <!-- <add-family /> -->
       <h1>{{this.$store.state.family.familyName}}</h1>
-
+      <add-member/>
       <members />
       
-      <add-member/>
-      // v-if = "isParent" 
-
   </div>
 </template>
 
