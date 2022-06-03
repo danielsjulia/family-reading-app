@@ -33,5 +33,10 @@ export default {
 </script>
 
 <style>
+.member {
+
+    display:grid;
+    grid-column: 1fr, 1fr, 1fr;
+}
 
 </style>
