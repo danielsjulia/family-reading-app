@@ -3,12 +3,17 @@
     <button @click="showForm()">Add Member</button>
 
     <form v-show="addMember == true" @submit="addMemberToFamily()">
+      <label for="userName">Username: </label>
       <input type="text" placeholder="userName" v-model="member.username" />
+      <label for="password">Password: </label>
       <input type="password" placeholder="password" v-model="member.password" />
+      <label for="confirmPassword">Confirm Password: </label>
        <input type="password" placeholder="confirmPassword" v-model="member.confirmPassword" />
       <!-- <input type="checkbox" placeholder="isParent" v-model="member.isParent" /> -->
+      <label for="isParent">Is this a parent account?</label>
       <input type="checkbox" placeholder="isParent" :checked="member.isParent"  @change="checkParent()"/>
        <input type="submit" value="submit" />
+       <input @click="cancel()" class="button2" type="button" value="cancel" />
     </form>
   </div>
 </template>
@@ -48,6 +53,10 @@ export default {
       checkParent(){
           this.member.isParent = true
       },
+          cancel() {
+      this.member = {};
+      this.addMember = false;
+    },
       addMemberToFamily() {
         this.member.familyId = this.$store.state.family.familyId;
         this.member.familyName = this.$store.state.family.familyName;
