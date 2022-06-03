@@ -37,5 +37,28 @@ export default {
 </script>
 
 <style>
+.card
+{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: 450px;
+    margin: 20px;
+    text-align: center;
+}
 
+.card.read
+{
+    background-color: lightgray;
+}
+
+.card .book-title
+{
+    font-size: 1.5rem;
+}
+
+.card .book-author
+{
+    font-size: 1rem;
+}
 </style>
