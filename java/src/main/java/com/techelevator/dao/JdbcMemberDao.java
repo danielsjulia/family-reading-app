@@ -73,7 +73,7 @@ public class JdbcMemberDao implements MemberDao{
         String sql ="SELECT u.user_id\n" +
                 "\t,u.username\n" +
                 "\t, fm.is_parent \n" +
-                "\t, f.family_name\n" +
+                "\t, f.family_id\n" +
                 "FROM family_member as fm\n" +
                 "JOIN users as u\n" +
                 "ON fm.user_id = u.user_id\n" +
@@ -101,6 +101,7 @@ public class JdbcMemberDao implements MemberDao{
         member.setUsername(rowSet.getString("username"));
         member.setParent(rowSet.getBoolean("is_parent"));
         member.setUserId(rowSet.getLong("user_id"));
+        member.setFamilyId(rowSet.getLong("family_id"));
         return  member;
     }
 

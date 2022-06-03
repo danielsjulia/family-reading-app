@@ -1,10 +1,14 @@
 <template>
-  <div class= "member-card" v-bind:class="{ parent: member.parent}">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fhappy-kid-cartoon-vector-20988209&psig=AOvVaw3GvrpWYN6to6-S7NOvfvvh&ust=1654287540284000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOid8bvLj_gCFQAAAAAdAAAAABAD" />
+  <div 
+    class= "member-card" 
+    v-bind:class="{ parent: member.parent}"
+  >
+    <img class="profile-img" src="../../images/girl-avatar-over10.png" />
     
-      <h1>{{member.username}}</h1>
-      <h2>{{member.parent ? "Parent" : "Child" }}</h2>
-      <h3>UserId: {{member.userId}}</h3>
+      <h1 id="username">{{member.username}}</h1>
+      <h2 id= "parent">{{member.parent ? "Parent" : "Child" }}</h2>
+      <h3 id="userId">UserId: {{member.userId}}</h3>
+      <!-- <h3 id= "familyId">family_id: {{member.familyId }}</h3> -->
   </div>
 </template>
 
@@ -20,4 +24,14 @@ export default {
 
 <style>
 
+.profile-img {
+    border: 1px solid black;
+    border-radius: 100px;
+}
+.member-card {
+  text-align: center;
+}
+.parent {
+  background : blue !important;
+}
 </style>
