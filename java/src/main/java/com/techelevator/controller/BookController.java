@@ -48,6 +48,14 @@ public class BookController {
         return bookDao.getBookById(id);
 
     }
+//
+//    @ApiOperation("get a book by bookId")
+//    @RequestMapping(path="/books/{id}", method = RequestMethod.GET)
+//    public Book getBookByBookChildId(@PathVariable @ApiParam("book id") user user) {
+//
+//        return bookDao.getBookById(id);
+//
+//    }
 
     
 

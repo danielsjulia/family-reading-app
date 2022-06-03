@@ -1,5 +1,7 @@
 <template>
   <div> we add the log</div>
+  
+
 </template>
 
 <script>
