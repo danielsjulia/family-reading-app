@@ -70,9 +70,16 @@ public class JdbcMemberDao implements MemberDao{
     public List<Member> getMembers(Long id) {
         List<Member> members = new ArrayList<>();
 
-        String sql ="SELECT username, family_member.is_parent FROM family_member\n" +
-                "JOIN users ON family_member.user_id = users.user_id\n" +
-                "WHERE family_member.family_id = ?";
+        String sql ="SELECT u.user_id\n" +
+                "\t,u.username\n" +
+                "\t, fm.is_parent \n" +
+                "\t, f.family_id\n" +
+                "FROM family_member as fm\n" +
+                "JOIN users as u\n" +
+                "ON fm.user_id = u.user_id\n" +
+                "join family as f\n" +
+                "ON f.family_id = fm.family_id\n" +
+                "WHERE fm.family_id = ?\n";
 
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, id);
@@ -93,6 +100,8 @@ public class JdbcMemberDao implements MemberDao{
         Member member = new Member();
         member.setUsername(rowSet.getString("username"));
         member.setParent(rowSet.getBoolean("is_parent"));
+        member.setUserId(rowSet.getLong("user_id"));
+        member.setFamilyId(rowSet.getLong("family_id"));
         return  member;
     }
 

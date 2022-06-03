@@ -1,22 +1,47 @@
 <template>
-  <div class= "member-card">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fhappy-kid-cartoon-vector-20988209&psig=AOvVaw3GvrpWYN6to6-S7NOvfvvh&ust=1654287540284000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOid8bvLj_gCFQAAAAAdAAAAABAD" />
-    
-      <h1 class= "member-name">{{member.username}}</h1>
-      <h2 class= "isParent">{{member.isParent ? "parent" : "child" }}</h2>
+
+  <div 
+    class= "member-card" 
+    v-bind:class="{parent : thisMember.parent,  child: !thisMember.parent} "
+  >
+    <img class="profile-img" src="../../images/girl-avatar-over10.png" />
+      <h1 id="username">{{thisMember.username}}</h1>
+      <!-- <h2 id= "parent">{{member.parent ? "Parent" : "Child" }}</h2> -->
+      <h3 id="userId">UserId: {{thisMember.userId}}</h3>
+      <!-- <h3 id= "familyId">family_id: {{member.familyId }}</h3> -->
   </div>
+
 </template>
 
 <script>
+
 export default {
     name: 'member-card',
     props: {
       member: Object
+    },
+    data() {
+      return {
+        thisMember : this.member
+      }
     }
     
 }
+
 </script>
 
+
 <style>
+
+.profile-img {
+    border: 1px solid black;
+    border-radius: 100px;
+}
+.parent {
+  background : #0089BA !important;
+}
+.child {
+  background:#F3C5FF !important;
+}
 
 </style>

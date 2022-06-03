@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddABook from '../views/AddABook.vue'
 import FamilyPage from '../views/FamilyPage.vue'
+import ProfilePage from '../views/ProfilePage.vue'
 
 
 Vue.use(Router)
@@ -73,6 +74,24 @@ const router = new Router({
         }
 
     },
+    {
+      path: "/myProfile/:username",
+      name: "profile",
+      component: ProfilePage,
+      meta: {
+        requiresAuth: false
+      }
+
+  },
+  {
+    path: "/profilePicture/",
+    name: "profilePicture",
+    component: ProfilePage,
+    meta: {
+      requiresAuth: false
+    }
+
+},
 
   ]
 })

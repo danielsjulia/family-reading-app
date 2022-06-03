@@ -39,8 +39,8 @@ public class RegisterMember {
         return isParent;
     }
 
-    public void setParent(boolean parent) {
-        isParent = parent;
+    public void setParent(boolean isParent) {
+        this.isParent = isParent;
     }
 
     public Long getFamilyId() {

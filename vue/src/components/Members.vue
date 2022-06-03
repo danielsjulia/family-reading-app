@@ -1,9 +1,12 @@
 <template>
   <div class= 'member'>
-      <member-card v-for="member in members" 
-      v-bind:key="member.id"
-       v-bind:member = "member" />
-          
+    <router-link 
+        :to = "{ name : 'profile', params:{username: member.username}}" 
+        v-for="member in members" 
+        v-bind:key="member.id"
+    >
+      <member-card v-bind:member = "member" />
+    </router-link>
     </div>
 </template>
 
@@ -27,11 +30,29 @@ export default {
             this.members = response.data
         })
     }
-
-
 }
 </script>
 
 <style>
+
+.member {
+    background-color: #FFC75F;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: center;
+    border: 1px solid black;
+}
+.member .member-card
+{
+    background: #008F7A;
+    border: 1px green solid;
+    border-radius: 60px;
+    padding: 1rem;
+    margin: 15px;
+    text-align: center;
+
+}
+
 
 </style>
