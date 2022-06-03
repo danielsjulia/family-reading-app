@@ -59,7 +59,7 @@ public class JdbcMemberDao implements MemberDao{
 
         member.setUsername(registerMember.getUsername());
         member.setUserId((long)userDao.findIdByUsername(registerMember.getUsername()));
-        member.setParent(registerMember.isParent());
+        member.setParent(registerMember.getIsParent());
         member.setFamilyId(registerMember.getFamilyId());
 
         addMember(member);
@@ -88,6 +88,7 @@ public class JdbcMemberDao implements MemberDao{
             Member member = new Member();
             member = rowToMapMember(rowSet);
             members.add(member);
+
 
         }
 
