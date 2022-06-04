@@ -36,7 +36,7 @@ export default {
 <style>
 
 .member {
-    background-color: #FFC75F;
+    /* background-color: #FFC75F; */
     display: inline-flex;
     flex-wrap: wrap;
     justify-content:space-between;
@@ -51,6 +51,7 @@ export default {
     padding: 1rem;
     margin: 15px;
     text-align: center;
+    box-shadow: 10px 10px #EC5C67;
 
 }
 
