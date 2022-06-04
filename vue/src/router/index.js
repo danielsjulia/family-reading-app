@@ -9,6 +9,7 @@ import AddABook from '../views/AddABook.vue'
 import FamilyPage from '../views/FamilyPage.vue'
 import ProfilePage from '../views/ProfilePage.vue'
 import AllBooks from '../views/AllBooks.vue'
+import BookPage from '../views/BookPage.vue'
 
 
 Vue.use(Router)
@@ -99,7 +100,15 @@ const router = new Router({
     meta: {
       requiresAuth: false
     }
-  }
+  },
+  {
+    path: "/bookDetail",
+    name: "book-page",
+    component: BookPage,
+    meta: {
+      requiresAuth: false
+    }
+  },
   ]
 })
 

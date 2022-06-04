@@ -1,7 +1,9 @@
 <template>
   <div class="book-container" >
     <p>test text</p>
-    <book-card v-bind:book="book" v-for="book in $store.state.allBooks" v-bind:key="book.isbn" /> <!-- v-on:click.native="details(book.isbn)"/> --> 
+    <router-link to= "/bookDetail" >
+      <book-card v-bind:book="book" v-for="book in $store.state.allBooks" v-bind:key="book.isbn" /> <!-- v-on:click.native="details(book.isbn)"/> -->
+    </router-link>
     <add-a-book />
   </div>
 </template>
