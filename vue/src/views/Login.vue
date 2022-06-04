@@ -84,6 +84,9 @@ export default {
 };
 </script>
 <style>
+.form-signin{
+  background-color: rgb(238, 237, 236);
+}
 
 .signin{
 background-image: url("back-school.webp") ;

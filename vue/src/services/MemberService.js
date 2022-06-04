@@ -20,7 +20,10 @@ export default {
 
   getAllBooks() {
     return axios.get('/books');
-  }
+  },
   
+  addBook(book){
+    return axios.post('/add-book',book)
+  }
 
 }
