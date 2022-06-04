@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.BookDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Book;
+import com.techelevator.model.Family;
 import com.techelevator.model.Member;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -46,6 +47,14 @@ public class BookController {
     public Book getBookByBookId(@PathVariable @ApiParam("book id") Long id) {
 
         return bookDao.getBookById(id);
+
+    }
+
+    @ApiOperation("adding a book")
+    @RequestMapping(path="/add-book", method = RequestMethod.POST)
+    public Book addbook(@RequestBody @ApiParam("book object") Book book) {
+
+        return bookDao.addBook(book);
 
     }
 

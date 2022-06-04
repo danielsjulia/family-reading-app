@@ -82,7 +82,7 @@ public class JdbcBookDao implements BookDao{
         Long bookId;
 
         String sql = "INSERT INTO book (title, author, isbn) " +
-                "VALUES (?,?,?,?) RETURNING book_id;";
+                "VALUES (?,?,?) RETURNING book_id;";
 
         bookId = jdbcTemplate.queryForObject(sql, Long.class, book.getTitle(),
                 book.getAuthor(), book.getIsbn());
