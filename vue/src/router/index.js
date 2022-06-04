@@ -77,12 +77,13 @@ const router = new Router({
 
     },
     {
-      path: "/myProfile/:username",
+      path: "/myProfile/",
       name: "profile",
       component: ProfilePage,
       meta: {
         requiresAuth: false
-      }
+      },
+      props: true
 
   },
   {
@@ -107,7 +108,8 @@ const router = new Router({
     component: BookPage,
     meta: {
       requiresAuth: false
-    }
+    },
+    props: true
   },
   ]
 })

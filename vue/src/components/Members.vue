@@ -1,7 +1,7 @@
 <template>
   <div class= 'member'>
     <router-link 
-        :to = "{ name : 'profile', params:{username: member.username}}" 
+        :to = "{ name : 'profile', params:{member}}" 
         v-for="member in members" 
         v-bind:key="member.id"
     >

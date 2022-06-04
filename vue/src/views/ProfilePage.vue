@@ -1,7 +1,21 @@
 <template>
 
-  <div> 
-    <h1>{{username}}</h1>
+  <div class="profile"> 
+    <h1>{{member.username}}</h1>
+    <h2>user's id: {{member.userId}}</h2> 
+
+    <!-- list each book associated with the user (retrieved from MemberService) -->
+    <!-- router link goes to book's detail page -->
+    <!-- link params passes along the member and book objects - to be used in adding a log for book -->
+    <router-link 
+      :to="{name:'book-page', params:{book, member}}" 
+      v-for="book in userBooks"
+      v-bind:key="book.id"  
+    >
+      <book-card v-bind:book = "book" />
+    </router-link>
+
+    
      profile page-- need to setup so it takes Id and populates the profile 
 
      // total reading time in the app 
@@ -18,21 +32,42 @@
 <script>
 
 import UpdatePicture from '../components/UpdatePicture.vue'
+import BookCard from '../components/BookCard.vue'
+import MemberService from '../services/MemberService.js'
 
 export default {
 
     name: 'profile',
+    props: {
+      member: Object,
+    },
     data() {
       return {
-        username: this.$route.params.username
+        //this.$route.params.username,
+        thisMember: this.member,
+        username: this.member.username,
+        userId: this.member.userId,
+        userBooks: []
       }
     },
     components: {
-      UpdatePicture
+      UpdatePicture,
+      BookCard
+    },
+    created() {
+      MemberService.getUserBooks()
+      .then(
+        response => {
+          this.userBooks = response.data;
+        }
+      )
     }
-    }
+}
 </script>
 
 <style>
+.profile{
+  background-color: #FFE7D5;
+}
 
 </style>
