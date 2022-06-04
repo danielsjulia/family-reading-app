@@ -67,12 +67,22 @@ CREATE TABLE reading_log (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+INSERT INTO family(family_name) VALUES('Test-Fam');
+
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(1,1,true);
+
+
 INSERT INTO book (title, author, isbn)
 VALUES ('Kafka by the Shore','Haruki Murakami','9781400079278');
 INSERT INTO book (title, author, isbn)
 VALUES ('The Girl With All the Gifts','M.R. Carey','9781400079278');
 INSERT INTO book (title, author, isbn)
 VALUES ('The Old Man and the Sea','Ernest Hemingway','9780684830490');
+
+INSERT INTO user_book(user_id,book_id) VALUES (1,1);
+
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(1,1,30,'Paper','6-4-22',1,30,'listening');
 
 
 COMMIT TRANSACTION;
