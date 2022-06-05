@@ -23,7 +23,8 @@ import AssignBook from './AssignBook.vue'
 export default {
     name: 'book-card',
     props: {
-        book: Object
+        book: Object,
+        member: Object
     },
     components: {
         AssignBook

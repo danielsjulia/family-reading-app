@@ -8,11 +8,9 @@
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
     <router-link 
-      :to="{name:'book-page', params:{book, member}}" 
-      v-for="book in userBooks"
-      v-bind:key="book.id"  
+      :to="{name:'book-page', params:{book, member}}"  v-for="book in userBooks" v-bind:key="book.id"
     >
-      <book-card v-bind:book = "book" />
+      <book-card   v-bind:book = "book" v-bind:member ="member" />
     </router-link>
 
     
@@ -25,15 +23,18 @@
      // section all asigned books - all books that has user_id
 
      // section of completed books. 
-  <update-picture v-bind:username='this.username' />
-  </div>
+  <!-- <update-picture v-bind:username='this.username' /> -->
+  <!-- <add-reading-log v-bind:member ="member" /> -->
+ 
+   </div>
 </template>
 
 <script>
 
-import UpdatePicture from '../components/UpdatePicture.vue'
+// import UpdatePicture from '../components/UpdatePicture.vue'
 import BookCard from '../components/BookCard.vue'
 import MemberService from '../services/MemberService.js'
+// import AddReadingLog from '../components/AddReadingLog.vue'
 
 export default {
 
@@ -51,8 +52,10 @@ export default {
       }
     },
     components: {
-      UpdatePicture,
-      BookCard
+      // UpdatePicture,
+      BookCard,
+      // AddReadingLog,
+      
     },
     created() {
       MemberService.getUserBooks()
@@ -67,6 +70,8 @@ export default {
 
 <style>
 .profile{
+  display: flex;
+  flex-wrap: wrap;
   background-color: #FFE7D5;
 }
 

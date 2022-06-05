@@ -18,6 +18,7 @@
     <h2> user id: {{member.userId}}</h2>
 
     <assign-book />
+    <add-reading-log v-bind:member ="member" v-bind:book="book" />
     
 
 
@@ -28,9 +29,11 @@
 </template>
 
 <script>
+
+import AddReadingLog from "../components/AddReadingLog.vue"
 import AssignBook from '../components/AssignBook.vue'
 export default {
-  components: { AssignBook },
+  components: { AssignBook, AddReadingLog },
   name: 'BookPage',
   props: {
     book: Object,
