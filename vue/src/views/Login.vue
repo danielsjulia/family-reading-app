@@ -1,6 +1,6 @@
 <template>
   <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
+    <form class="form-signin" @submit.prevent="login"  > <!-- @submit="setIsParent" -->
       <!-- <h1 class="h3 mb-3 font-weight-normal">Sign In</h1> -->
       <div class="signin">
         <div id= "head">
@@ -48,6 +48,7 @@
 
 <script>
 import authService from "../services/AuthService";
+// import MemberService from '../services/MemberService';
 
 export default {
   name: "login",
@@ -58,9 +59,12 @@ export default {
         username: "",
         password: ""
       },
-      invalidCredentials: false
+      invalidCredentials: false,
+      isParent : true
     };
   },
+  // computed:{
+
   methods: {
     login() {
       authService
@@ -69,11 +73,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            if(this.$store.state.isParent === true)
-            {
-              this.$router.push("/");
-            }
-            else this.$router.push("/myProfile")
+            this.$router.push("/");
           }
         })
         .catch(error => {
@@ -83,10 +83,22 @@ export default {
             this.invalidCredentials = true;
           }
         });
-    }
+    },
+    //     setIsParent() {
+    //         const promise = MemberService.isParent()
+    //         promise.then(response => this.isParent = response.data.parent)
+    //         this.$store.commit('SET_IS_PARENT', this.isParent )
+    //         console.log(this.isParent)
+            // if(this.$store.state.isParent === true)
+            // {
+            //   this.$router.push("/");
+            // }
+            // else this.$router.push("/myProfile")
+  // },
   }
 };
 </script>
+
 <style>
 .form-signin{
   text-align: center;
