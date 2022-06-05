@@ -1,18 +1,13 @@
 <template>
   <div class="card" v-bind:class="{ read: book.read }">
     <router-link to= "/bookDetail" >
-    <h2 class="book-title">{{ book.title }}</h2>
+        <h2 class="book-title" > {{ book.title }} </h2>
+        
+        <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
+        <h3 class="book-author">{{ book.author }}</h3>
     </router-link>
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-    <h3 class="book-author">{{ book.author }}</h3>
-    <!-- <div class="button-container" v-if="! enableAdd">
-        <button class="mark-read" v-on:click.prevent="setRead(true)" v-if=" ! book.read">Mark Read</button>
-        <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
-    </div> -->
     <br>
-    <assign-book to:v-if = "{this.$route.name == 'all-books'}" />
-    <!-- <router-link :to="{name: 'bookDetails', params: {isbn: book.isbn}}">Details</router-link> -->
-    <!-- <button v-if="enableAdd" v-on:click.prevent="addToReadingList(book)">Add to Reading List</button> -->
+    <assign-book v-if = " $route.path == '/allBooks'" />
   </div>
 
 </template>

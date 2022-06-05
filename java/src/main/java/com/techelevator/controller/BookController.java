@@ -66,6 +66,15 @@ public class BookController {
 
     }
 
-    
+    @ApiOperation("get all books by userId")
+    @RequestMapping(path="/userBooks", method = RequestMethod.GET)
+    public List<Book> getBooksByUserId(@ApiParam("userId ") long userId) {
+
+//        long userId =(long)userDao.findIdByUsername(principal.getName());
+        System.out.println(bookDao.getListOfBooksByUser(userId));
+
+        return bookDao.getListOfBooksByUser(userId);
+
+    }
 
 }

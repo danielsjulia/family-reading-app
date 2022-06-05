@@ -10,7 +10,7 @@
     <router-link 
       :to="{name:'book-page', params:{book, member}}"  v-for="book in userBooks" v-bind:key="book.id"
     >
-      <book-card   v-bind:book = "book" v-bind:member ="member" />
+      <book-card   v-bind:book = "book" v-bind:member ="thisMember" />
     </router-link>
 
     
@@ -33,7 +33,8 @@
 
 // import UpdatePicture from '../components/UpdatePicture.vue'
 import BookCard from '../components/BookCard.vue'
-import MemberService from '../services/MemberService.js'
+import BookService from '../services/BookService'
+// import MemberService from '../services/MemberService.js'
 // import AddReadingLog from '../components/AddReadingLog.vue'
 
 export default {
@@ -57,14 +58,25 @@ export default {
       // AddReadingLog,
       
     },
-    created() {
-      MemberService.getUserBooks()
-      .then(
-        response => {
-          this.userBooks = response.data;
-        }
-      )
-    }
+    methods: {
+        getUserBooks() {
+            const promise = BookService.getAllBooksByUserId(this.member.userId)
+              promise.then(response => 
+                    {
+                    this.userBooks = response.data
+                    }
+        )
+        },
+    },
+
+        
+    // created() {
+    //   const promise= BookService.getAllBooksByUserId(this.thisMember.userId)
+    //   promise.then(response => {
+    //       this.userBooks = response.data;
+    //     }
+    //   )
+    // }
 }
 </script>
 

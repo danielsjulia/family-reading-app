@@ -9,7 +9,9 @@
       <add-family />
     </div>
     
-    <family-page  />
+    <router-link :to= "{name : 'family-page' }" >Go to Family Page</router-link> 
+    <book-card v-for="book in allBooks" :key="book.bookId" />
+    <!-- <family-page  /> -->
     <!-- <add-member /> -->
     <!-- <setup-family />
     <log-book /> -->
@@ -23,16 +25,19 @@
 // import NavBar from '../components/NavBar.vue';
 import AddFamily from '@/components/AddFamily.vue'
 // import AddMember from '../components/AddMember.vue';
-import FamilyPage from './FamilyPage.vue';
+// import FamilyPage from './FamilyPage.vue';
 import FamilyService from '@/services/FamilyService.js';
 import MemberService from '@/services/MemberService.js';
+import BookCard from '../components/BookCard.vue';
+// import BookService from '../services/BookService';
 
 export default {
   name: "home",
   components: {
     AddFamily,
+    BookCard,
     // AddMember
-    FamilyPage
+    // FamilyPage
     // SetupFamily,
     // LogBook,
     // NavBar
@@ -40,9 +45,18 @@ export default {
   },
   data() {
     return {
-          showForm: false
+          showForm: false,
+          // userBooks: [],
+          allBooks: []
     }
   },
+  // computed: {
+  //   userBooks = this.allBooks.filter((book) =>
+  //   {
+
+  //   }
+
+  // },
   
   created() {
     //get family info and put in store
@@ -50,22 +64,26 @@ export default {
     .then(
       response => {
           this.$store.commit("SET_FAMILY", response.data)
+          
       }
     );
 
-    MemberService.getUserBooks()
-    .then(
-      response => {
-        this.$store.commit("SET_USER_BOOKS", response.data)
-      }
-    );
+    // MemberService.getUserBooks()
+    // .then(
+    //   response => {
+    //     this.$store.commit("SET_USER_BOOKS", response.data)
+    //     this.userBooks = response.data
+    //   }
+    // );
 
     MemberService.getAllBooks()
     .then(
       response => {
         this.$store.commit("SET_ALL_BOOKS", response.data);
+        this.userBooks = response.data
       }
-    )
+    );
+    
 
     //this.checkForFamily()
   },

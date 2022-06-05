@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 export default {
+  isParent() {
+    return axios.get('/isParent')
+  },
+
   addMember(member) {
     return axios.post('/myFamily/add-member', member)
   },
