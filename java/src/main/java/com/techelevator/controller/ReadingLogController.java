@@ -5,6 +5,7 @@ import com.techelevator.dao.ReadingLogDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Member;
 import com.techelevator.model.ReadingLog;
+import com.techelevator.model.ReadingLogDTO;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,14 @@ public class ReadingLogController {
     public List<ReadingLog> getReadingByUserId(@PathVariable @ApiParam("readinglog object") int userId) {
 
         return readingLogDao.getReadingLogByUserId(userId);
+
+    }
+
+    @ApiOperation("get readinglog by userId")
+    @RequestMapping(path="/display/{userId}", method = RequestMethod.GET)
+    public List<ReadingLogDTO> getReadingDTOByUserId(@PathVariable @ApiParam("readinglog object") int userId) {
+
+        return readingLogDao.getReadingLogDTOByUserId(userId);
 
     }
 

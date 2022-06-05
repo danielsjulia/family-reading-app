@@ -6,6 +6,8 @@
       <h2>user's id: {{member.userId}}</h2> 
       <br>
       <h3>Add to your reading log</h3>
+      <reading-log v-bind:member="member" />
+
       <add-reading-log v-bind:member="member" v-bind:userBooks="userBooks" />
       {{userBooks}}
       {{thisMember}}
@@ -14,7 +16,7 @@
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
-    <router-link class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in allBooks" v-bind:key="book.id">
+    <router-link class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in userBooks" v-bind:key="book.id">
       <book-card   v-bind:book = "book" v-bind:member ="thisMember" />
     </router-link>
 
@@ -42,6 +44,7 @@ import BookCard from '../components/BookCard.vue'
 import AddReadingLog from '../components/AddReadingLog.vue'
 import MemberService from '../services/MemberService.js'
 // import AddReadingLog from '../components/AddReadingLog.vue'
+import ReadingLog from '../components/ReadingLog.vue'
 
 export default {
 
@@ -62,7 +65,8 @@ export default {
     components: {
       // UpdatePicture,
       BookCard,
-      AddReadingLog
+      AddReadingLog,
+      ReadingLog
       // AddReadingLog,
       
     },

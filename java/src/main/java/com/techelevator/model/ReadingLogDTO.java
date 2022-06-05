@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 import java.util.Date;
 
-public class ReadingLog {
+public class ReadingLogDTO {
 
     private int readingLogId;
     private int minutes;
@@ -12,13 +12,18 @@ public class ReadingLog {
     private int endPage;
     private int bookId;
     private int userId;
+    private String title;
+    private String username;
+    private int pagesRead;
 
     private String notes;
 
-    public ReadingLog() {
+    public ReadingLogDTO() {
     }
 
-    public ReadingLog(int readingLogId, int minutes, String format, Date date, int startingPage, int endPage, int bookId, int userId, String notes) {
+    public ReadingLogDTO(int readingLogId, int minutes, String format, Date date,
+                      int startingPage, int endPage, int bookId, int userId,
+                      String title, String username, int pagesRead, String notes) {
         this.readingLogId = readingLogId;
         this.minutes = minutes;
         this.format = format;
@@ -27,6 +32,9 @@ public class ReadingLog {
         this.endPage = endPage;
         this.bookId = bookId;
         this.userId = userId;
+        this.title = title;
+        this.username = username;
+        this.pagesRead = pagesRead;
         this.notes = notes;
     }
 
@@ -102,4 +110,27 @@ public class ReadingLog {
         this.notes = notes;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getPagesRead() {
+        return pagesRead;
+    }
+
+    public void setPagesRead(int pagesRead) {
+        this.pagesRead = pagesRead;
+    }
 }

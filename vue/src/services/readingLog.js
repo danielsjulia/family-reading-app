@@ -14,6 +14,10 @@ export default {
         return axios.get(`/${id}/readingLog`)
     },
 
+    getReadingLogDTOByUserId(id){
+        return axios.get(`/display/${id}`)
+    },
+
     addReadingLog(readingLog){
         return axios.post('/add-log',readingLog)
     }

@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.ReadingLog;
+import com.techelevator.model.ReadingLogDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -54,6 +55,34 @@ public class JdbcReadingLogDao implements ReadingLogDao {
     }
 
     @Override
+    public List<ReadingLogDTO> getReadingLogDTOByUserId(int userId) {
+        List<ReadingLogDTO> list = new ArrayList<>();
+        ReadingLogDTO readingLog = new ReadingLogDTO();
+
+        String sql = "SELECT rl.readingLog_id, b.title, u.username, rl.minutes, rl.format, rl.date, " +
+                "rl.starting_page, rl.end_page, (rl.end_page - rl.starting_page) as pagesRead, rl.notes, " +
+                "rl.book_id, rl.user_id " +
+                "FROM reading_log as rl " +
+                "JOIN book as b ON rl.book_id = b.book_id " +
+                "JOIN users as u ON rl.user_id = u.user_id " +
+                "WHERE u.user_id = ?;";
+
+//        String sql= "SELECT readingLog_id, book_id, user_id, minutes, " +
+//                "format, date, starting_page, end_page, notes " +
+//                "FROM reading_log as rl " +
+//                "WHERE user_id = ?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+
+        while (results.next()) {
+            readingLog = mapRowToReadingLogDTO(results);
+            list.add(readingLog);
+        }
+
+        return list;
+    }
+
+    @Override
     public List<ReadingLog> getReadingLogByFamilyId(int familyId) {
         ReadingLog readingLog = new ReadingLog();
         List<ReadingLog> list = new ArrayList<>();
@@ -93,6 +122,25 @@ public class JdbcReadingLogDao implements ReadingLogDao {
         }
         
         return logCheck;
+    }
+
+    private ReadingLogDTO mapRowToReadingLogDTO(SqlRowSet sqlRowSet) {
+        ReadingLogDTO readingLogDTO = new ReadingLogDTO();
+
+        readingLogDTO.setReadingLogId(sqlRowSet.getInt("readingLog_id"));
+        readingLogDTO.setMinutes(sqlRowSet.getInt("minutes"));
+        readingLogDTO.setFormat(sqlRowSet.getString("format"));
+        readingLogDTO.setDate(sqlRowSet.getDate("date"));
+        readingLogDTO.setStartingPage(sqlRowSet.getInt("starting_page"));
+        readingLogDTO.setEndPage(sqlRowSet.getInt("end_page"));
+        readingLogDTO.setBookId(sqlRowSet.getInt("book_id"));
+        readingLogDTO.setUserId(sqlRowSet.getInt("user_id"));
+        readingLogDTO.setNotes(sqlRowSet.getString("notes"));
+        readingLogDTO.setTitle((sqlRowSet.getString("title")));
+        readingLogDTO.setUsername(sqlRowSet.getString("username"));
+        readingLogDTO.setPagesRead(sqlRowSet.getInt("pagesRead"));
+
+        return readingLogDTO;
     }
 
     private ReadingLog mapRowToReadingLog(SqlRowSet sqlRowSet) {
