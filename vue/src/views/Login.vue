@@ -100,6 +100,8 @@ export default {
 </script>
 
 <style>
+
+
 .form-signin{
   text-align: center;
   font-weight: 800;
@@ -110,59 +112,46 @@ export default {
 .signin{
 background-image: url("back-school.webp") ;
 background-size: cover;
-height: 100vh;          /*changed*/
-width: 100%;            /*changed*/
-/* height:70vh; */
-/* margin:0 38%; */
+height: 100vh;
+width: 100%;            
 display: flex;
 flex-direction: column;
 justify-content: center;
 border-radius: 20px;
-/* row-gap: 20px; */
-  
 }
 #head{
+  text-align: center;
 display: flex;
 flex-direction: column;
  flex-basis: 15%;
- margin-bottom:60px;
 }
-#head1,#head2{
- 
-padding-left: 15rem;
-margin: 0px ;
-}
-
-#head3{
-  margin-left: 15rem;
-  flex-basis: 15%;
-
+#head1,#head2,#head3{
+ align-self: center;
+/* padding-left: 15rem;
+margin: 0px ; */
 }
 
 .form-signin,.form-register{
   display:block;
-  padding:50px  40px;
-  
   }
 #username,#password,#confirmPassword
 {
-  width: 50vw;
+  width: 50%;
+  align-self: center;
   border-radius: 30px;
-  padding :10px 10px;
-  margin:10px 30px;
 }
 
 #submit{
-  width: 50vw;
+    width: 50%;
+  align-self: center;
     border-radius: 20px;
-    padding :10px 10px;
-    margin: 20px 35px ;
     background-color:#ffe135;
 }
+
+
 .new_account{
-  margin-bottom:20px;
-  margin-left: 100px;
-  padding :10px 10px;
+  align-self: center;
+  margin-top: 10px;
 }
 
 </style>
