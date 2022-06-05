@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="form-container">
       <!-- <button @click="showForm()">Add ReadingLog</button> -->
+    <h2>Add to your reading log</h2>
 
-    <form  @submit.prevent="addNewReadingLog()"  > <!-- @click="$emit('formSubmitted')" -->
+    <form  @submit.prevent="addNewReadingLog()" class="log-form" > <!-- @click="$emit('formSubmitted')" -->
      
       <h1></h1>
-      <input type="range" min="0" max="60" step="15" placeholder="MinutesRead" v-model="readingLog.minutes" />
-      <select v-model="readingLog.format">
+      <input id="minutes" class="boxes" type="range" min="0" max="60" step="15" placeholder="MinutesRead" v-model="readingLog.minutes" />
+      <select class="boxes" v-model="readingLog.format">
+        <option value="" disabled selection >Format</option>
         <option value="Paper">Paper</option>
         <option value="Audio">Audio</option>
         <option value="Digital">Digital</option>
@@ -14,15 +16,19 @@
         <option value="Listener">Listener</option>
         <option value="Other">Other</option>
       </select>
-      <select   v-model="selectedBook" @change="getBookIdFromTitle(selectedBook)"  > <!-- v-if = " $route.path == '/myProfile' " -->
+      <select class="boxes"  v-model="selectedBook" @change="getBookIdFromTitle(selectedBook)"  > <!-- v-if = " $route.path == '/myProfile' " -->
+        <option value="" disabled selection >Book</option>
         <option v-for="book in userBooks" v-bind:key="book.id" >{{book.title}}</option>
       </select>
-      <input type="date" placeholder="date" v-model="readingLog.date" />
-      <input type="number" placeholder="StartingPage" v-model="readingLog.startingPage" />
-      <input type="number" placeholder="EndingPage" v-model="readingLog.endPage" />
-      <input type="text" placeholder="Notes" v-model="readingLog.notes" />
-      <button>NewReadingLog</button>
-      <button>Cancel</button>
+      <input class="boxes" type="date" placeholder="date" v-model="readingLog.date" />
+      <input class="boxes" type="number" placeholder="StartingPage" v-model="readingLog.startingPage" />
+      <input class="boxes" type="number" placeholder="EndingPage" v-model="readingLog.endPage" />
+      <input class="boxes" type="text" placeholder="Notes" v-model="readingLog.notes" />
+      <div class="button-container">
+        <button>NewReadingLog</button>
+        <button>Cancel</button>
+      </div>
+      
     </form>
   </div>
 </template>
@@ -88,5 +94,41 @@ export default {
 </script>
 
 <style>
+.form-container {
+  background-color: rgb(240, 201, 102);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px magenta;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
+.log-form {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.boxes {
+  height: 30px;
+  width: 80%;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px magenta;
+}
+
+#minutes {
+  box-shadow: none;
+} 
+
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
 </style>

@@ -2,17 +2,27 @@
 
   <div class="member-Profile" > 
     <span class = "name"> 
-      <h1>{{member.username}}</h1>
-      <h2>user's id: {{member.userId}}</h2> 
       <br>
-      <h3>Add to your reading log</h3>
-      <reading-log v-bind:member="member"  /> <!-- :key="logKey" @form-submitted="forceRerender()" -->
+      <h1>{{member.username}}'s page!</h1>
+      <!-- <h2>user's id: {{member.userId}}</h2>  -->
+      <br>
+      
+      <div class="log-container">
+        
+        <reading-log class="log" v-bind:member="member"  /> <!-- :key="logKey" @form-submitted="forceRerender()" -->
 
-      <add-reading-log v-bind:member="member" v-bind:userBooks="userBooks" />
+        
+        <add-reading-log class="add-log" v-bind:member="member" v-bind:userBooks="userBooks" />
+
+      </div>
+      
+
+      
       <!-- {{userBooks}}
       {{thisMember}} -->
 
     </span>
+    <h2>Your Books</h2>
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
@@ -97,11 +107,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
 .name {
   display: block;
   text-align: center;
   background-color:lavender;
-
+  font-family: 'Dosis', sans-serif;
 }
 
 /* .member-profile {
@@ -110,10 +122,33 @@ export default {
   justify-content: space-evenly;
 } */
 
+.member-Profile {
+  background-color: lavender;
+}
+
 .profile{
   display: inline-flex;
   flex-wrap: wrap;
-  
 }
+
+.log-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.log, .add-log {
+  margin: 30px;
+  width: 80%;
+  align-self: center;
+}
+
+.member-Profile h2 {
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+
+
 
 </style>
