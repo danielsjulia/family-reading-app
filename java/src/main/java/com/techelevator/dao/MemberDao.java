@@ -14,4 +14,6 @@ public interface MemberDao {
     public void registerNewMember(RegisterMember registerMember);
     public List<Member> getMembers(Long id);
 
+    boolean ifParent(long userId);
 }
+

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+// import MemberService from '../services/MemberService.js'
 
 Vue.use(Vuex)
 
@@ -25,16 +26,20 @@ export default new Vuex.Store({
       familyId: "",
       familyName: "",
     },
-    userBooks: [],
-    allBooks: []
+    allBooks: [],
+    allReadingLogs: []
   },
   mutations: {
+    SET_READING_LOGS(state, readingLogs)
+    {
+      state.allReadingLogs = readingLogs
+    },
     SET_FAMILY(state, family) {
       state.family = family;
     },
-    SET_USER_BOOKS(state, books) {
-      state.userBooks = books;
-    },
+    // SET_USER_BOOKS(state, books) {
+    //   state.userBooks = books;
+    // },
     SET_ALL_BOOKS(state, books) {
       state.allBooks = books;
     },

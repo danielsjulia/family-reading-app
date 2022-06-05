@@ -97,6 +97,15 @@ public class JdbcMemberDao implements MemberDao{
         return members;
     }
 
+    @Override
+    public boolean ifParent(long userId) {
+
+        String sql = "SELECT is_parent from family_member where user_id = ? ";
+
+        Boolean isParent = jdbcTemplate.queryForObject(sql, Boolean.class, userId);
+        return isParent;
+    }
+
     private Member rowToMapMember(SqlRowSet rowSet) {
         Member member = new Member();
         member.setUsername(rowSet.getString("username"));
