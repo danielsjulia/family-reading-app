@@ -1,7 +1,8 @@
 <template>
   <div>
       <input type="text" v-model = "username" value= "username">
-      assign book</div>
+      assign book
+    </div>
 </template>
 
 <script>

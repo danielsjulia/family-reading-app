@@ -9,6 +9,7 @@
         <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
     </div> -->
     <br>
+    <assign-book to:v-if = "{this.$route.name == 'all-books'}" />
     <!-- <router-link :to="{name: 'bookDetails', params: {isbn: book.isbn}}">Details</router-link> -->
     <!-- <button v-if="enableAdd" v-on:click.prevent="addToReadingList(book)">Add to Reading List</button> -->
   </div>
@@ -16,10 +17,17 @@
 </template>
 
 <script>
+
+import AssignBook from './AssignBook.vue'
+
 export default {
     name: 'book-card',
     props: {
         book: Object
+    },
+    components: {
+        AssignBook
+
     },
     // enableAdd: {
     //         type: Boolean,
