@@ -4,6 +4,12 @@
     <span class = "name"> 
       <h1>{{member.username}}</h1>
       <h2>user's id: {{member.userId}}</h2> 
+      <br>
+      <h3>Add to your reading log</h3>
+      <add-reading-log v-bind:member="member" v-bind:userBooks="userBooks" />
+      {{userBooks}}
+      {{thisMember}}
+
     </span>
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
@@ -32,8 +38,9 @@
 
 // import UpdatePicture from '../components/UpdatePicture.vue'
 import BookCard from '../components/BookCard.vue'
-import BookService from '../services/BookService'
-// import MemberService from '../services/MemberService.js'
+//import BookService from '../services/BookService'
+import AddReadingLog from '../components/AddReadingLog.vue'
+import MemberService from '../services/MemberService.js'
 // import AddReadingLog from '../components/AddReadingLog.vue'
 
 export default {
@@ -55,17 +62,18 @@ export default {
     components: {
       // UpdatePicture,
       BookCard,
+      AddReadingLog
       // AddReadingLog,
       
     },
     created() {
-            const promise = BookService.getAllBooksByUserId(this.member.userId)
+            const promise = MemberService.getUserBooks()
               promise.then(response => 
                     {
                     this.userBooks = response.data
                     }
         )
-        },
+      },
 
         
     // created() {
