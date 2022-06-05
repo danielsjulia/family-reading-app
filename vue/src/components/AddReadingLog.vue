@@ -2,7 +2,7 @@
   <div>
       <!-- <button @click="showForm()">Add ReadingLog</button> -->
 
-    <form  @submit.prevent="addNewReadingLog()">
+    <form  @submit.prevent="addNewReadingLog()"  > <!-- @click="$emit('formSubmitted')" -->
      
       <h1></h1>
       <input type="range" min="0" max="60" step="15" placeholder="MinutesRead" v-model="readingLog.minutes" />
@@ -14,7 +14,7 @@
         <option value="Listener">Listener</option>
         <option value="Other">Other</option>
       </select>
-      <select v-model="selectedBook" @change="getBookIdFromTitle(selectedBook)" >
+      <select   v-model="selectedBook" @change="getBookIdFromTitle(selectedBook)"  > <!-- v-if = " $route.path == '/myProfile' " -->
         <option v-for="book in userBooks" v-bind:key="book.id" >{{book.title}}</option>
       </select>
       <input type="date" placeholder="date" v-model="readingLog.date" />
@@ -59,6 +59,16 @@ export default {
                               if(response.status === 200){
                                 console.log()
                    }
+          this.readingLog = {
+                minutes:"",
+                format:"",
+                date:"",
+                startingPage:"",
+                endPage:"",
+                notes:"",
+                bookId: "", 
+                userId: this.member.userId,
+            }
 
           })    
       },

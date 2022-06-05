@@ -21,7 +21,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    isParent: "true", //check this later - might need to derive this somewhere upon log-in
+    isParent: false , 
+    //check this later - might need to derive this somewhere upon log-in --MemberService.isParent().then((response) => { return this.state.isParent=response.data})
     family: {
       familyId: "",
       familyName: "",

@@ -60,11 +60,20 @@ public class MemberController {
 
     @ApiOperation("find if is member")
     @RequestMapping(path="/isParent", method = RequestMethod.GET)
-    public boolean isMemberParent(@ApiParam("principal") Principal principal) {
+    public Member isMemberParent(@ApiParam("principal") Principal principal) {
 
         long userId =(long)userDao.findIdByUsername(principal.getName());
+        System.out.println(userId);
+        Member member = new Member();
 
-        return memberDao.ifParent(userId);
+        member.setUserId(userId);
+        member.setUsername(principal.getName());
+        member.setParent(memberDao.ifParent(userId));
+
+        System.out.println(member.isParent());
+
+
+        return member;
 
     }
 

@@ -6,11 +6,11 @@
       <h2>user's id: {{member.userId}}</h2> 
       <br>
       <h3>Add to your reading log</h3>
-      <reading-log v-bind:member="member" />
+      <reading-log v-bind:member="member"  /> <!-- :key="logKey" @form-submitted="forceRerender()" -->
 
       <add-reading-log v-bind:member="member" v-bind:userBooks="userBooks" />
-      {{userBooks}}
-      {{thisMember}}
+      <!-- {{userBooks}}
+      {{thisMember}} -->
 
     </span>
     <!-- list each book associated with the user (retrieved from MemberService) -->
@@ -60,6 +60,7 @@ export default {
         userId: this.member.userId,
         userBooks: [],
         allBooks : this.$store.state.allBooks
+        // logKey: 0
       }
     },
     components: {
@@ -78,6 +79,11 @@ export default {
                     }
         )
       },
+    // methods: {
+    //   forceRerender() {
+    //     this.logKey += 1;
+    //   }
+    // }
 
         
     // created() {
