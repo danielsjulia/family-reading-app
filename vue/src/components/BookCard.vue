@@ -19,7 +19,8 @@
 export default {
     name: 'book-card',
     props: {
-        book: Object
+        book: Object,
+        member: Object
     },
     // enableAdd: {
     //         type: Boolean,

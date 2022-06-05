@@ -85,8 +85,8 @@ public class JdbcReadingLogDao implements ReadingLogDao {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
                 "RETURNING readingLog_id;";
 
-        logId = jdbcTemplate.queryForObject(sql, Long.class, log.getBook_id(), log.getUser_id(), log.getMinutes(),
-            log.getFormat(), log.getDate(), log.getStarting_page(), log.getEnd_page(), log.getNotes());
+        logId = jdbcTemplate.queryForObject(sql, Long.class, log.getBookId(), log.getUserId(), log.getMinutes(),
+            log.getFormat(), log.getDate(), log.getStartingPage(), log.getEndPage(), log.getNotes());
 
         if (logId != null) {
             logCheck = getReadingLogById(logId.intValue());
@@ -98,14 +98,14 @@ public class JdbcReadingLogDao implements ReadingLogDao {
     private ReadingLog mapRowToReadingLog(SqlRowSet sqlRowSet) {
         ReadingLog readingLog = new ReadingLog();
 
-        readingLog.setReadingLog_id(sqlRowSet.getInt("readingLog_id"));
+        readingLog.setReadingLogId(sqlRowSet.getInt("readingLog_id"));
         readingLog.setMinutes(sqlRowSet.getInt("minutes"));
         readingLog.setFormat(sqlRowSet.getString("format"));
         readingLog.setDate(sqlRowSet.getDate("date"));
-        readingLog.setStarting_page(sqlRowSet.getInt("starting_page"));
-        readingLog.setEnd_page(sqlRowSet.getInt("end_page"));
-        readingLog.setBook_id(sqlRowSet.getInt("book_id"));
-        readingLog.setUser_id(sqlRowSet.getInt("user_id"));
+        readingLog.setStartingPage(sqlRowSet.getInt("starting_page"));
+        readingLog.setEndPage(sqlRowSet.getInt("end_page"));
+        readingLog.setBookId(sqlRowSet.getInt("book_id"));
+        readingLog.setUserId(sqlRowSet.getInt("user_id"));
         readingLog.setNotes(sqlRowSet.getString("notes"));
 
         return readingLog;

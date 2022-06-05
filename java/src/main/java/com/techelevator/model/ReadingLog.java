@@ -1,42 +1,42 @@
 package com.techelevator.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ReadingLog {
 
-    private int readingLog_id;
+    private int readingLogId;
     private int minutes;
     private String format;
     private Date date;
-    private int starting_page;
-    private int end_page;
-    private int book_id;
-    private int user_id;
+    private int startingPage;
+    private int endPage;
+    private int bookId;
+    private int userId;
+
     private String notes;
 
     public ReadingLog() {
     }
 
-    public ReadingLog(int readingLog_id, int minutes, String format, Date date, int starting_page,
-                      int end_page, int book_id, int user_id, String notes) {
-        this.readingLog_id = readingLog_id;
+    public ReadingLog(int readingLogId, int minutes, String format, Date date, int startingPage,
+                      int endPage, int bookId, int userId, String notes) {
+        this.readingLogId = readingLogId;
         this.minutes = minutes;
         this.format = format;
         this.date = date;
-        this.starting_page = starting_page;
-        this.end_page = end_page;
-        this.book_id = book_id;
-        this.user_id = user_id;
+        this.startingPage = startingPage;
+        this.endPage = endPage;
+        this.bookId = bookId;
+        this.userId = userId;
         this.notes = notes;
     }
 
     public int getReadingLog_id() {
-        return readingLog_id;
+        return readingLogId;
     }
 
-    public void setReadingLog_id(int readingLog_id) {
-        this.readingLog_id = readingLog_id;
+    public void setReadingLogId(int readingLogId) {
+        this.readingLogId = readingLogId;
     }
 
     public int getMinutes() {
@@ -63,36 +63,36 @@ public class ReadingLog {
         this.date = date;
     }
 
-    public int getStarting_page() {
-        return starting_page;
+    public int getStartingPage() {
+        return startingPage;
     }
 
-    public void setStarting_page(int starting_page) {
-        this.starting_page = starting_page;
+    public void setStartingPage(int startingPage) {
+        this.startingPage = startingPage;
     }
 
-    public int getEnd_page() {
-        return end_page;
+    public int getEndPage() {
+        return endPage;
     }
 
-    public void setEnd_page(int end_page) {
-        this.end_page = end_page;
+    public void setEndPage(int endPage) {
+        this.endPage = endPage;
     }
 
-    public int getBook_id() {
-        return book_id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(int book_id) {
-        this.book_id = book_id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getNotes() {
