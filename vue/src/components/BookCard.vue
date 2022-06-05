@@ -6,7 +6,7 @@
         <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
         <h3 class="book-author">{{ book.author }}</h3>
     </router-link>
-    <br>
+    <!-- <br> -->
     <assign-book v-if = " $route.path == '/allBooks'" />
   </div>
 
@@ -49,6 +49,7 @@ export default {
     width: 250px;
     height: 450px;
     margin: 20px;
+    padding: 5px;
     text-align: center;
     background-color:lavenderblush;
 }

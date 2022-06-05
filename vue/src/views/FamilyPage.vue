@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="familyPage" >
     <!-- <add-family /> -->
       <h1>{{this.$store.state.family.familyName}}</h1>
-      <add-member/>
+      <div class="addMemberForm"  >
+        <add-member />
+      </div>
+      
       <members />
       
   </div>
@@ -40,5 +43,14 @@ export default {
 </script>
 
 <style>
+
+.familyPage {
+  background-color: #83d8da;
+}
+
+.addMemberForm {
+  margin: 20px;
+  text-align: center;
+}
 
 </style>

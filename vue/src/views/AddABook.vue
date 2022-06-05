@@ -8,6 +8,7 @@
     <input class="author-input" type="text" placeholder="Author" v-model="book.author" />
     <input class="isbn-input" type="text" placeholder="ISBN" v-model="book.isbn" />
     <button>Save</button>
+    <button v-on:click="clearForm()" >Cancel</button>
   </form>
 
   </div>
@@ -29,6 +30,9 @@ export default {
 		}
 	},
 	methods: {
+        clearForm() {
+            this.book = {};
+        },
         addBookToLibrary(){
             MemberService.addBook(this.book)
                         .then(response =>{

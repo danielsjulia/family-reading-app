@@ -89,14 +89,19 @@ export default {
 </script>
 <style>
 .form-signin{
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
   background-color: rgb(238, 237, 236);
 }
 
 .signin{
 background-image: url("back-school.webp") ;
 background-size: cover;
-height:70vh;
-margin:0 38%;
+height: 100vh;          /*changed*/
+width: 100%;            /*changed*/
+/* height:70vh; */
+/* margin:0 38%; */
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -129,22 +134,23 @@ margin: 0px ;
   }
 #username,#password,#confirmPassword
 {
+  width: 50vw;
   border-radius: 30px;
   padding :10px 10px;
   margin:10px 30px;
 }
 
 #submit{
+  width: 50vw;
     border-radius: 20px;
     padding :10px 10px;
-    margin: 20px 6rem ;
+    margin: 20px 35px ;
     background-color:#ffe135;
 }
 .new_account{
   margin-bottom:20px;
-  text-align: center;
+  margin-left: 100px;
+  padding :10px 10px;
 }
-
-
 
 </style>

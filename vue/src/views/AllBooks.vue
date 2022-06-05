@@ -1,34 +1,42 @@
 <template>
-  <div class="book-container" >
+  <div class="book-container">
+    <div class="bookBar">
+      <add-a-book />
+    </div>
+
     <!-- <p>test text</p>
     <router-link to= "/bookDetail" > -->
-      <book-card v-bind:book="book" v-for="book in $store.state.allBooks" v-bind:key="book.id" /> <!-- v-on:click.native="details(book.isbn)"/> -->
+    <book-card
+      v-bind:book="book"
+      v-for="book in $store.state.allBooks"
+      v-bind:key="book.id"
+    />
+    <!-- v-on:click.native="details(book.isbn)"/> -->
     <!-- </router-link> -->
-    <add-a-book />
   </div>
 </template>
 
 <script>
-import BookCard from '@/components/BookCard.vue';
-import AddABook from './AddABook.vue';
-
+import BookCard from "@/components/BookCard.vue";
+import AddABook from "./AddABook.vue";
 
 export default {
-    name: 'all-books',
-    components: {
-        BookCard,
-        AddABook
-        
-    }
-
-}
+  name: "all-books",
+  components: {
+    BookCard,
+    AddABook,
+  },
+};
 </script>
 
 <style>
-.book-container
-{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.book-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.bookBar {
+  display: block;
 }
 </style>
