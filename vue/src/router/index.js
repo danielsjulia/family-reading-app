@@ -10,6 +10,7 @@ import FamilyPage from '../views/FamilyPage.vue'
 import ProfilePage from '../views/ProfilePage.vue'
 import AllBooks from '../views/AllBooks.vue'
 import BookPage from '../views/BookPage.vue'
+import AssignBook from '../components/AssignBook.vue'
 
 
 Vue.use(Router)
@@ -111,6 +112,14 @@ const router = new Router({
     },
     props: true
   },
+  {
+    path: "/userBook",
+    name: "AssignBook",
+    component: AssignBook,
+    meta: {
+      requiresAuth: false
+    }
+  }
   ]
 })
 

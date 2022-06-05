@@ -23,7 +23,6 @@ import AssignBook from './AssignBook.vue'
 
 export default {
     name: 'book-card',
-    // bookID: this.book.bookId,
     props: {
         book: Object,
         member: Object
