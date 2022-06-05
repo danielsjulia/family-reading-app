@@ -2,7 +2,7 @@
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <div class="signin">
-      <h3 class="h3 mb-3 font-weight-normal" id="head3">Create Account</h3>
+      <h3 class="h3" id="head3">Create Account</h3>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -96,5 +96,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>
