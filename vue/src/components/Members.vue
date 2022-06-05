@@ -37,14 +37,24 @@ export default {
 
 .member {
     /* background-color: #FFC75F; */
+    width: 100vw;
     display: inline-flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content:space-between;
-    align-content: center;
+    justify-content: space-between;
+    align-content: space-evenly;
     border: 1px solid black;
+    
 }
 .member .member-card
 {
+    display: block;
+    
+    /* flex-wrap:wrap;
+    justify-content: center;
+    align-items: center; */
+
+    flex-grow: 1;
     background: #008F7A;
     border: 1px green solid;
     border-radius: 60px;
@@ -52,7 +62,13 @@ export default {
     margin: 15px;
     text-align: center;
     box-shadow: 10px 10px #EC5C67;
+    
 
+}
+img {
+    height: 200px;
+    width: 200px;
+    /* align-content: center; */
 }
 
 
