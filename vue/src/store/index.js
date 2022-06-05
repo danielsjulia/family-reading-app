@@ -20,9 +20,10 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    isParent: "true", //check this later - might need to derive this somewhere upon log-in
     family: {
       familyId: "",
-      familyName: ""
+      familyName: "",
     },
     userBooks: [],
     allBooks: []
@@ -36,6 +37,9 @@ export default new Vuex.Store({
     },
     SET_ALL_BOOKS(state, books) {
       state.allBooks = books;
+    },
+    SET_IS_PARENT(state, isParent) {
+      state.isParent = isParent;
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

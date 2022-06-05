@@ -17,7 +17,7 @@
     <h1>{{member.username}}'s Book Log</h1>
     <h2> user id: {{member.userId}}</h2>
 
-    <assign-book />
+    <!-- <assign-book /> -->
     <add-reading-log v-bind:member ="member" v-bind:book="book" />
     
 
@@ -31,9 +31,9 @@
 <script>
 
 import AddReadingLog from "../components/AddReadingLog.vue"
-import AssignBook from '../components/AssignBook.vue'
+// import AssignBook from '../components/AssignBook.vue'
 export default {
-  components: { AssignBook, AddReadingLog },
+  components: { /*AssignBook,*/ AddReadingLog },
   name: 'BookPage',
   props: {
     book: Object,

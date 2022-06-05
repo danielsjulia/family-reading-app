@@ -1,7 +1,8 @@
 <template>
   <div class="card" v-bind:class="{ read: book.read }">
+    <router-link to= "/bookDetail" >
     <h2 class="book-title">{{ book.title }}</h2>
-    
+    </router-link>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <h3 class="book-author">{{ book.author }}</h3>
     <!-- <div class="button-container" v-if="! enableAdd">
@@ -22,6 +23,7 @@ import AssignBook from './AssignBook.vue'
 
 export default {
     name: 'book-card',
+    // bookID: this.book.bookId,
     props: {
         book: Object,
         member: Object
