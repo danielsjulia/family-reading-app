@@ -26,9 +26,14 @@ export default new Vuex.Store({
       familyId: "",
       familyName: "",
     },
-    allBooks: []
+    allBooks: [],
+    allReadingLogs: []
   },
   mutations: {
+    SET_READING_LOGS(state, readingLogs)
+    {
+      state.allReadingLogs = readingLogs
+    },
     SET_FAMILY(state, family) {
       state.family = family;
     },

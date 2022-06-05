@@ -77,7 +77,7 @@ const router = new Router({
 
     },
     {
-      path: "/myProfile/",
+      path: "/myProfile",
       name: "profile",
       component: ProfilePage,
       meta: {

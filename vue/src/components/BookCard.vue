@@ -51,12 +51,13 @@ export default {
     height: 450px;
     margin: 20px;
     text-align: center;
+    background-color:lavenderblush;
 }
 
-.card.read
+/* .card.read
 {
     background-color: lightgray;
-}
+} */
 
 .card .book-title
 {

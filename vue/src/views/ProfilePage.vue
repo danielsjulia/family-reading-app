@@ -1,20 +1,19 @@
 <template>
 
-  <div class="profile"> 
-    <h1>{{member.username}}</h1>
-    <h2>user's id: {{member.userId}}</h2> 
-
+  <div class="member-Profile" > 
+    <span class = "name"> 
+      <h1>{{member.username}}</h1>
+      <h2>user's id: {{member.userId}}</h2> 
+    </span>
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
-    <router-link 
-      :to="{name:'book-page', params:{book, member}}"  v-for="book in userBooks" v-bind:key="book.id"
-    >
+    <router-link class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in allBooks" v-bind:key="book.id">
       <book-card   v-bind:book = "book" v-bind:member ="thisMember" />
     </router-link>
 
     
-     profile page-- need to setup so it takes Id and populates the profile 
+     <!-- profile page-- need to setup so it takes Id and populates the profile 
 
      // total reading time in the app 
      
@@ -22,7 +21,7 @@
 
      // section all asigned books - all books that has user_id
 
-     // section of completed books. 
+     // section of completed books.  -->
   <!-- <update-picture v-bind:username='this.username' /> -->
   <!-- <add-reading-log v-bind:member ="member" /> -->
  
@@ -49,7 +48,8 @@ export default {
         thisMember: this.member,
         username: this.member.username,
         userId: this.member.userId,
-        userBooks: []
+        userBooks: [],
+        allBooks : this.$store.state.allBooks
       }
     },
     components: {
@@ -58,8 +58,7 @@ export default {
       // AddReadingLog,
       
     },
-    methods: {
-        getUserBooks() {
+    created() {
             const promise = BookService.getAllBooksByUserId(this.member.userId)
               promise.then(response => 
                     {
@@ -67,7 +66,6 @@ export default {
                     }
         )
         },
-    },
 
         
     // created() {
@@ -81,10 +79,23 @@ export default {
 </script>
 
 <style>
-.profile{
+.name {
+  display: block;
+  text-align: center;
+  background-color:lavender;
+
+}
+
+/* .member-profile {
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFE7D5;
+  justify-content: space-evenly;
+} */
+
+.profile{
+  display: inline-flex;
+  flex-wrap: wrap;
+  
 }
 
 </style>

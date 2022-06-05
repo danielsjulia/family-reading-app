@@ -9,8 +9,10 @@
       <add-family />
     </div>
     
-    <router-link :to= "{name : 'family-page' }" >Go to Family Page</router-link> 
+    <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link> 
     <book-card v-for="book in allBooks" :key="book.bookId" />
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <!-- // we can add all the family logs here... also store the family log in the store.  -->
     <!-- <family-page  /> -->
     <!-- <add-member /> -->
     <!-- <setup-family />
@@ -30,6 +32,7 @@ import FamilyService from '@/services/FamilyService.js';
 import MemberService from '@/services/MemberService.js';
 import BookCard from '../components/BookCard.vue';
 // import BookService from '../services/BookService';
+import readingLog from '../services/readingLog'
 
 export default {
   name: "home",
@@ -83,8 +86,12 @@ export default {
         this.userBooks = response.data
       }
     );
-    
-
+// this is throwing null pointer error right now.. 
+    readingLog.getReadingLogByFamilyId()
+    .then( response =>
+    {
+      this.$store.commit("SET_READING_LOGS", response.data)
+    });
     //this.checkForFamily()
   },
   
