@@ -2,8 +2,7 @@
   <div class="card" v-bind:class="{ read: book.read }">
     <router-link to= "/bookDetail" >
         <h2 class="book-title" > {{ book.title }} </h2>
-        
-        <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
+        <img  v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
         <h3 class="book-author">{{ book.author }}</h3>
     </router-link>
     <!-- <br> -->
@@ -42,16 +41,20 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300');
 .card
 {
     border: 2px solid black;
     border-radius: 10px;
-    width: 250px;
-    height: 450px;
+    width: 200px;
+    height: 260px;
     margin: 20px;
     padding: 5px;
     text-align: center;
-    background-color:lavenderblush;
+    background-color:rgba(248, 222, 245, 0.603);
+    font-family: 'Barlow Condensed', sans-serif;
+   
 }
 
 /* .card.read
@@ -61,11 +64,19 @@ export default {
 
 .card .book-title
 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .card .book-author
 {
     font-size: 1rem;
+    margin:0
+}
+.card:hover{
+      box-shadow: 1px 1px 5px 3px #c699d1;
+}
+img{
+    width:120px;
+    height:120px;
 }
 </style>
