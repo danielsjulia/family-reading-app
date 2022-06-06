@@ -72,10 +72,19 @@ INSERT INTO family(family_name) VALUES('Test-Fam');
 INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(1,1,true);
 
 
+
+INSERT INTO book (title, author, isbn)
+VALUES('Curious George My Favorite Things', 'Rey, H. A.', '9780547428932');
+INSERT INTO book (title, author, isbn)
+VALUES('Dino Duckling,  Murray', 'Alison', '9780316513159');
+INSERT INTO book (title, author, isbn)
+VALUES('Chugga-Chugga Choo-Choo', 'Lewis, Kevin Kirk', '9780786804290');
+INSERT INTO book (title, author, isbn)
+VALUES('If Animals Kissed Good Night'  ,'Paul, Ann Whitford Walker' ,'9780374300210');
+INSERT INTO book (title, author, isbn)
+VALUES('If Animals Tried to Be Kind Paul',' Ann Whitford Walker', '9780374313425');
 INSERT INTO book (title, author, isbn)
 VALUES ('Kafka by the Shore','Haruki Murakami','9781400079278');
-INSERT INTO book (title, author, isbn)
-VALUES ('The Girl With All the Gifts','M.R. Carey','9781400079278');
 INSERT INTO book (title, author, isbn)
 VALUES ('The Old Man and the Sea','Ernest Hemingway','9780684830490');
 

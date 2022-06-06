@@ -2,7 +2,7 @@
   <div class="card" v-bind:class="{ read: book.read }">
     <router-link to= "/bookDetail" >
         <h2 class="book-title" > {{ book.title }} </h2>
-        <img  v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
+        <img id="img" v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
         <h3 class="book-author">{{ book.author }}</h3>
     </router-link>
     <!-- <br> -->
@@ -75,7 +75,7 @@ export default {
 .card:hover{
       box-shadow: 1px 1px 5px 3px #c699d1;
 }
-img{
+#img{
     width:120px;
     height:120px;
 }
