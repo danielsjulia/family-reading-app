@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="addMemberForm" >
     <button class= "button" type="button" @click="showForm()">Add Family Member</button>
 
     <form
@@ -98,6 +98,16 @@ export default {
 </script>
 
 <style>
+
+.addMemberForm {
+ 
+   background-image: url("../../images/header-image.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: stretch;
+  justify-content: center;
+  align-content: center;
+}
 
 .grid-box {
   display: grid;

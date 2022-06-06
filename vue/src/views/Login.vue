@@ -110,7 +110,7 @@ export default {
 }
 
 .signin{
-background-image: url("back-school.webp") ;
+background-image: url("../../images/back-school.webp") ;
 background-size: cover;
 height: 100vh;
 width: 100%;            

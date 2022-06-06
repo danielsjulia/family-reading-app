@@ -83,6 +83,17 @@ public class JdbcReadingLogDao implements ReadingLogDao {
     }
 
     @Override
+    public int getTotalReadingTime(long userId) {
+
+        String sql = "select sum(minutes) \n" +
+                "from reading_log\n" +
+                "where user_id = ?";
+
+        Integer totalMinutes = jdbcTemplate.queryForObject(sql, Integer.class, userId);
+        return totalMinutes;
+    }
+
+    @Override
     public List<ReadingLog> getReadingLogByFamilyId(int familyId) {
         ReadingLog readingLog = new ReadingLog();
         List<ReadingLog> list = new ArrayList<>();

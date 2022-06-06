@@ -38,12 +38,12 @@ export default {
 .member {
     /* background-color: #FFC75F; */
     width: 100vw;
-    display: inline-flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-evenly;
-    border: 1px solid black;
+    justify-content: space-evenly;
+    align-content: center;
+    border-top: 10px solid whitesmoke;
     
 }
 .member .member-card
@@ -61,7 +61,7 @@ export default {
     padding: 1rem;
     margin: 15px;
     text-align: center;
-    box-shadow: 10px 10px #EC5C67;
+    box-shadow: 10px 10px blue;
     
 
 }
@@ -70,6 +70,8 @@ img {
     width: 200px;
     /* align-content: center; */
 }
-
+.familyPage {
+    height: 100vh;
+}
 
 </style>

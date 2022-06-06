@@ -16,4 +16,6 @@ public interface ReadingLogDao {
     ReadingLog addNewReadingLog(ReadingLog readingLog);
 
     List<ReadingLogDTO> getReadingLogDTOByUserId(int userId);
+
+    int getTotalReadingTime(long userId);
 }

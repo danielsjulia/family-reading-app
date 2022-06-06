@@ -1,12 +1,13 @@
 <template>
 
   <div class="member-Profile" > 
-    <span class = "name"> 
-      <br>
-      <h1>{{member.username}}'s page!</h1>
-      <!-- <h2>user's id: {{member.userId}}</h2>  -->
-      <br>
-      
+      <div>{{this.readingLogTime}} minutes</div>
+      <span class = "name"> 
+        <br>
+        <h1>{{member.username}}'s page!</h1>
+        <!-- <h2>user's id: {{member.userId}}</h2>  -->
+        <br>
+      </span>
       <div class="log-container">
         
         <reading-log class="log" v-bind:member="member"  /> <!-- :key="logKey" @form-submitted="forceRerender()" -->
@@ -21,7 +22,7 @@
       <!-- {{userBooks}}
       {{thisMember}} -->
 
-    </span>
+    
     <h2>Your Books</h2>
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
@@ -55,6 +56,7 @@ import AddReadingLog from '../components/AddReadingLog.vue'
 import MemberService from '../services/MemberService.js'
 // import AddReadingLog from '../components/AddReadingLog.vue'
 import ReadingLog from '../components/ReadingLog.vue'
+import readingLog from '../services/readingLog'
 
 export default {
 
@@ -69,7 +71,8 @@ export default {
         username: this.member.username,
         userId: this.member.userId,
         userBooks: [],
-        allBooks : this.$store.state.allBooks
+        allBooks : this.$store.state.allBooks,
+        readingLogTime: Number
         // logKey: 0
       }
     },
@@ -88,6 +91,11 @@ export default {
                     this.userBooks = response.data
                     }
         )
+            const promise1 = readingLog.getTotalReadingTime(this.userId)
+              promise1.then(response => 
+              {
+                this.readingLogTime = response.data
+              })
       },
     // methods: {
     //   forceRerender() {
@@ -111,24 +119,29 @@ export default {
 
 .name {
   display: block;
+  width: 100vw;
+  padding: 0px !important;
   text-align: center;
-  background-color:lavender;
+  
+
   font-family: 'Dosis', sans-serif;
 }
 
-/* .member-profile {
+.member-profile {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-} */
+}
 
 .member-Profile {
   background-color: lavender;
-  padding-left: 500px;
+  padding: 1% 25%;
   display: block;
   justify-content: center;
   align-self: center;
   height: 100vh;
+
 }
 
 .profile{
@@ -146,7 +159,7 @@ export default {
   width: 100vw;
 }
 
-.log, .add-log {
+.log, .add-log, .name {
   margin: 30px;
   width: 100%;
   align-self: center;

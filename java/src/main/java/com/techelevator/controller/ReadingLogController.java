@@ -6,6 +6,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.Member;
 import com.techelevator.model.ReadingLog;
 import com.techelevator.model.ReadingLogDTO;
+import com.techelevator.model.User;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,23 @@ public class ReadingLogController {
         return readingLogDao.addNewReadingLog(readingLog);
 
     }
+
+    @ApiOperation("get total reading time by userId")
+    @RequestMapping(path="/readingLogTime", method = RequestMethod.GET)
+    public Integer getTotalReadingTimeByUser(@RequestBody @ApiParam("Reading log object") Member member) {
+
+        long user_id = member.getUserId();
+
+        return readingLogDao.getTotalReadingTime(user_id);
+
+    }
+
+//    @ApiOperation("get reading log by Id")
+//    @RequestMapping(path="/readingLog/{id}", method = RequestMethod.GET)
+//    public ReadingLog getReadingLogByReadingId(@PathVariable  @ApiParam("readingLog ") int id) {
+//
+//        return readingLogDao.getReadingLogById(id);
+//
+//    }
 
 }
