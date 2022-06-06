@@ -72,12 +72,12 @@ public class ReadingLogController {
     }
 
     @ApiOperation("get total reading time by userId")
-    @RequestMapping(path="/readingLogTime", method = RequestMethod.GET)
-    public Integer getTotalReadingTimeByUser(@RequestBody @ApiParam("Reading log object") Member member) {
+    @RequestMapping(path="/readingLogTime/{userId}", method = RequestMethod.GET)
+    public Integer getTotalReadingTimeByUser(@PathVariable @ApiParam("Reading log object") int userId) {
 
-        long user_id = member.getUserId();
+        //long user_id = member.getUserId();
 
-        return readingLogDao.getTotalReadingTime(user_id);
+        return readingLogDao.getTotalReadingTime(userId);
 
     }
 
