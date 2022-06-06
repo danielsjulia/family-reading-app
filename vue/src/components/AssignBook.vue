@@ -18,11 +18,11 @@ export default {
     return {
       userBook: {
         username: "",
-        bookId: 3,
+        bookId: this.book.bookId,
       },
     };
   },
-  // props: [book],
+  props: ['book'],
   methods: {
     // get the id from username
     // add to user_book with (book_id, user_id) in user_book table on the database..

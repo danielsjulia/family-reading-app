@@ -105,9 +105,10 @@ export default {
             }
           )
 
-            const promise = MemberService.getUserBooks()
+            const promise = MemberService.getUserBooks(this.member.userId)
               promise.then(response => 
                     {
+                      console.log(response.data);
                     this.userBooks = response.data
                     }
         )
@@ -121,13 +122,13 @@ export default {
     methods: {
       forceRerender() {
         //this.logKey += 1;
-        window.alert('it worked!');
+        //window.alert('it worked!');
         readingLog.getReadingLogDTOByUserId(this.member.userId)
           .then(
             response => {
                 this.readingLogs = response.data;
             }
-          )
+          );
       }
     }
 

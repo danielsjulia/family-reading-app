@@ -24,6 +24,7 @@
 <script>
 import BookCard from "@/components/BookCard.vue";
 import AddABook from "./AddABook.vue";
+import MemberService from '../services/MemberService.js';
 
 export default {
   name: "all-books",
@@ -31,6 +32,15 @@ export default {
     BookCard,
     AddABook,
   },
+  created() {
+    MemberService.getAllBooks()
+    .then(
+      response => {
+        this.$store.commit("SET_ALL_BOOKS", response.data);
+        this.userBooks = response.data
+      }
+    );
+  }
 };
 </script>
 

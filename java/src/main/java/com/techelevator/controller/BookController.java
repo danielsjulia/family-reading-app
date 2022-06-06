@@ -24,12 +24,12 @@ public class BookController {
     private UserDao userDao;
 
     @ApiOperation("get all books by userId")
-    @RequestMapping(path="/myBooks", method = RequestMethod.GET)
-    public List<Book> getAllBooksByUserId(@ApiParam("principal") Principal principal) {
+    @RequestMapping(path="/myBooks/{userId}", method = RequestMethod.GET)
+    public List<Book> getAllBooksByUserId(@ApiParam("principal") Principal principal, @PathVariable int userId) {
 
-        long userId =(long)userDao.findIdByUsername(principal.getName());
+        //long userId =(long)userDao.findIdByUsername(principal.getName());
 
-        return bookDao.getListOfBooksByUser(userId);
+        return bookDao.getListOfBooksByUser((long)userId);
 
     }
 
@@ -68,12 +68,12 @@ public class BookController {
 
     @ApiOperation("get all books by userId")
     @RequestMapping(path="/userBooks", method = RequestMethod.GET)
-    public List<Book> getBooksByUserId(@ApiParam("userId ") long userId) {
+    public List<Book> getBooksByUserId(@ApiParam("userId ") @RequestBody long id) {
 
 //        long userId =(long)userDao.findIdByUsername(principal.getName());
-        System.out.println(bookDao.getListOfBooksByUser(userId));
+        System.out.println(bookDao.getListOfBooksByUser(id));
 
-        return bookDao.getListOfBooksByUser(userId);
+        return bookDao.getListOfBooksByUser(id);
 
     }
 
