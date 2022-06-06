@@ -91,6 +91,7 @@
 
 <script>
 import readingLogService from '@/services/readingLog.js'
+
 export default {
     name:"add-reading-lod",
     props:{
@@ -131,6 +132,15 @@ export default {
                 bookId: "", 
                 userId: this.member.userId,
             }
+
+          this.$emit('formSubmitted');
+
+        //     readingLog.getReadingLogDTOByUserId(this.member.userId)
+        // .then(
+        //     response => {
+        //         this.readingLogs = response.data;
+        //     }
+        // )
 
           })    
       },
