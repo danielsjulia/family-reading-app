@@ -124,6 +124,10 @@ export default {
 
 .member-Profile {
   background-color: lavender;
+  padding-left: 500px;
+  display: block;
+  justify-content: center;
+  align-self: center;
 }
 
 .profile{
@@ -135,13 +139,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
+}
+.log {
+  width: 100vw;
 }
 
 .log, .add-log {
   margin: 30px;
-  width: 80%;
+  width: 100%;
   align-self: center;
+  
 }
 
 .member-Profile h2 {

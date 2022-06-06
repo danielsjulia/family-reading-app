@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="readingLog-Display">
     <table class="readingLogTable">
         <tr id="header">
             <!-- <th>ReadingLogId</th> -->
@@ -76,13 +76,16 @@ export default {
 <style>
 .readingLogTable {
     /* border: 3px solid black; */
+    /* display:block; */
+    
+
     border-collapse: collapse;
     border-radius: 10px;
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
-    width: 80%;
+    width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
