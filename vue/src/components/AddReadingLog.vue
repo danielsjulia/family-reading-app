@@ -218,7 +218,7 @@ button:hover {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-
+ 
 }
 .options {
   
@@ -280,8 +280,8 @@ button:hover {
 }
 
 .time {
-  height: 200px;
-  width: 200px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 

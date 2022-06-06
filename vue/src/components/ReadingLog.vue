@@ -28,7 +28,7 @@
             
             <!-- <td>{{readingLog.username}}</td> -->
             <td>{{readingLog.startingPage}}</td>
-            <td>{{readingLog.endingPage}}</td>
+            <td>{{readingLog.endPage}}</td>
             <td>{{readingLog.pagesRead}}</td>
             <td>{{readingLog.notes}}</td>
         </tr>
