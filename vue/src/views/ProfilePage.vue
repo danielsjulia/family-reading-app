@@ -1,11 +1,14 @@
 <template>
 
   <div class="member-Profile" > 
-      <div>{{this.readingLogTime}} minutes</div>
+      
       <span class = "name"> 
         <br>
         <h1>{{member.username}}'s page!</h1>
         <!-- <h2>user's id: {{member.userId}}</h2>  -->
+        <div>
+        <h1>Total Minutes Read: {{this.readingLogTime}} minutes</h1>
+        </div>
         <br>
       </span>
       <div class="log-container">
@@ -94,6 +97,7 @@ export default {
             const promise1 = readingLog.getTotalReadingTime(this.userId)
               promise1.then(response => 
               {
+                console.log(response.data)
                 this.readingLogTime = response.data
               })
       },

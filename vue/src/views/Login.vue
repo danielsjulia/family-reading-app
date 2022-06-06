@@ -75,20 +75,30 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
 
+            // const promise = MemberService.isParent()
+            // promise.then(response => this.isParent = response.data.parent)
+
             try {
-              MemberService.isParent().then((response) => {
+              MemberService.isParent().then(
+              response => {
                 console.log(response.data);
                 if (response.data.parent) {
                   this.$router.push("/myFamily");
                 } else if (!response.data.parent) {
                   this.$router.push("/myProfile");
                 }
-              });
+              }
+            )
             } catch (error) {
               console.log(error);
             } finally {
               this.$router.push("/");
             }
+            
+
+            console.log(response.data);
+
+            
           }
         })
         .catch((error) => {
