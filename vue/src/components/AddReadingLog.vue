@@ -91,6 +91,7 @@
 
 <script>
 import readingLogService from '@/services/readingLog.js'
+
 export default {
     name:"add-reading-lod",
     props:{
@@ -131,6 +132,15 @@ export default {
                 bookId: "", 
                 userId: this.member.userId,
             }
+
+          this.$emit('formSubmitted');
+
+        //     readingLog.getReadingLogDTOByUserId(this.member.userId)
+        // .then(
+        //     response => {
+        //         this.readingLogs = response.data;
+        //     }
+        // )
 
           })    
       },
@@ -194,7 +204,7 @@ button {
 }
 button:hover {
   background: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .button-container {
@@ -286,8 +296,8 @@ button:hover {
 }
 
 span>button>div>img {
-  height: 200px;
-  width: 200px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 

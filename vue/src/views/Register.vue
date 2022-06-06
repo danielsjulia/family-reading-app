@@ -97,6 +97,8 @@ export default {
 
 <style>
 
-
+.alert-danger {
+  align-self: center;
+}
 
 </style>

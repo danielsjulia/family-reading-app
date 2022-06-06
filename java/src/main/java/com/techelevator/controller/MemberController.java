@@ -69,6 +69,7 @@ public class MemberController {
         member.setUserId(userId);
         member.setUsername(principal.getName());
         member.setParent(memberDao.ifParent(userId));
+        member.setFamilyId(familyDao.getFamilyIDByUserId(userId));
 
         System.out.println(member.isParent());
 

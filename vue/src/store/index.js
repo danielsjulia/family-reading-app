@@ -28,7 +28,14 @@ export default new Vuex.Store({
       familyName: "",
     },
     allBooks: [],
-    allReadingLogs: []
+    allReadingLogs: [],
+    dataHasChanged: false,
+    currentMember: {
+      userId: "",
+      username: "",
+      familyId: "",
+      parent: false
+    }
   },
   mutations: {
     SET_READING_LOGS(state, readingLogs)
@@ -37,6 +44,9 @@ export default new Vuex.Store({
     },
     SET_FAMILY(state, family) {
       state.family = family;
+    },
+    SET_CURRENT_MEMBER(state, member) {
+      state.currentMember = member;
     },
     // SET_USER_BOOKS(state, books) {
     //   state.userBooks = books;
