@@ -137,12 +137,14 @@ margin: 0px ; */
 #username,#password,#confirmPassword
 {
   width: 50%;
+  max-width: 400px;
   align-self: center;
   border-radius: 30px;
 }
 
 #submit{
     width: 50%;
+    max-width: 400px;
   align-self: center;
     border-radius: 20px;
     background-color:#ffe135;
