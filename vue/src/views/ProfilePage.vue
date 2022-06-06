@@ -7,16 +7,16 @@
         <h1>{{member.username}}'s page!</h1>
         <!-- <h2>user's id: {{member.userId}}</h2>  -->
         <div>
-        <h1>Total Minutes Read: {{this.readingLogTime}} minutes</h1>
+        <h3>Total Minutes Read: {{this.readingLogTime}} minutes</h3>
         </div>
         <br>
       </span>
-      <div class="log-container">
+      <div class="log-container" >
         
-        <reading-log class="log" v-bind:member="member"  /> <!-- :key="logKey" @form-submitted="forceRerender()" -->
+        <reading-log class="log" v-bind:member="member" v-bind:readingLogs="readingLogs" /> 
 
         
-        <add-reading-log class="add-log" v-bind:member="member" v-bind:userBooks="userBooks" />
+        <add-reading-log class="add-log" v-bind:member="member" v-bind:userBooks="userBooks" @formSubmitted="forceRerender()" />
 
       </div>
       
@@ -75,8 +75,10 @@ export default {
         userId: this.member.userId,
         userBooks: [],
         allBooks : this.$store.state.allBooks,
-        readingLogTime: Number
-        // logKey: 0
+        readingLogTime: 0,
+        logKey: 0,
+        readingLogs: [],
+        //member: Object
       }
     },
     components: {
@@ -88,6 +90,21 @@ export default {
       
     },
     created() {
+
+          //if member is empty, redirect to profile? get info f
+          if (this.member == undefined) {
+              //this.member = this.$store.state.currentMember;
+              this.$router.push('/MyFamily');
+              //get info from server
+          }
+
+          readingLog.getReadingLogDTOByUserId(this.member.userId)
+          .then(
+            response => {
+                this.readingLogs = response.data;
+            }
+          )
+
             const promise = MemberService.getUserBooks()
               promise.then(response => 
                     {
@@ -101,11 +118,18 @@ export default {
                 this.readingLogTime = response.data
               })
       },
-    // methods: {
-    //   forceRerender() {
-    //     this.logKey += 1;
-    //   }
-    // }
+    methods: {
+      forceRerender() {
+        //this.logKey += 1;
+        window.alert('it worked!');
+        readingLog.getReadingLogDTOByUserId(this.member.userId)
+          .then(
+            response => {
+                this.readingLogs = response.data;
+            }
+          )
+      }
+    }
 
         
     // created() {

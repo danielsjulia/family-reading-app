@@ -33,29 +33,32 @@
             <td>{{readingLog.notes}}</td>
         </tr>
     </table>
+
+    <add-reading-log class="add-log" v-bind:member="member" v-bind:userBooks="userBooks" />
   </div>
 </template>
 
 <script>
-import readingLog from '../services/readingLog.js';
+//import readingLog from '../services/readingLog.js';
 
 export default {
     name: 'reading-log',
     props: {
-        member: Object
+        member: Object,
+        readingLogs: Array 
     },
     data() {
         return {
-            readingLogs: []
+            //readingLogs: []
         }
     },
     created() {
-        readingLog.getReadingLogDTOByUserId(this.member.userId)
-        .then(
-            response => {
-                this.readingLogs = response.data;
-            }
-        )
+        // readingLog.getReadingLogDTOByUserId(this.member.userId)
+        // .then(
+        //     response => {
+        //         this.readingLogs = response.data;
+        //     }
+        // )
     },
     // methods: {
     //     readingLog() {
