@@ -1,9 +1,10 @@
 <template>
     
   <div>
-    <h1>Add A Book</h1>
+    
 
  <form class="new-book-form" v-on:submit.prevent="addBookToLibrary()">
+     <h3 id = "title">Add A Book</h3>
     <input class="title-input" type="text" placeholder="Title" v-model="book.title" />
     <input class="author-input" type="text" placeholder="Author" v-model="book.author" />
     <input class="isbn-input" type="text" placeholder="ISBN" v-model="book.isbn" />
@@ -40,6 +41,12 @@ export default {
                                 console.log(this.book)
                                 this.$router.push("/allBooks")
                             }
+            this.book ={
+            title: '',
+			author: '',
+		isbn: ''
+   
+                            }
                         })
         }
     }
@@ -48,12 +55,27 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300');
 .new-book-form {
     margin: 20px;
+    background-color: lightsalmon;
+    box-shadow: 1px 1px 5px 3px #c699d1;
+    border-radius: 10px;
+    border-width: 50%;
+    margin:0 30rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    
+     
 }
 
 .new-book-form input, .new-book-form button {
     margin: 10px;
-    font-size: 1rem;
+    font-size: .8rem;
+    border-radius: 30px;
+    border:2px solid pink;
+    
+}
+#title{
+    padding-top: 20px;
 }
 </style>
