@@ -128,6 +128,7 @@ export default {
   display: block;
   justify-content: center;
   align-self: center;
+  height: 100vh;
 }
 
 .profile{
