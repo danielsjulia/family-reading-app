@@ -18,8 +18,8 @@ export default {
     return axios.get(`/myFamily/all-member`)
   },
 
-  getUserBooks() {
-    return axios.get('/myBooks');
+  getUserBooks(id) {
+    return axios.get(`/myBooks/${id}`);
   },
 
   getAllBooks() {
