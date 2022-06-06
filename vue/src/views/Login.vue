@@ -76,7 +76,8 @@ export default {
 
             // const promise = MemberService.isParent()
             // promise.then(response => this.isParent = response.data.parent)
-        try {
+
+            try {
               MemberService.isParent().then(
               response => {
                 console.log(response.data);
@@ -92,6 +93,10 @@ export default {
             } finally {
               this.$router.push("/");
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> main
 
             console.log(response.data);
 

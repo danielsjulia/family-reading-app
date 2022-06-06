@@ -85,8 +85,8 @@ public class JdbcReadingLogDao implements ReadingLogDao {
     @Override
     public int getTotalReadingTime(long userId) {
 
-        String sql = "select sum(minutes) \n" +
-                "from reading_log\n" +
+        String sql = "select sum(minutes) as minutesRead " +
+                "from reading_log " +
                 "where user_id = ?";
 
         Integer totalMinutes = jdbcTemplate.queryForObject(sql, Integer.class, userId);

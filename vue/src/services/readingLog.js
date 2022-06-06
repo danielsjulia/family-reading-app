@@ -22,7 +22,7 @@ export default {
         return axios.post('/add-log',readingLog)
     },
 
-    getTotalReadingTime(user) {
-        return axios.get('/readingLogTime', user)
+    getTotalReadingTime(userId) {
+        return axios.get(`/readingLogTime/${userId}`)
     }
 }
