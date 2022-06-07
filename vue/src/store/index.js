@@ -36,9 +36,17 @@ export default new Vuex.Store({
       familyId: "",
       parent: false
     },
-    familyMembers : []
+    familyMembers : [],
+    prize: Object,
+    allPrizes: []
   },
   mutations: {
+    SET_PRIZE(state, prize ){
+      state.prize = prize
+    },
+    SET_ALL_PRIZES(state, allPrizes) {
+      state.allPrizes = allPrizes
+    },
     SET_FAMILY_MEMBERS(state, familyMembers)
     {
       state.familyMembers = familyMembers

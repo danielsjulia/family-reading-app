@@ -10,6 +10,8 @@
     </div>
     
     <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link> 
+    <prize-display />
+    <add-prize />
     <book-card v-for="book in allBooks" :key="book.bookId" />
     <br><br><br><br><br><br><br><br><br><br><br>
     <!-- // we can add all the family logs here... also store the family log in the store.  -->
@@ -25,20 +27,26 @@
 
 <script>
 // import NavBar from '../components/NavBar.vue';
-import AddFamily from '@/components/AddFamily.vue'
+
 // import AddMember from '../components/AddMember.vue';
 // import FamilyPage from './FamilyPage.vue';
+import PrizeService from "../services/PrizeService"
 import FamilyService from '@/services/FamilyService.js';
 import MemberService from '@/services/MemberService.js';
-import BookCard from '../components/BookCard.vue';
 // import BookService from '../services/BookService';
+import AddFamily from '@/components/AddFamily.vue'
+import BookCard from '../components/BookCard.vue';
 import readingLog from '../services/readingLog'
+import AddPrize from '../components/AddPrize.vue';
+import PrizeDisplay from '../components/PrizeDisplay.vue';
 
 export default {
   name: "home",
   components: {
     AddFamily,
     BookCard,
+    AddPrize,
+    PrizeDisplay,
     // AddMember
     // FamilyPage
     // SetupFamily,
@@ -50,7 +58,8 @@ export default {
     return {
           showForm: false,
           // userBooks: [],
-          allBooks: []
+          allBooks: [],
+          prizes:[],
     }
   },
   // computed: {
@@ -78,6 +87,13 @@ export default {
     }
     
     ),
+    PrizeService.getPrizeByFamilyId()
+    .then(response =>
+    {
+      this.$store.commit("SET_ALL_PRIZES", response.data)
+    }),
+
+    
 
     
     // MemberService.getUserBooks()
