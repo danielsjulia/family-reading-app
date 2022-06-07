@@ -18,9 +18,9 @@ export default {
     return axios.get(`/myFamily/all-member`)
   },
 
-  getAllMembers(familyId) {
-    return axios.get('/myFamily', familyId)
-  },
+  // getAllMembers(familyId) {
+  //   return axios.get('/myFamily', familyId)
+  // },
 
   getUserBooks(id) {
     return axios.get(`/myBooks/${id}`);

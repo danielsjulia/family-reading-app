@@ -7,7 +7,7 @@
       <label for="uname">Assign Book:</label>
       <select class="assign-book"  v-model="userBook.username" >
           <!-- <option value="" disabled selection >user</option> -->
-        <option v-for="member in familyMembers" v-bind:key="member.id" >{{member.name}}</option>
+        <option v-for="member in familyMembers" v-bind:key="member.id" >{{member.username}}</option>
       </select>
       <!-- <input class="text" type="text" v-model="userBook.username" value="username" /> -->
       <br>
@@ -32,13 +32,16 @@ export default {
     };
   },
   props: ['book'],
+  created() {
+    this.familyMembers = this.$store.state.familyMembers
+  },
   methods: {
     // get the id from username
     // add to user_book with (book_id, user_id) in user_book table on the database..
     addBook() {
       userBookService.addBookToUser(this.userBook).then((response) => {
         if (response.status == 201) {
-          this.$router.push("/allBooks");
+          // this.$router.push("/allBooks");
           this.userBook.username = "";
         } else {
           alert("Check if username matches or error occurred");

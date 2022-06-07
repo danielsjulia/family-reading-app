@@ -71,7 +71,15 @@ export default {
       }
     );
 
+    MemberService.getMembers()
+    .then( response => 
+    {
+      this.$store.commit("SET_FAMILY_MEMBERS", response.data)
+    }
+    
+    ),
 
+    
     // MemberService.getUserBooks()
     // .then(
     //   response => {
