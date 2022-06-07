@@ -99,10 +99,7 @@ export default {
             } finally {
               this.$router.push("/");
             }
-<<<<<<< HEAD
-=======
             
->>>>>>> main
 
             console.log(response.data);
 
