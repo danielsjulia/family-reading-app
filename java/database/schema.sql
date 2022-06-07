@@ -64,6 +64,31 @@ CREATE TABLE reading_log (
     CONSTRAINT FK_book_reading_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+CREATE TABLE prize (
+    prize_id serial NOT NULL,
+    prize_name VARCHAR(50) NOT NULL,
+    description VARCHAR (280) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    milestone INT NOT NULL,
+    isActive boolean NOT NULL,
+    numberOfWinners INT NOT NULL,
+    CONSTRAINT PK_prize PRIMARY KEY (prize_id)
+);
+
+CREATE TABLE prize_user (
+    prize_id INT NOT NULL,
+    user_id INT NOT NULL,
+    reachedGoal boolean not null,
+    reachedDate date,
+    CONSTRAINT pk_prize_user PRIMARY KEY (
+        prize_id, user_id
+    ),
+    CONSTRAINT fk_prize_user_prize FOREIGN KEY (prize_id) REFERENCES prize(prize_id),
+    CONSTRAINT fk_prize_user_reading_log FOREIGN KEY (user_id) REFERENCES family_member(user_id)
+
+);
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 

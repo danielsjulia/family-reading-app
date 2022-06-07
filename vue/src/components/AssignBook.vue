@@ -2,8 +2,15 @@
   <div>
     <!--v-if="this.$store.state.isParent === true"-->
     <form  class="assign-book" @submit.prevent="addBook()">
+    
+      <br>
       <label for="uname">Assign Book:</label>
-      <input class="text" type="text" v-model="userBook.username" value="username" /><br>
+      <select class="assign-book"  v-model="userBook.username" >
+          <!-- <option value="" disabled selection >user</option> -->
+        <option v-for="member in familyMembers" v-bind:key="member.id" >{{member.name}}</option>
+      </select>
+      <!-- <input class="text" type="text" v-model="userBook.username" value="username" /> -->
+      <br>
       <input class="submit" type="submit" value="submit" />
     </form>
   </div>
@@ -19,7 +26,9 @@ export default {
       userBook: {
         username: "",
         bookId: this.book.bookId,
+        
       },
+      familyMembers : []
     };
   },
   props: ['book'],
