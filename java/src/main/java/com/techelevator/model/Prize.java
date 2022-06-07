@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Prize {
 
-    private int prizeId;
+    private long prizeId;
     private String name;
     private String description;
     private Date start_date;
@@ -16,7 +16,7 @@ public class Prize {
     public Prize() {
     }
 
-    public Prize(int prizeId, String name, String description, Date start_date, Date end_date, int milestone, boolean isActive, int numberOfWinners) {
+    public Prize(long prizeId, String name, String description, Date start_date, Date end_date, int milestone, boolean isActive, int numberOfWinners) {
         this.prizeId = prizeId;
         this.name = name;
         this.description = description;
@@ -27,11 +27,11 @@ public class Prize {
         this.numberOfWinners = numberOfWinners;
     }
 
-    public int getPrizeId() {
+    public long getPrizeId() {
         return prizeId;
     }
 
-    public void setPrizeId(int prizeId) {
+    public void setPrizeId(long prizeId) {
         this.prizeId = prizeId;
     }
 
@@ -75,11 +75,11 @@ public class Prize {
         this.milestone = milestone;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
