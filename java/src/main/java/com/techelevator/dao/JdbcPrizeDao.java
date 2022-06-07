@@ -20,7 +20,7 @@ public class JdbcPrizeDao implements PrizeDao{
         Long prizeId ;
 
         String sql = "INSERT INTO family_member(prize_name, description,start_date," +
-                "end_date, milestone,isActive boolean,numberOfWinners) " +
+                "end_date, milestone,isActive ,numberOfWinners) " +
                 "VALUES(?, ?, ? , ?, ?, ?, ?) " +
                 "RETURNING prize_id ;";
 

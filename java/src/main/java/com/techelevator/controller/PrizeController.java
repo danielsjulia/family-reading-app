@@ -1,9 +1,9 @@
 package com.techelevator.controller;
 
-import com.techelevator.dao.FamilyDao;
-import com.techelevator.dao.PrizeDao;
-import com.techelevator.dao.UserDao;
+import com.techelevator.dao.*;
+import com.techelevator.model.Member;
 import com.techelevator.model.Prize;
+import com.techelevator.model.PrizeUser;
 import com.techelevator.model.ReadingLog;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,12 +24,32 @@ public class PrizeController {
     private PrizeDao prizeDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private MemberDao memberDao;
+
+    @Autowired
+    private PrizeUserDao prizeUserDao;
 
     @ApiOperation("adding a new Prize")
     @RequestMapping(path="/add-prize", method = RequestMethod.POST)
-    public Prize addPrize(@RequestBody @ApiParam("Prize object") Prize prize) {
+    public Prize addPrize(@RequestBody @ApiParam("Prize object") Prize prize,Principal principal) {
 
-        return prizeDao.addPrize(prize);
+        Prize newPrize = prizeDao.addPrize(prize);
+
+        int userId = userDao.findIdByUsername(principal.getName());
+        long familyId = familyDao.getFamilyIDByUserId((long)userId);
+        List<Member> members = memberDao.getMembers(familyId) ;
+
+        PrizeUser prizeUser = new PrizeUser();
+
+        for(Member member: members) {
+
+            prizeUser.setPrize_id((int)newPrize.getPrizeId());
+            prizeUser.setUser_id(member.getUserId().intValue());
+            prizeUserDao.addPrizeUser(prizeUser);
+        }
+
+        return newPrize;
     }
 
 

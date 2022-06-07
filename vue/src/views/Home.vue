@@ -10,7 +10,7 @@
     </div>
     
     <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link> 
-    <prize-display />
+    <prize-display v-bind:prizes="prizes" />
     <add-prize />
     <book-card v-for="book in allBooks" :key="book.bookId" />
     <br><br><br><br><br><br><br><br><br><br><br>
@@ -59,7 +59,7 @@ export default {
           showForm: false,
           // userBooks: [],
           allBooks: [],
-          prizes:[],
+          prizes: this.$store.state.allPrizes,
     }
   },
   // computed: {

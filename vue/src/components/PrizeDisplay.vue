@@ -38,13 +38,16 @@
 export default {
     name: "prizeDisplay",
     props: {
-        prize: Object
+        prize: Object, 
+        prizes: []
     },
     data() {
         return {
             
+            
         }
     },
+    
 }
 </script>
 

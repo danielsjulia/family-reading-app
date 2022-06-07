@@ -9,9 +9,10 @@
         <input class="boxes" type="number" placeholder="Milestone in minutes" v-model="prize.milestone" />
         <input class="boxes" type="number" placeholder="Number Of Winners" v-model="prize.numberOfWinners" />
         <div class="button-container">
-            <button>Add Prize</button>
-            <button>Cancel</button>
-         </div> 
+            <button >Add Prize</button>
+            <button >Cancel</button>
+        </div> 
+         <!-- type="cancel" value="cancel" type="submit" -->
 
     </form>
   </div>
@@ -41,8 +42,18 @@ export default {
             .then(response =>
             {
                 if(response.status == 200){
+                    this.$store.commit("Set_prize", response.data)
                     window.alert("Prize added")
+                    this.prize ={
+                        name:"",
+                        description: "",
+                        startDate: "",
+                        endDate: "",
+                        milestone: "",
+                        numberOfWinners: ""
+            }
                 }
+                
             })
         }
     }  
