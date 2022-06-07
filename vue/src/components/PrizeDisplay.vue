@@ -30,7 +30,7 @@
             <td>{{prize.milestone}}</td>
             <td>{{prize.numberOfWinners}}</td>
             <!--<td> <button @click="show=true" > <winners v-if="show" /> </button> </td> -->
-            <!-- <td v-for="winner in winners" v-bind:key="winner.id" > {{winners.username, }} </td> -->
+            <td v-for="winner in winners" v-bind:key="winner.id" > {{winners.username, }} </td>
 
         </tr>
       </table>
@@ -73,7 +73,7 @@ export default {
     //     }
     // },
     created() {
-            PrizeService.getWinners(this.prizes.prize.prizeId)
+            PrizeService.getWinners(1)
             .then(
                 response => {
                     console.log(response.data)
