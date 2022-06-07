@@ -88,10 +88,11 @@ export default {
     }
     
     ),
-    PrizeService.getPrizeByFamilyId()
+    PrizeService.getPrizesByFamilyId()
     .then(response =>
     {
-      this.$store.commit("SET_ALL_PRIZES", response.data)
+      this.$store.commit("SET_ALL_PRIZES", response.data);
+      this.$router.push('/');
     }),
 
     

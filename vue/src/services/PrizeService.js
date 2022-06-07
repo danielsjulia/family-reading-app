@@ -10,7 +10,7 @@ export default {
         return axios.get("/prize", id)
     },
 
-    getPrizeByFamilyId() {
+    getPrizesByFamilyId() {
         return axios.get("/family-prize")
     },
 

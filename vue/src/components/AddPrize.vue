@@ -53,7 +53,9 @@ export default {
                         milestone: "",
                         numberOfWinners: ""
             }
+            
                 }
+                this.$router.push('/');
                 
             })
         },

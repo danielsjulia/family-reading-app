@@ -43,6 +43,7 @@
 <script>
 // import NavBar from '@/components/NavBar.vue'
 import MemberService from "./services/MemberService"
+import PrizeService from "./services/PrizeService"
 
 export default {
   name: "app",
@@ -64,7 +65,15 @@ export default {
 
                 }
               }
-    )},
+    )
+      PrizeService.getPrizesByFamilyId()
+    .then(response =>
+    {
+      this.$store.commit("SET_ALL_PRIZES", response.data);
+      this.$router.push('/');
+    })
+    },
+    
   
 };
 </script>
