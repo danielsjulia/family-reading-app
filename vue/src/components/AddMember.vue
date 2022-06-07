@@ -101,7 +101,7 @@ export default {
 
 .addMemberForm {
  
-   background-image: url("../../images/header-image.jpg");
+   /* background-image: url("../../images/header-image.jpg"); */
    background-repeat: no-repeat;
    background-position: center;
    background-size: stretch;
@@ -127,7 +127,7 @@ export default {
 }
 
 .button {
-  background-color: #F3C5FF;
+  background-color: #dac508;
   border-radius: 50%;
   margin: 5px;
   padding: 15px;
@@ -140,7 +140,7 @@ export default {
 }
 
 .submitButton {
-  background-color: #F3C5FF;
+  background-color: #c5edff;
   margin: 5px;
   padding: 5px;
   font-size: 16px;

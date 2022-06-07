@@ -84,7 +84,7 @@ export default {
   margin: 20px;
   padding: 5px;
   text-align: center;
-  background-color: rgba(248, 222, 245, 0.603);
+  background-color: #7FFFD4;
   font-family: "Barlow Condensed", sans-serif;
 }
 
