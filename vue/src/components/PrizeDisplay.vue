@@ -39,7 +39,7 @@ export default {
     name: "prizeDisplay",
     props: {
         prize: Object, 
-        prizes: []
+        prizes:[]
     },
     data() {
         return {

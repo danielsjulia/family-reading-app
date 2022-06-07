@@ -26,10 +26,11 @@ export default {
     data() {
         return{
             prize :{
+                prizeId:"",
                 name:"",
                 description: "",
-                startDate: "",
-                endDate: "",
+                startDate: Date,
+                endDate: Date,
                 milestone: "",
                 numberOfWinners: ""
             }

@@ -8,6 +8,7 @@ import com.techelevator.model.ReadingLog;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -32,6 +33,7 @@ public class PrizeController {
 
     @ApiOperation("adding a new Prize")
     @RequestMapping(path="/add-prize", method = RequestMethod.POST)
+    @Transactional
     public Prize addPrize(@RequestBody @ApiParam("Prize object") Prize prize,Principal principal) {
 
         Prize newPrize = prizeDao.addPrize(prize);

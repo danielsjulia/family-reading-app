@@ -10,8 +10,9 @@
     </div>
     
     <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link> 
+    <add-prize v-if= "this.$store.state.isParent" />
     <prize-display v-bind:prizes="prizes" />
-    <add-prize />
+    
     <book-card v-for="book in allBooks" :key="book.bookId" />
     <br><br><br><br><br><br><br><br><br><br><br>
     <!-- // we can add all the family logs here... also store the family log in the store.  -->

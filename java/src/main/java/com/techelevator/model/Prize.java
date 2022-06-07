@@ -7,8 +7,8 @@ public class Prize {
     private long prizeId;
     private String name;
     private String description;
-    private Date start_date;
-    private Date end_date;
+    private Date startDate;
+    private Date endDate;
     private int milestone; //minutes
     private  boolean isActive;
     private int numberOfWinners;
@@ -16,12 +16,12 @@ public class Prize {
     public Prize() {
     }
 
-    public Prize(long prizeId, String name, String description, Date start_date, Date end_date, int milestone, boolean isActive, int numberOfWinners) {
+    public Prize(long prizeId, String name, String description, Date startDate, Date endDate, int milestone, boolean isActive, int numberOfWinners) {
         this.prizeId = prizeId;
         this.name = name;
         this.description = description;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.milestone = milestone;
         this.isActive = isActive;
         this.numberOfWinners = numberOfWinners;
@@ -51,20 +51,20 @@ public class Prize {
         this.description = description;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEnd_date() {
-        return end_date;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public int getMilestone() {
