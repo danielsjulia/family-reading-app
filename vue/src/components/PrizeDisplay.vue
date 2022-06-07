@@ -13,10 +13,11 @@
             <!-- <th>username</th> -->
             <th>Milestone</th>
             <th>Number Of Winners</th>
+            <th>Winners!</th>
 
         
         </tr>
-        <tr v-for= "prize in prizes" :key="prize.id" >
+        <tr v-bind:prize="prize" v-for= "prize in prizes" :key="prize.id" >
             <!-- <td>{{readingLog.readingLogId}}</td> -->
             <!-- <td>{{readingLog.userId}}</td> -->
             <!-- <td>{{readingLog.bookId}}</td> -->
@@ -28,7 +29,8 @@
             <!-- <td>{{readingLog.username}}</td> -->
             <td>{{prize.milestone}}</td>
             <td>{{prize.numberOfWinners}}</td>
-            <td> {{winners}} </td>
+            <!--<td> <button @click="show=true" > <winners v-if="show" /> </button> </td> -->
+            <!-- <td v-for="winner in winners" v-bind:key="winner.id" > {{winners.username, }} </td> -->
 
         </tr>
       </table>
@@ -42,37 +44,45 @@ import PrizeService from '../services/PrizeService.js';
 export default {
     name: "prizeDisplay",
     props: {
-        prize: Object, 
+        //prize: Object, 
         prizes:[]
     },
     data() {
         return {
-            winners: []
+            winners: [],
+            prize: {}
             
         }
     },
-    methods: {
-        prizeWinners(prizeId) {
+    // computed: {
+    //     winners(prize-Id) {
 
-            PrizeService.getWinners(prizeId)
+    //          return getWinners(prize-Id)
+    //     }
+
+    // },
+    // methods: {
+    //     getWinners(prizeId) {
+    //         PrizeService.getWinners(prizeId)
+    //         .then(
+    //             response => {
+    //                 console.log(response.data)
+    //                 this.winners = response.data
+    //             }
+    //         )
+    //     }
+    // },
+    created() {
+            PrizeService.getWinners(this.prizes.prize.prizeId)
             .then(
                 response => {
                     console.log(response.data)
                     this.winners = response.data
                 }
             )
-            // return null
+            
         }
-
     }
-    // created() {
-
-    //     PrizeService.getWinners(this.prizes.id) {
-
-    //     }
-    // }
-    
-}
 </script>
 
 <style>
