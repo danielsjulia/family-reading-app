@@ -16,9 +16,10 @@ public class JdbcPrizeUserDao implements PrizeUserDao{
 
     @Override
     public void addPrizeUser(PrizeUser prizeUser) {
+
         String sql = "Insert Into prize_user(prize_id, user_id, reachedGoal)" +
                 " Values (?,?,false) ;";
 
-        SqlRowSet rowset = jdbcTemplate.queryForRowSet(sql, prizeUser.getPrize_id(), prizeUser.getUser_id());
+        jdbcTemplate.update(sql, prizeUser.getPrize_id(), prizeUser.getUser_id());
     }
 }

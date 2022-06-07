@@ -1,6 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Book;
 import com.techelevator.model.Prize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,7 +18,7 @@ public class JdbcPrizeDao implements PrizeDao{
     public Prize addPrize(Prize prize) {
         Long prizeId ;
 
-        String sql = "INSERT INTO family_member(prize_name, description,start_date," +
+        String sql = "INSERT INTO prize(prize_name, description,start_date," +
                 "end_date, milestone,isActive ,numberOfWinners) " +
                 "VALUES(?, ?, ? , ?, ?, ?, ?) " +
                 "RETURNING prize_id ;";
@@ -28,8 +27,8 @@ public class JdbcPrizeDao implements PrizeDao{
                 , long.class
                 ,prize.getName()
                ,prize.getDescription()
-               ,prize.getStart_date()
-               ,prize.getEnd_date()
+               ,prize.getStartDate()
+               ,prize.getEndDate()
                ,prize.getMilestone()
                ,prize.getIsActive()
                ,prize.getNumberOfWinners());
@@ -67,8 +66,8 @@ public class JdbcPrizeDao implements PrizeDao{
     public Prize getPrizeByPrizeId(long prizeId) {
        Prize prize = new Prize();
 
-        String sql = "SELECT prize_name, description,start_date," +
-                " end_date, milestone,isActive boolean,numberOfWinners From Prize Where prize_id = ?;";
+        String sql = "SELECT prize_id, prize_name, description,start_date," +
+                " end_date, milestone,isActive, numberOfWinners From Prize Where prize_id = ?;";
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, prizeId);
 
@@ -87,8 +86,8 @@ public class JdbcPrizeDao implements PrizeDao{
         prize.setPrizeId(sqlRowSet.getLong("prize_id"));
         prize.setName(sqlRowSet.getString("prize_name"));
         prize.setDescription(sqlRowSet.getString("description"));
-        prize.setStart_date(sqlRowSet.getDate("start_date"));
-        prize.setEnd_date(sqlRowSet.getDate("end_date"));
+        prize.setStartDate(sqlRowSet.getDate("start_date"));
+        prize.setEndDate(sqlRowSet.getDate("end_date"));
         prize.setMilestone(sqlRowSet.getInt("milestone"));
         prize.setIsActive(sqlRowSet.getBoolean("isActive"));
         prize.setNumberOfWinners(sqlRowSet.getInt("numberOfWinners"));

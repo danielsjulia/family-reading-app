@@ -42,12 +42,30 @@
 
 <script>
 // import NavBar from '@/components/NavBar.vue'
+import MemberService from "./services/MemberService"
 
 export default {
   name: "app",
   component: {
     // NavBar
   },
+  created() {
+    MemberService.isParent().then(
+              response => {
+                console.log(response.data);
+                if (response.data.parent) {
+                  this.$router.push("/myFamily");
+                  this.$store.commit("SET_IS_PARENT", true);
+                  this.$store.commit("SET_CURRENT_MEMBER", response.data)
+                } else if (!response.data.parent) {
+                  this.$router.push("/myProfile");
+                  this.$store.commit("SET_IS_PARENT", false);
+                  this.$store.commit("SET_CURRENT_MEMBER", response.data)
+
+                }
+              }
+    )},
+  
 };
 </script>
 
