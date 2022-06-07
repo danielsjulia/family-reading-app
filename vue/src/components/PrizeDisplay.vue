@@ -28,6 +28,7 @@
             <!-- <td>{{readingLog.username}}</td> -->
             <td>{{prize.milestone}}</td>
             <td>{{prize.numberOfWinners}}</td>
+            <td> {{winners}} </td>
 
         </tr>
       </table>
@@ -35,6 +36,9 @@
 </template>
 
 <script>
+import PrizeService from '../services/PrizeService.js';
+
+
 export default {
     name: "prizeDisplay",
     props: {
@@ -43,10 +47,30 @@ export default {
     },
     data() {
         return {
-            
+            winners: []
             
         }
     },
+    methods: {
+        prizeWinners(prizeId) {
+
+            PrizeService.getWinners(prizeId)
+            .then(
+                response => {
+                    console.log(response.data)
+                    this.winners = response.data
+                }
+            )
+            // return null
+        }
+
+    }
+    // created() {
+
+    //     PrizeService.getWinners(this.prizes.id) {
+
+    //     }
+    // }
     
 }
 </script>

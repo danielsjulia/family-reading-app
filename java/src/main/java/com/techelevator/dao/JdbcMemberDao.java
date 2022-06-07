@@ -21,7 +21,12 @@ public class JdbcMemberDao implements MemberDao{
     UserDao userDao;
 
     @Override
-    public Member getMemberById(Long id) {
+    public Member getMemberById(Long userId) {
+        //incomplete sry
+        String sql = "SELECT u.user_id, u.username, fm.is_parent, f.family_id " +
+                "FROM family_member as fm " +
+                "JOIN users as u ON fm.user_id = u.user_id ";
+
         return null;
     }
 

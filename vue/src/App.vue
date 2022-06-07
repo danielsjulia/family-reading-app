@@ -70,9 +70,20 @@ export default {
     .then(response =>
     {
       this.$store.commit("SET_ALL_PRIZES", response.data);
-      this.$router.push('/');
+      //this.$router.push('/');
     })
+
+    const promise = MemberService.getUserBooks(this.member.userId)
+              promise.then(response => 
+                    {
+                      console.log(response.data);
+                    this.userBooks = response.data
+                    }
+        )
+
     },
+
+    
     
   
 };

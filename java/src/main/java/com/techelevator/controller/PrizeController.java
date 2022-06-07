@@ -34,7 +34,7 @@ public class PrizeController {
     @ApiOperation("adding a new Prize")
     @RequestMapping(path="/add-prize", method = RequestMethod.POST)
     @Transactional
-    public Prize addPrize(@RequestBody @ApiParam("Prize object") Prize prize,Principal principal) {
+    public Prize addPrize(@RequestBody @ApiParam("Prize object") Prize prize, Principal principal) {
 
         Prize newPrize = prizeDao.addPrize(prize);
 
@@ -45,7 +45,6 @@ public class PrizeController {
         PrizeUser prizeUser = new PrizeUser();
 
         for(Member member: members) {
-
             prizeUser.setPrize_id((int)newPrize.getPrizeId());
             prizeUser.setUser_id(member.getUserId().intValue());
             prizeUserDao.addPrizeUser(prizeUser);
@@ -63,6 +62,14 @@ public class PrizeController {
         int familyId = (int)familyDao.getFamilyIDByUserId((long)userId);
 
         return prizeDao.getListOfPrizes(familyId);
+    }
+
+    @RequestMapping(path="/{prizeId}/winners", method= RequestMethod.GET)
+    public List<Member> getWinners(@PathVariable int prizeId, Principal principal) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        int familyId = (int)familyDao.getFamilyIDByUserId((long)userId);
+
+        return prizeDao.getWinners(prizeId, familyId);
     }
 
 }

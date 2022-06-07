@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Member;
 import com.techelevator.model.Prize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -44,7 +45,7 @@ public class JdbcPrizeDao implements PrizeDao{
     public List<Prize> getListOfPrizes(long familyId) {
         List<Prize> prizes = new ArrayList<>();
 
-        String sql = "SELECT p.prize_id, p.prize_name, p.description, p.start_date," +
+        String sql = "SELECT DISTINCT p.prize_id, p.prize_name, p.description, p.start_date," +
                 " p.end_date, p.milestone,p.isActive ,p.numberOfWinners From Prize  as  p " +
                 "JOIN prize_user as pu ON p.prize_id = pu.prize_id "+
                 "JOIN family_member as fm ON pu.user_id = fm.user_id "+
@@ -78,6 +79,36 @@ public class JdbcPrizeDao implements PrizeDao{
 
         return prize;
     }
+
+    @Override
+    public List<Member> getWinners(int prizeId, int familyId) {
+        Prize prize = getPrizeByPrizeId(prizeId);
+        List<Member> winners = new ArrayList<>();
+
+        String sql = "SELECT reading_log.user_id, users.username, family_member.is_parent from reading_log " +
+                "JOIN user_book ON user_book.user_id = reading_log.user_id " +
+                "JOIN family_member ON user_book.user_id = family_member.user_id " +
+                "JOIN users ON family_member.user_id = users.user_id " +
+                "WHERE (family_member.family_id = ?) AND (reading_log.date BETWEEN ? AND ?) " +
+                "GROUP BY reading_log.user_id, users.username, family_member.is_parent HAVING SUM(minutes) >= ? " +
+                "LIMIT ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId, prize.getStartDate(),
+                prize.getEndDate(), prize.getMilestone(), prize.getNumberOfWinners());
+
+        while(results.next()) {
+            Member member = new Member();
+
+            member.setFamilyId((long)familyId);
+            member.setParent(results.getBoolean("is_parent"));
+            member.setUserId(results.getLong("user_id"));
+            member.setUsername(results.getString("username"));
+
+            winners.add(member);
+        }
+        return winners;
+    }
+
 
     private Prize rowToMapPrize(SqlRowSet sqlRowSet) {
 
