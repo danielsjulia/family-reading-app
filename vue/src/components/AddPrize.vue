@@ -9,8 +9,8 @@
         <input class="boxes" type="number" placeholder="Milestone in minutes" v-model="prize.milestone" />
         <input class="boxes" type="number" placeholder="Number Of Winners" v-model="prize.numberOfWinners" />
         <div class="button-container">
-            <button >Add Prize</button>
-            <button >Cancel</button>
+            <button type="submit">Add Prize</button>
+            <button type="reset" @click.prevent="clearPrize()">Cancel</button>
         </div> 
          <!-- type="cancel" value="cancel" type="submit" -->
 
@@ -55,6 +55,9 @@ export default {
                 }
                 
             })
+        },
+        clearPrize() {
+            this.prize = {};
         }
     }  
 }
