@@ -86,13 +86,15 @@ public class JdbcPrizeDao implements PrizeDao{
         Prize prize = getPrizeByPrizeId(prizeId);
         List<Member> winners = new ArrayList<>();
 
-        String sql = "SELECT reading_log.user_id, users.username, family_member.is_parent from reading_log " +
-                "JOIN user_book ON user_book.user_id = reading_log.user_id " +
-                "JOIN family_member ON user_book.user_id = family_member.user_id " +
-                "JOIN users ON family_member.user_id = users.user_id " +
-                "WHERE (family_member.family_id = ?) AND (reading_log.date BETWEEN ? AND ?) " +
-                "GROUP BY reading_log.user_id, users.username, family_member.is_parent HAVING SUM(minutes) >= ? " +
-                "LIMIT ?";
+        String sql = "SELECT reading_log.user_id, users.username, family_member.is_parent  from reading_log " +
+                "                JOIN user_book ON user_book.user_id = reading_log.user_id " +
+                "                JOIN family_member ON user_book.user_id = family_member.user_id " +
+                "                JOIN users ON family_member.user_id = users.user_id " +
+                "                WHERE (family_member.family_id = ?) AND (reading_log.date BETWEEN ? AND ?) " +
+                "                GROUP BY reading_log.user_id, users.username, reading_log.date, family_member.is_parent " +
+                "                HAVING SUM(minutes) >= ? " +
+                "                order by  SUM(minutes) DESC,  reading_log.date ASC " +
+                "                LIMIT ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId, prize.getStartDate(),
                 prize.getEndDate(), prize.getMilestone(), prize.getNumberOfWinners());
