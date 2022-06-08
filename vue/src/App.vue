@@ -97,6 +97,9 @@ export default {
 <style >
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 
+body {
+  background-color: #83d8da;
+}
 
 .header {
   font-family: 'Dosis', sans-serif;

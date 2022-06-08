@@ -36,14 +36,14 @@ export default {
 <style>
 
 .member {
-    /* background-color: #FFC75F; */
+    background-color: #83d8da;
     width: 100vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: center;
-    border-top: 10px solid whitesmoke;
+    /* border-top: 10px solid whitesmoke; */
     
 }
 .member .member-card
@@ -56,12 +56,12 @@ export default {
 
     flex-grow: 1;
     background: #008F7A;
-    border: 1px green solid;
+    border: 3px solid #45547A;
     border-radius: 60px;
     padding: 1rem;
     margin: 15px;
     text-align: center;
-    box-shadow: 10px 10px blue;
+    box-shadow: 10px 10px rgb(240, 100, 65);
     
 
 }

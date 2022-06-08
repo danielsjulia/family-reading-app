@@ -9,7 +9,7 @@
       <div id="name-container">
         
         <h2 id= "parent">{{member.parent ? "Parent" : "Child" }}</h2>
-        <h3 id="userId">UserId: {{thisMember.userId}}</h3>
+        <!-- <h3 id="userId">UserId: {{thisMember.userId}}</h3> -->
       <!-- <h3 id= "familyId">family_id: {{member.familyId }}</h3> -->
       </div>
       
@@ -43,12 +43,12 @@ export default {
     border-radius: 100px;
 }
 .parent {
-  background:palegreen !important;
+  background:#a271b4 !important;
 }
 .child {
-  background:peru !important;
+  background:palegreen !important;
 }
-h1 {
+.member-card h1 {
   text-align: center;
   display:block;
   align-self: center;

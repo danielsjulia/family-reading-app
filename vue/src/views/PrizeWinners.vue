@@ -92,12 +92,12 @@ export default {
     /* justify-content: space-evenly; */
     flex-grow: 1;
     background: #008F7A;
-    border: 1px green solid;
+    border: 3px solid #45547A;
     border-radius: 60px;
     padding: 1rem;
     margin: 15px;
     text-align: center;
-    box-shadow: 10px 10px blue;
+    box-shadow: 10px 10px rgb(240, 100, 65);
     width: 40vw;
     text-align: center;
     

@@ -1,9 +1,9 @@
 <template>
   <div class="familyPage" >
     <!-- <add-family /> -->
-      <h1>{{this.$store.state.family.familyName}}</h1>
+      <h1>Welcome to {{this.$store.state.family.familyName}}'s home page!</h1>
       <div class="addMemberForm"  >
-        <add-member />
+        <add-member v-show="this.$store.state.isParent" />
       </div>
       
       <members />
@@ -51,7 +51,13 @@ export default {
   font-family: 'Dosis', sans-serif;
 }
 
+.familyPage h1 {
+  text-align: center;
+}
+
 .addMemberForm {
+  width: 100vw;
+  justify-content: center;
   margin: 20px;
   text-align: center;
 }

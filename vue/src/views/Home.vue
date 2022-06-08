@@ -9,7 +9,7 @@
       <add-family />
     </div>
     
-    <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link> 
+    <!-- <router-link :to= "{name : 'family-page' }" ><strong>Go to Family Page</strong></router-link>  -->
     
     <add-prize v-if= "this.$store.state.isParent" />
 
@@ -148,6 +148,7 @@ export default {
 
 .home {
   background-color: #FFE7D5;
+  border-radius: 10px;
 }
 
 .home h1 {
