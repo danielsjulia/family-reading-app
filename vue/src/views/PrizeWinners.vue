@@ -15,6 +15,7 @@
 <script>
 import MemberCard from "../components/MemberCard.vue";
 import PrizeService from '../services/PrizeService.js';
+import cheering from '../../sounds/mixkit-classroom-spontaneous-applause-500.wav';
 
 export default {
   components: { MemberCard },
@@ -38,7 +39,10 @@ export default {
                     console.log(response.data)
                     this.winners = response.data
                 }
-            )
+            );
+
+            const cheeringSound = new Audio(cheering);
+            cheeringSound.play();
             
         }
 };
