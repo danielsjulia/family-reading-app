@@ -57,13 +57,13 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300');
 .new-book-form {
-    margin: 20px;
     background-color: lightsalmon;
     box-shadow: 1px 1px 5px 3px #c699d1;
     border-radius: 10px;
     border-width: 50%;
-    margin:0 30rem;
+    margin:0 20rem;
     font-family: 'Barlow Condensed', sans-serif;
+    padding-bottom: 10px;
     
      
 }
@@ -76,6 +76,7 @@ export default {
     
 }
 #title{
-    padding-top: 20px;
+    padding-top: 10px;
+    margin:0;
 }
 </style>
