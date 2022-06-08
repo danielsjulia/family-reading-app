@@ -4,6 +4,7 @@
         <prize-card class="prize-card" v-for="prize in prizes" 
         v-bind:key="prize.id" v-bind:prize="prize" 
         v-bind:winners="winners" />
+        <!-- <display-participants v-bind:prize= "prize" /> -->
       
 <!-- 
       <table class="prize-display">
@@ -41,6 +42,7 @@
 <script>
 import PrizeService from '../services/PrizeService.js';
 import PrizeCard from "../components/PrizeCard.vue"
+// import DisplayParticipants from "../components/DisplayParticipants.vue"
 
 
 export default {
@@ -50,7 +52,8 @@ export default {
         prizes:[]
     },
     components: {
-        PrizeCard
+        PrizeCard,
+        // DisplayParticipants
     },
     data() {
         return {
