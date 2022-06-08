@@ -37,6 +37,15 @@ export default {
 
 .winner-page {
   font-family: 'Dosis', sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-self: space-between;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+  /* align-content: center; */
+  border-top: 10px solid whitesmoke;
+
   height: 100vh;
   width: 100vw;
   background-image: url("../../images/confetti_white.gif");
