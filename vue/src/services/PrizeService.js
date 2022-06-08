@@ -16,6 +16,10 @@ export default {
 
     getWinners(prizeId) {
         return axios.get(`/${prizeId}/winners`)
+    },
+
+    getParticipants(prizeId){
+        return axios.get(`/${prizeId}/participants`)
     }
 
 }
