@@ -106,7 +106,7 @@ export default {
     /* flex-wrap: wrap; */
     /* justify-content: space-evenly; */
     align-content: center;
-    border-top: 10px solid whitesmoke;
+    /* border-top: 10px solid whitesmoke; */
     
 /* 
     border-collapse: collapse;
