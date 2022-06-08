@@ -1,13 +1,21 @@
 <template>
-  <div class="winner-page">
-    i am winners page</div>
+<div>
+  <member-card class="winner-page" v-for= "member in thisPrizeWinners" 
+  v-bind:key= "member.id" />
+    i am winners page 
+    </div>
 </template>
 
 <script>
+import MemberCard from '../components/MemberCard.vue'
 export default {
+  components: { MemberCard },
     name : "PrizeWinners",
     props: {
-      winners: []
+      thisPrizeWinners: []
+    },
+    component: {
+      MemberCard
     }
 
 }
@@ -18,6 +26,6 @@ export default {
 .winner-page {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../images/confetti.jpg") , url("../../images/confetti1.jpg");
+  background-image: url("../../images/confetti.gif") ;
 }
 </style>

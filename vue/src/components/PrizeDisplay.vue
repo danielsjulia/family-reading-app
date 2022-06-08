@@ -1,18 +1,15 @@
 <template>
   <div>
       <prize-card v-for="prize in prizes" v-bind:key="prize.id" v-bind:prize="prize" v-bind:winners="winners" />
-
+<!-- 
       <table class="prize-display">
         <tr id="header">
-            <!-- <th>ReadingLogId</th> -->
-            <!-- <th>UserId</th> -->
-            <!-- <th>BookId</th> -->
+   
             <th>Name</th>
             <th>Description</th>
             <th>Start Date</th>
             <th>End Date</th>
-            
-            <!-- <th>username</th> -->
+  
             <th>Milestone</th>
             <th>Number Of Winners</th>
             <th>Winners!</th>
@@ -20,22 +17,20 @@
         
         </tr>
         <tr v-bind:prize="prize" v-for= "prize in prizes" :key="prize.id" >
-            <!-- <td>{{readingLog.readingLogId}}</td> -->
-            <!-- <td>{{readingLog.userId}}</td> -->
-            <!-- <td>{{readingLog.bookId}}</td> -->
+          
             <td>{{prize.name}}</td>
             <td>{{prize.description}}</td>
             <td>{{prize.startDate}}</td>
             <td>{{prize.endDate}}</td>
             
-            <!-- <td>{{readingLog.username}}</td> -->
+         
             <td>{{prize.milestone}}</td>
             <td>{{prize.numberOfWinners}}</td>
-            <!--<td> <button @click="show=true" > <winners v-if="show" /> </button> </td> -->
+           
             <td v-for="winner in winners" v-bind:key="winner.id" > {{winners.username, }} </td>
 
         </tr>
-      </table>
+      </table> -->
   </div>
 </template>
 
