@@ -11,6 +11,7 @@ import ProfilePage from '../views/ProfilePage.vue'
 import AllBooks from '../views/AllBooks.vue'
 import BookPage from '../views/BookPage.vue'
 import AssignBook from '../components/AssignBook.vue'
+import PrizeWinners from "../views/PrizeWinners.vue"
 
 
 Vue.use(Router)
@@ -117,8 +118,17 @@ const router = new Router({
     name: "AssignBook",
     component: AssignBook,
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     }
+  },
+  {
+    path : "/winnerPage",
+    name: "PrizeWinners",
+    component: PrizeWinners,
+    meta: {
+      requiresAuth: true
+    },
+    props: true
   }
   ]
 })

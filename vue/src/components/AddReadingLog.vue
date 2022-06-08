@@ -3,6 +3,9 @@
       <!-- <button @click="showForm()">Add ReadingLog</button> -->
     <h2>Add to your reading log</h2>
 
+    <!-- <FONT onMouseOver="this.innerHTML = 'WebNots Web Consulting Services'"
+onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
+
     <h3>Select reading Time</h3>
     <form  @submit.prevent="addNewReadingLog()" class="log-form form-display" >
     <span id = "minSelect" class= "options">
@@ -16,15 +19,15 @@
       <h3>Select the Format of Book Reading</h3>
     </span>
     <span id = "format" class ="options">
-        <button value="Paper" @click.prevent="readingLog.format = 'Paper' ">
-          <div class="paper">
+        <button class="format paper" value="Paper" @click.prevent="readingLog.format = 'Paper' ">
+          <div class="Paper">
             <img src="../../images/bookFormatSimple.png" />
-          </div>Paper</button>
-        <button value= "Audio" @click.prevent="readingLog.format = 'Audio' "><div class="Audio"><img src="../../images/audioFormat.jpg" /></div>Audio</button>
-        <button value= "Digital" @click.prevent="readingLog.format = 'Digital' "><div class="Digital"><img src="../../images/digitalFormat.jpg" /></div>Digital</button>
-        <button value= "Reader" @click.prevent="readingLog.format = 'Reader'"><div class="Reader"><img src="../../images/readerIcon.jpg" /></div>Reader</button>
-        <button value= "Listener" @click.prevent="readingLog.format = 'Listener'"><div class="Listener"><img src="../../images/listening-story.jpg" /></div>Listener</button>
-        <button value= "Other" @click.prevent="readingLog.format = 'Other'"><div class="Other"><img src="../../images/kidsReading.jpg" /></div>Other</button>
+          </div></button>
+        <button class="format audio " value= "Audio" @click.prevent="readingLog.format = 'Audio' "><div class="Audio"><img src="../../images/audioFormat.jpg" /></div></button> 
+        <button class="format digital" value= "Digital" @click.prevent="readingLog.format = 'Digital' "><div class="Digital"><img src="../../images/digitalFormat.jpg" /></div></button> 
+        <button class="format reader" value= "Reader" @click.prevent="readingLog.format = 'Reader'"><div class="Reader"><img src="../../images/readerIcon.jpg" /></div></button> 
+        <button class="format listener" value= "Listener" @click.prevent="readingLog.format = 'Listener'"><div class="Listener"><img src="../../images/listening-story.jpg" /></div></button> 
+        <button class="format other" value= "Other" @click.prevent="readingLog.format = 'Other'"><div class="Other"><img src="../../images/kidsReading.jpg" /></div></button>
         <span>{{readingLog.format}}</span>
       <br>
       <br>
@@ -203,24 +206,65 @@ button {
   border-radius: 50%;
 }
 button:hover {
-  background: white;
-  font-size: 25px;
+  font-size: 20px;
+  transition: all 400ms;
+  
+}
+.time:hover::after {
+  font-size: 20px;
+  color:white;
 }
 
+.format:hover {
+  transition: all 800ms !important;
+
+  inline-size: 120px;
+  overflow-wrap: break-word !important;
+}
+
+
+.format:hover::after {
+  font-size: 20px;
+  color:white;
+
+}
+.audio:hover::after {
+content: "Audio Books";
+}
+.paper:hover::after {
+content: "Traditional Books";
+}
+
+.digital:hover::after {
+content: "Reading on computer or kindle";
+}
+
+.reader:hover::after {
+content: "Reading Aloud";
+}
+
+.listener:hover::after {
+content: "Someone read to you"  ;
+}
+
+.other:hover::after {
+content: "Any Other";
+}
 .button-container {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   
 }
 .button-container > button {
   background-color: white;
   border: 2px dotted black;
-  font-size: 20px;
+  font-size: 15px;
 }
 .button-container >button:hover {
-  background: white;
-  font-size: 30px;
+  background-color:turquoise;
+  font-size: 20px;
+  border-radius: 50%;
 }
 #minSelect {
   
@@ -240,10 +284,6 @@ button:hover {
 }
 
 .minTime15 {
-  width: 10vw;
-  height: 10vh;
-  border-radius: 50%;
-  background-color: green;
   background:repeating-conic-gradient(
     from 0deg,
     red 0deg 90deg,
@@ -251,10 +291,7 @@ button:hover {
   )
 }
 .minTime30 {
-  width: 10vw;
-  height: 10vh;
-  border-radius: 50%;
-  background-color: green;
+  
   background:repeating-conic-gradient(
     from 0deg,
     red 0deg 180deg,
@@ -262,10 +299,7 @@ button:hover {
   )
 }
 .minTime45 {
-  width: 10vw;
-  height: 10vh;
-  border-radius: 50%;
-  background-color: green;
+  
   background:repeating-conic-gradient(
     from 0deg,
     red 0deg 270deg,
@@ -273,15 +307,13 @@ button:hover {
   )
 }
 .minTime60 {
-  width: 10vw;
-  height: 10vh;
-  border-radius: 50%;
-  background-color: green;
+  
   background:repeating-conic-gradient(
     from 0deg,
     red 0deg 360deg
   )
 }
+
 
 .button-container button {
   margin: 5px;
@@ -293,6 +325,9 @@ button:hover {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  background-color: green;
+  
+  border-radius: 50%;
 }
 
 span>button>div>img {
@@ -301,11 +336,4 @@ span>button>div>img {
   border-radius: 50%;
 }
 
-/* .day {
-  background: transparent;
-  color: white;
-}
-.day::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
-} */
 </style>

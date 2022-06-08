@@ -36,6 +36,10 @@
         </ul>
       </div>
     </div>
+    <font size=4>
+
+
+</font>
     <router-view />
   </div>
 </template>

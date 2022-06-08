@@ -22,7 +22,8 @@
 export default {
     name: 'member-card',
     props: {
-      member: Object
+      member: Object,
+      winners: []
     },
     data() {
       return {

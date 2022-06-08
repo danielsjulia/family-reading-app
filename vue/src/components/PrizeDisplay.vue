@@ -1,5 +1,7 @@
 <template>
   <div>
+      <prize-card v-for="prize in prizes" v-bind:key="prize.id" v-bind:prize="prize" v-bind:winners="winners" />
+
       <table class="prize-display">
         <tr id="header">
             <!-- <th>ReadingLogId</th> -->
@@ -39,6 +41,7 @@
 
 <script>
 import PrizeService from '../services/PrizeService.js';
+import PrizeCard from "../components/PrizeCard.vue"
 
 
 export default {
@@ -46,6 +49,9 @@ export default {
     props: {
         //prize: Object, 
         prizes:[]
+    },
+    components: {
+        PrizeCard
     },
     data() {
         return {
@@ -100,6 +106,7 @@ export default {
     min-width: 400px;
     width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
 }
 
 .prize-display #header {
