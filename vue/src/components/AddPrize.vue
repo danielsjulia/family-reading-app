@@ -33,7 +33,8 @@ export default {
                 startDate: Date,
                 endDate: Date,
                 milestone: "",
-                numberOfWinners: ""
+                numberOfWinners: "",
+                isActive: ""
             }
         }
         
@@ -52,7 +53,8 @@ export default {
                         startDate: "",
                         endDate: "",
                         milestone: "",
-                        numberOfWinners: ""
+                        numberOfWinners: "",
+                        isActive: ""
             }
             
                 }

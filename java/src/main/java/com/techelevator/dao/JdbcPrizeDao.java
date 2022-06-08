@@ -9,6 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -19,6 +20,8 @@ public class JdbcPrizeDao implements PrizeDao{
     @Override
     public Prize addPrize(Prize prize) {
         Long prizeId ;
+
+        prize.setIsActive(true);
 
         String sql = "INSERT INTO prize(prize_name, description,start_date," +
                 "end_date, milestone,isActive ,numberOfWinners) " +
@@ -56,7 +59,13 @@ public class JdbcPrizeDao implements PrizeDao{
 
         while(rowSet.next()){
             Prize prize = new Prize();
+            Date currentDate = new Date();
             prize = rowToMapPrize((rowSet));
+            if ( prize.getEndDate().compareTo(currentDate) < 0) {
+                prize.setIsActive(false);
+                String inActiveSql = "UPDATE prize SET isActive = false WHERE prize_id = ?;";
+                jdbcTemplate.update(inActiveSql, prize.getPrizeId());
+            }
             prizes.add(prize);
         }
 
