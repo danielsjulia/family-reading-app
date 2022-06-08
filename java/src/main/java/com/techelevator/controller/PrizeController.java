@@ -1,10 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.*;
-import com.techelevator.model.Member;
-import com.techelevator.model.Prize;
-import com.techelevator.model.PrizeUser;
-import com.techelevator.model.ReadingLog;
+import com.techelevator.model.*;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +67,14 @@ public class PrizeController {
         int familyId = (int)familyDao.getFamilyIDByUserId((long)userId);
 
         return prizeDao.getWinners(prizeId, familyId);
+    }
+
+    @RequestMapping(path="/{prizeId}/participants", method= RequestMethod.GET)
+    public List<ReadingLogDTO> getParticipants(@PathVariable int prizeId, Principal principal) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        int familyId = (int)familyDao.getFamilyIDByUserId((long)userId);
+
+        return prizeDao.getPrizeParticipants(prizeId, familyId);
     }
 
 }
