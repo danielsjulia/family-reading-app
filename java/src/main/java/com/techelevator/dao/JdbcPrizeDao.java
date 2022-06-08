@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Member;
 import com.techelevator.model.Prize;
+import com.techelevator.model.ReadingLogDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -107,6 +108,33 @@ public class JdbcPrizeDao implements PrizeDao{
             winners.add(member);
         }
         return winners;
+    }
+
+    @Override
+    public List<ReadingLogDTO> getPrizeParticipants(int prizeId, int familyId) {
+        Prize prize = getPrizeByPrizeId(prizeId);
+        List<ReadingLogDTO> participants = new ArrayList<>();
+
+        String sql ="SELECT reading_log.user_id, users.username, family_member.is_parent, SUM(reading_log.minutes) AS total_minutes from reading_log " +
+                "                JOIN user_book ON user_book.user_id = reading_log.user_id " +
+                "                JOIN family_member ON user_book.user_id = family_member.user_id " +
+                "                JOIN users ON family_member.user_id = users.user_id " +
+                "                WHERE (family_member.family_id = ?) AND (reading_log.date BETWEEN ? AND ?) " +
+                "                GROUP BY reading_log.user_id, users.username, family_member.is_parent" +
+                "                ORDER BY total_minutes DESC";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId, prize.getStartDate(),
+                prize.getEndDate());
+
+        while(results.next()) {
+            ReadingLogDTO readingLogDTO = new ReadingLogDTO();
+
+            readingLogDTO.setUsername(results.getString("username"));
+            readingLogDTO.setMinutes((results.getInt("total_minutes")));
+
+            participants.add(readingLogDTO);
+        }
+        return participants;
     }
 
 
