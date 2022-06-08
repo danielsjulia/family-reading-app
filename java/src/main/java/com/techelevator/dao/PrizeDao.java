@@ -12,5 +12,5 @@ public interface PrizeDao {
    Prize getPrizeByPrizeId(long prizeId);
    List<Member> getWinners(int prizeId, int familyId);
    List<ReadingLogDTO> getPrizeParticipants(int prizeId, int familyId);
-   public void deleteInactivePrize(long prizeId);
+   public boolean deleteInactivePrize(long prizeId);
 }

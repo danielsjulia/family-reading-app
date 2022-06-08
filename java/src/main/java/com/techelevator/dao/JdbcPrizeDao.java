@@ -146,12 +146,12 @@ public class JdbcPrizeDao implements PrizeDao{
         return participants;
     }
 
-    public void deleteInactivePrize(long prizeId) {
+    public boolean deleteInactivePrize(long prizeId) {
         String sql = "BEGIN TRANSACTION; " +
                 "DELETE from prize_user WHERE prize_id = ?; " +
                 "DELETE from prize WHERE prize_id = ?; " +
                 "COMMIT TRANSACTION;";
-        jdbcTemplate.update(sql, prizeId, prizeId);
+        return jdbcTemplate.update(sql, prizeId, prizeId) == 0;
     }
 
     private Prize rowToMapPrize(SqlRowSet sqlRowSet) {

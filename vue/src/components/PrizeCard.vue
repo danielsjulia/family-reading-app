@@ -7,14 +7,16 @@
         <h4 class="num-of-winners">Only {{prize.numberOfWinners}} can win the prize</h4>
         <h1>Read {{prize.milestone}} minutes</h1>
     </router-link>
-    <display-participants v-bind:prize= "prize" />
+        <display-participants v-bind:prize= "prize" />
+        <button v-if="prize.isActive === false" @click.prevent="deletePrize(prize.prizeId)">Delete</button>
   </div>
 </template>
 
 <script>
+import PrizeService from "../services/PrizeService"
 import DisplayParticipants from './DisplayParticipants.vue'
 export default {
-  components: { DisplayParticipants },
+      components: { DisplayParticipants },
     name: "PrizeCard",
     props: {
         prize: Object,
@@ -24,6 +26,15 @@ export default {
         return {
             thisPrizeWinners : this.winners,
             thisPrize: this.prize
+        }
+    },
+    methods: {
+        deletePrize(id) {
+            PrizeService.deletePrize(id).then(response => {
+                if (response.status == 200) {
+                    this.$router.push('/');
+                }
+            })
         }
     }
 

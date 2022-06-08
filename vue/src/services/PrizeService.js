@@ -23,6 +23,6 @@ export default {
     },
 
     deletePrize(prizeId) {
-        return axios.get(`/deletePrize/${prizeId}`)
+        return axios.delete(`/deletePrize/${prizeId}`)
     }
 }
