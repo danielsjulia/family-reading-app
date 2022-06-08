@@ -7,11 +7,14 @@
         <h4 class="num-of-winners">Only {{prize.numberOfWinners}} can win the prize</h4>
         <h1>Read {{prize.milestone}} minutes</h1>
     </router-link>
+    <display-participants v-bind:prize= "prize" />
   </div>
 </template>
 
 <script>
+import DisplayParticipants from './DisplayParticipants.vue'
 export default {
+  components: { DisplayParticipants },
     name: "PrizeCard",
     props: {
         prize: Object,

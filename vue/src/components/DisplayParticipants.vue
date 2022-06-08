@@ -36,7 +36,7 @@ export default {
     };
   },
   created() {
-      PrizeService.getParticipants(1)
+      PrizeService.getParticipants(this.prize.prizeId)
       .then(
           response => {
            
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style>
+
 .participants {
   margin: 5% 30%;
   justify-content: center;
@@ -56,6 +57,7 @@ export default {
   width: 40vw;
   position: 500px;;
 }
+/* 
 .participants-table {
    border-collapse: collapse;
     border-radius: 10px;
@@ -80,6 +82,6 @@ export default {
 
 tr:nth-of-type(even) {
     background-color: #f3f3f3;;
-}
+} */
 
 </style>

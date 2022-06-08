@@ -15,7 +15,7 @@
 
     <prize-display v-bind:prizes="prizes" />
 
-    <display-participants />
+    <!-- <display-participants /> -->
     
     <book-card v-for="book in allBooks" :key="book.bookId" />
     <br><br><br><br><br><br><br><br><br><br><br>
@@ -45,7 +45,7 @@ import BookCard from '../components/BookCard.vue';
 import readingLog from '../services/readingLog'
 import AddPrize from '../components/AddPrize.vue';
 import PrizeDisplay from '../components/PrizeDisplay.vue';
-import DisplayParticipants from '../components/DisplayParticipants.vue';
+// import DisplayParticipants from '../components/DisplayParticipants.vue';
 
 export default {
   name: "home",
@@ -54,7 +54,7 @@ export default {
     BookCard,
     AddPrize,
     PrizeDisplay,
-    DisplayParticipants,
+    // DisplayParticipants,
     // AddMember
     // FamilyPage
     // SetupFamily,
