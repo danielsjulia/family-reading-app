@@ -1,7 +1,7 @@
 <template>
   <div class="prize-display">
       
-        <prize-card v-for="prize in prizes" 
+        <prize-card class="prize-card" v-for="prize in prizes" 
         v-bind:key="prize.id" v-bind:prize="prize" 
         v-bind:winners="winners" />
       
@@ -118,15 +118,17 @@ export default {
 }
 
 .prize-display .prize-card {
-    display: block;
+    display: inline-block;
     flex-grow: 1;
-    /* background: #008F7A; */
+    background: #449aeb;
     border: 1px green solid;
     border-radius: 60px;
     padding: 1rem;
     margin: 15px;
     text-align: center;
-    box-shadow: 10px 10px blue;
+    box-shadow: 10px 10px rgb(240, 100, 65);
+    width: 45vw;
+
 }
 /* 
 .prize-display #header {

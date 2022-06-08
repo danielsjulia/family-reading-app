@@ -1,8 +1,8 @@
 <template>
-  <div>
-    i am winners page
+  <div class="winner-page">
+    <h1>Winners for {{prize.name}}!</h1>
     <member-card
-      class="winner-page"
+      class="winner-card"
       v-bind:member="member"
       v-for="member in winners"
       v-bind:key="member.id"
@@ -32,9 +32,35 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+
 .winner-page {
+  font-family: 'Dosis', sans-serif;
   height: 100vh;
   width: 100vw;
-  background-image: url("../../images/confetti.gif") repeat-y 100% 100% fixed ;
+  background-image: url("../../images/confetti_white.gif");
+  /* repeat-y 100% 100% fixed ; */
+}
+
+.winner-card
+{
+    display: inline-block;
+    
+    /* flex-wrap:wrap;
+    justify-content: center;
+    align-items: center; */
+    align-items:center;
+    flex-grow: 1;
+    background: #008F7A;
+    border: 1px green solid;
+    border-radius: 60px;
+    padding: 1rem;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 10px 10px blue;
+    width: 45vw;
+    
+
 }
 </style>

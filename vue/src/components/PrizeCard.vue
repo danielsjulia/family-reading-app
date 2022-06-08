@@ -1,6 +1,6 @@
 <template>
   <div class="prize-card">
-    <router-link to="{ path = '/winnerPage'}" >  
+    <router-link :to="{name:'PrizeWinners', params:{prize, winners}}" >  
         <h1 class="prize-name">{{prize.name}}</h1>
         <h3 class="description">{{prize.description}}</h3>
         <h3 class="end-date">Win by {{prize.endDate}}</h3>
@@ -14,12 +14,13 @@
 export default {
     name: "PrizeCard",
     props: {
-        prize: {},
+        prize: Object,
         winners:[]
     },
     data() {
         return {
-            thisPrizeWinners : this.winners
+            thisPrizeWinners : this.winners,
+            thisPrize: this.prize
         }
     }
 
@@ -27,6 +28,9 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+
 .prize-card{ 
     width: 100%;
     height: 100%;
@@ -36,6 +40,7 @@ export default {
     justify-content: space-evenly;
     align-content: center; */
     border-top: 10px solid whitesmoke;
+    font-family: 'Dosis', sans-serif;
 }
 
 .prize-name {

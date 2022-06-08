@@ -8,29 +8,29 @@
         <h2>Family Reading Tracker</h2>
         <ul>
           <li>
-            <router-link v-bind:to="{ name: 'home' }">Home</router-link
-            >&nbsp;|&nbsp;
+            <router-link v-bind:to="{ name: 'home' }">Prizes</router-link
+            >&nbsp; | &nbsp;
           </li>
           <li>
             <router-link
               v-bind:to="{ name: 'all-books' }"
               v-if="$store.state.token != ''"
               >All Books</router-link
-            >&nbsp;|&nbsp;
+            >&nbsp; | &nbsp;
           </li>
           <li>
             <router-link
               v-bind:to="{ name: 'family-page' }"
               v-if="$store.state.token != ''"
               >Family Page</router-link
-            >&nbsp;|&nbsp;
+            >&nbsp; | &nbsp;
           </li>
           <li>
             <router-link
               v-bind:to="{ name: 'logout' }"
               v-if="$store.state.token != ''"
               >Logout</router-link
-            >&nbsp;|&nbsp;
+            >
           </li>
           <!-- <router-link v-bind:to="{ name: 'add-a-book' }" v-if="$store.state.token != ''">Add A Book</router-link>&nbsp;|&nbsp; -->
         </ul>
@@ -95,10 +95,16 @@ export default {
 
 
 <style >
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+
 .header {
+  font-family: 'Dosis', sans-serif;
   background-color: #83d8da;
-  border: 5px solid black;
+  /* border: 5px solid black; */
   padding: 0 1em;
+  border: 5px solid #45547A;
+  border-radius: 10px;
 }
 .nav {
   display: flex;
