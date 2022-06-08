@@ -20,6 +20,9 @@ export default {
 
     getParticipants(prizeId){
         return axios.get(`/${prizeId}/participants`)
-    }
+    },
 
+    deletePrize(prizeId) {
+        return axios.get(`/deletePrize/${prizeId}`)
+    }
 }
