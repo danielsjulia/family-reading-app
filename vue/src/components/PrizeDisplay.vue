@@ -1,6 +1,8 @@
 <template>
   <div>
-      <prize-card v-for="prize in prizes" v-bind:key="prize.id" v-bind:prize="prize" v-bind:winners="winners" />
+      <router-link :to="{name:'PrizeWinners', params:{prize, winners}}" > 
+        <prize-card v-for="prize in prizes" v-bind:key="prize.id" v-bind:prize="prize" v-bind:winners="winners" />
+      </router-link>
 <!-- 
       <table class="prize-display">
         <tr id="header">
@@ -51,7 +53,8 @@ export default {
     data() {
         return {
             winners: [],
-            prize: {}
+            prize: {},
+            //prizes:[]
             
         }
     },

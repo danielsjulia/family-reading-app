@@ -1,31 +1,63 @@
 <template>
-<div>
-  <member-card class="winner-page" v-for= "member in thisPrizeWinners" 
-  v-bind:key= "member.id" />
-    i am winners page 
-    </div>
+  <div>
+    i am winners page
+    <member-card
+      class="winner-page"
+      v-bind:member="member"
+      v-for="member in winners"
+      v-bind:key="member.id"
+    />
+  </div>
 </template>
 
 <script>
-import MemberCard from '../components/MemberCard.vue'
+import MemberCard from "../components/MemberCard.vue";
+
 export default {
   components: { MemberCard },
-    name : "PrizeWinners",
-    props: {
-      thisPrizeWinners: []
-    },
-    component: {
-      MemberCard
-    }
-
-}
+  name: "PrizeWinners",
+  props: {
+    prize: Object,
+    winners: Array,
+  },
+  component: {
+    MemberCard,
+  },
+  data() {
+    return {
+      //winners: []
+    };
+  },
+};
 </script>
 
 <style>
-
 .winner-page {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../images/confetti.gif") ;
+  background-size: cover;
+  background-image: url("../../images/confetti.gif");
+}
+
+
+.member-card
+{
+    display: block;
+    
+    /* flex-wrap:wrap;
+    justify-content: center;
+    align-items: center; */
+
+    flex-grow: 1;
+    background: #008F7A;
+    border: 1px green solid;
+    border-radius: 60px;
+    padding: 1rem;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 10px 10px blue;
+    width: 100vw;
+    
+
 }
 </style>
