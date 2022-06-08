@@ -1,6 +1,6 @@
 <template>
   <div class="prize-card">
-    <router-link to="{ path = '/winnerPage'}" >  
+    <router-link :to="{name:'PrizeWinners', params:{prize, winners}}" >  
         <h1 class="prize-name">{{prize.name}}</h1>
         <h3 class="description">{{prize.description}}</h3>
         <h3 class="end-date">Win by {{prize.endDate}}</h3>
@@ -14,7 +14,7 @@
 export default {
     name: "PrizeCard",
     props: {
-        prize: {},
+        prize: Object,
         winners:[]
     },
     data() {
