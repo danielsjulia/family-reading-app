@@ -99,14 +99,16 @@ export default {
 .prize-display {
     /* border: 3px solid black; */
     /* display:block; */
-    width: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     justify-self: space-between;
+    flex-wrap:wrap;
     /* flex-wrap: wrap; */
     /* justify-content: space-evenly; */
     align-content: center;
-    border-top: 10px solid whitesmoke;
+    /* border-top: 10px solid whitesmoke; */
     
 /* 
     border-collapse: collapse;
@@ -122,7 +124,7 @@ export default {
 
 .prize-display .prize-card {
     display: inline-block;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background: #449aeb;
     border: 1px green solid;
     border-radius: 60px;
@@ -130,7 +132,8 @@ export default {
     margin: 15px;
     text-align: center;
     box-shadow: 10px 10px rgb(240, 100, 65);
-    width: 45vw;
+    
+    width: 25%;
 
 }
 /* 

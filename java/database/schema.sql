@@ -115,17 +115,27 @@ VALUES('Chugga-Chugga Choo-Choo', 'Lewis, Kevin Kirk', '9780786804290');
 INSERT INTO book (title, author, isbn)
 VALUES('If Animals Kissed Good Night'  ,'Paul, Ann Whitford Walker' ,'9780374300210');
 INSERT INTO book (title, author, isbn)
-VALUES('If Animals Tried to Be Kind Paul',' Ann Whitford Walker', '9780374313425');
+VALUES('I Love You, Little Pookie' , 'Boynton, Sandra', '9781534437234');
 INSERT INTO book (title, author, isbn)
-VALUES('My Dad Is Amazing', 'Moyle, Sabrina', '9781419729614');
+VALUES('Mac And Cheese', 'Weeks, Sarah' , '9780061170812');
 INSERT INTO book (title, author, isbn)
-VALUES('I Love You to the Moon and Back', 'Warnes, Tim', '9781589255517');
+VALUES('Numbers, Shapes and Colors', 'Priddy, Roger', '9780312510817');
 INSERT INTO book (title, author, isbn)
-VALUES('I Love School!', 'Corderoy, Tracey', '9781680102307');
+VALUES('The Pout-Pout Fish' ,'Diesen, Deborah', '9780374360979');
 INSERT INTO book (title, author, isbn)
 VALUES('Its Only One!', 'Corderoy, Neal', '9781680102277');
 INSERT INTO book (title, author, isbn)
 VALUES('The Little Prince', 'Exupery, Antoine De', '9780156012195');
+INSERT INTO book (title, author, isbn)
+VALUES('Biscuit Goes To School', 'Capucilli, Alyssa Satin' ,'9780064436168');
+INSERT INTO book (title, author, isbn)
+VALUES('Big Red Barn', 'Brown, Margaret Wise' ,'9780694006243');
+INSERT INTO book (title, author, isbn)
+VALUES('Geography From A To Z' , 'Knowlton, Jack' , '9780064460996');
+INSERT INTO book (title, author, isbn)
+VALUES('Tractors and Things That Go' , 'Greening, Rosie' ,'9781783932528');
+INSERT INTO book (title, author, isbn)
+VALUES('Strike Three, Marley!' , 'Grogan, John' , '9780061853869');
 
 
 INSERT INTO user_book(user_id,book_id) VALUES (4,1);

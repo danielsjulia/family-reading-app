@@ -55,6 +55,7 @@ export default {
     align-content: center; */
     border-top: 10px solid whitesmoke;
     font-family: 'Dosis', sans-serif;
+    /* text-decoration: none; */
 }
 
 .prize-name {
