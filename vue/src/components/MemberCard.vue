@@ -5,7 +5,7 @@
     v-bind:class="{parent : thisMember.parent,  child: !thisMember.parent} "
   >
     <h1 id="username">{{thisMember.username}}</h1>
-    <img class="profile-img" src="../../images/girl-avatar-over10.png" />
+    <img class="profile-img" src="../../images/koala-laptop.webp" />
       <div id="name-container">
         
         <h2 id= "parent">{{member.parent ? "Parent" : "Child" }}</h2>

@@ -1,6 +1,6 @@
 <template>
-<div>
-  <member-card class="winner-page" v-for= "member in thisPrizeWinners" 
+<div class="winners-page">
+  <member-card class="member-card" v-for= "member in thisPrizeWinners" 
   v-bind:key= "member.id" />
     i am winners page 
     </div>
@@ -26,6 +26,6 @@ export default {
 .winner-page {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../images/confetti.gif") ;
+  background-image: url("../../images/confetti.gif") repeat-y 100% 100% fixed ;
 }
 </style>
