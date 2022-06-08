@@ -36,7 +36,7 @@ CREATE TABLE family_member (
 CREATE TABLE book (
     book_id serial NOT NULL,
     title varchar(50) NOT NULL,
-    author varchar(50) NOT NULL,
+    author varchar(100) NOT NULL,
     isbn varchar(50),
     CONSTRAINT PK_book PRIMARY KEY (book_id)
 );
@@ -92,16 +92,24 @@ CREATE TABLE prize_user (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO family(family_name) VALUES('Test-Fam');
+INSERT INTO users (username,password_hash,role) VALUES ('Parent','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Sam','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Lakshmi','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Cymanthia','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Julia','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
-INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(1,1,true);
+INSERT INTO family(family_name) VALUES('My Family');
 
-
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(3,1,true);
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(4,1,true);
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(5,1,false);
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(6,1,false);
+INSERT INTO family_member(user_id,family_id,is_Parent) VALUES(7,1,false);
 
 INSERT INTO book (title, author, isbn)
 VALUES('Curious George My Favorite Things', 'Rey, H. A.', '9780547428932');
 INSERT INTO book (title, author, isbn)
-VALUES('Dino Duckling,  Murray', 'Alison', '9780316513159');
+VALUES('Dino Duckling',  'Murray, Alison', '9780316513159');
 INSERT INTO book (title, author, isbn)
 VALUES('Chugga-Chugga Choo-Choo', 'Lewis, Kevin Kirk', '9780786804290');
 INSERT INTO book (title, author, isbn)
@@ -109,14 +117,85 @@ VALUES('If Animals Kissed Good Night'  ,'Paul, Ann Whitford Walker' ,'9780374300
 INSERT INTO book (title, author, isbn)
 VALUES('If Animals Tried to Be Kind Paul',' Ann Whitford Walker', '9780374313425');
 INSERT INTO book (title, author, isbn)
-VALUES ('Kafka by the Shore','Haruki Murakami','9781400079278');
+VALUES('My Dad Is Amazing', 'Moyle, Sabrina', '9781419729614');
 INSERT INTO book (title, author, isbn)
-VALUES ('The Old Man and the Sea','Ernest Hemingway','9780684830490');
+VALUES('I Love You to the Moon and Back', 'Warnes, Tim', '9781589255517');
+INSERT INTO book (title, author, isbn)
+VALUES('I Love School!', 'Corderoy, Tracey', '9781680102307');
+INSERT INTO book (title, author, isbn)
+VALUES('Its Only One!', 'Corderoy, Neal', '9781680102277');
+INSERT INTO book (title, author, isbn)
+VALUES('The Little Prince', 'Exupery, Antoine De', '9780156012195');
 
-INSERT INTO user_book(user_id,book_id) VALUES (1,1);
 
+INSERT INTO user_book(user_id,book_id) VALUES (4,1);
+INSERT INTO user_book(user_id,book_id) VALUES (5,1);
+INSERT INTO user_book(user_id,book_id) VALUES (5,2);
+INSERT INTO user_book(user_id,book_id) VALUES (6,2);
+INSERT INTO user_book(user_id,book_id) VALUES (6,4);
+INSERT INTO user_book(user_id,book_id) VALUES (7,3);
+INSERT INTO user_book(user_id,book_id) VALUES (7,5);
+
+-- sam's logs
 INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
-VALUES(1,1,30,'Paper','6-4-22',1,30,'listening');
+VALUES(1,4,30,'Paper','6-4-22',1,30,'listening');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(1,4,45,'Paper','6-9-22',1,30,'listening');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(1,4,30,'Paper','6-16-22',1,30,'listening');
+
+-- Lakshmi's logs
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(1,5,15,'Paper','6-4-22',1,30,'my first log!');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(2,5,30,'Paper','6-7-22',1,30,'listening');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(2,5,60,'Paper','6-15-22',1,30,'lots of reading');
+
+-- Cymanthia's logs
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(2,6,45,'Paper','6-9-22',1,30,'a good book');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(4,6,15,'Paper','6-2-22',1,30,'a little more reading today');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(4,6,30,'Paper','6-17-22',1,30,'another log');
+
+-- Julia's logs
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(3,7,30,'Paper','6-8-22',1,30,'listening');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(5,7,30,'Paper','6-3-22',1,30,'listening');
+INSERT INTO reading_log(book_id, user_id, minutes,format, date, starting_page, end_page, notes)
+VALUES(5,7,60,'Paper','6-14-22',1,30,'a little more reading today');
+
+-- prizes
+INSERT INTO prize (prize_name, description, start_date, end_date, milestone, isActive, numberOfWinners)
+VALUES ('My First Prize', 'the very first prize', '2022-06-05', '2022-06-11', 30, true, 2);
+INSERT INTO prize (prize_name, description, start_date, end_date, milestone, isActive, numberOfWinners)
+VALUES ('My Second Prize', 'the second prize', '2022-06-12', '2022-06-18', 45, true, 2);
+
+-- prize_user
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (1, 3, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (1, 4, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (1, 5, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (1, 6, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (1, 7, false);
+
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (2, 3, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (2, 4, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (2, 5, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (2, 6, false);
+INSERT INTO prize_user (prize_id, user_id, reachedGoal)
+VALUES (2, 7, false);
 
 
 COMMIT TRANSACTION;
