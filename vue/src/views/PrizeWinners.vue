@@ -35,29 +35,6 @@ export default {
 .winner-page {
   height: 100vh;
   width: 100vw;
-  background-size: cover;
-  background-image: url("../../images/confetti.gif");
-}
-
-
-.member-card
-{
-    display: block;
-    
-    /* flex-wrap:wrap;
-    justify-content: center;
-    align-items: center; */
-
-    flex-grow: 1;
-    background: #008F7A;
-    border: 1px green solid;
-    border-radius: 60px;
-    padding: 1rem;
-    margin: 15px;
-    text-align: center;
-    box-shadow: 10px 10px blue;
-    width: 100vw;
-    
-
+  background-image: url("../../images/confetti.gif") repeat-y 100% 100% fixed ;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
-  <div>
-      <router-link :to="{name:'PrizeWinners', params:{prize, winners}}" > 
-        <prize-card v-for="prize in prizes" v-bind:key="prize.id" v-bind:prize="prize" v-bind:winners="winners" />
-      </router-link>
+  <div class="prize-display">
+      
+        <prize-card v-for="prize in prizes" 
+        v-bind:key="prize.id" v-bind:prize="prize" 
+        v-bind:winners="winners" />
+      
 <!-- 
       <table class="prize-display">
         <tr id="header">
@@ -94,8 +96,16 @@ export default {
 .prize-display {
     /* border: 3px solid black; */
     /* display:block; */
+    width: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-self: space-between;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-evenly; */
+    align-content: center;
+    border-top: 10px solid whitesmoke;
     
-
+/* 
     border-collapse: collapse;
     border-radius: 10px;
     margin: 25px 0;
@@ -104,9 +114,21 @@ export default {
     min-width: 400px;
     width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    
+     */
 }
 
+.prize-display .prize-card {
+    display: block;
+    flex-grow: 1;
+    /* background: #008F7A; */
+    border: 1px green solid;
+    border-radius: 60px;
+    padding: 1rem;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 10px 10px blue;
+}
+/* 
 .prize-display #header {
     background-color: teal;
     color: #ffffff;
@@ -128,6 +150,6 @@ export default {
 
 .prize-display {
     border-bottom: 2px solid teal;
-}
+} */
 
 </style>
