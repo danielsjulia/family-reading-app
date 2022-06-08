@@ -14,6 +14,8 @@
     <add-prize v-if= "this.$store.state.isParent" />
 
     <prize-display v-bind:prizes="prizes" />
+
+    <display-participants />
     
     <book-card v-for="book in allBooks" :key="book.bookId" />
     <br><br><br><br><br><br><br><br><br><br><br>
@@ -23,7 +25,8 @@
     <!-- <setup-family />
     <log-book /> -->
   
-
+  
+  
   </div>
 </template>
 
@@ -42,6 +45,7 @@ import BookCard from '../components/BookCard.vue';
 import readingLog from '../services/readingLog'
 import AddPrize from '../components/AddPrize.vue';
 import PrizeDisplay from '../components/PrizeDisplay.vue';
+import DisplayParticipants from '../components/DisplayParticipants.vue';
 
 export default {
   name: "home",
@@ -50,6 +54,7 @@ export default {
     BookCard,
     AddPrize,
     PrizeDisplay,
+    DisplayParticipants,
     // AddMember
     // FamilyPage
     // SetupFamily,
