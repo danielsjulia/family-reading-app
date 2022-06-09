@@ -41,7 +41,7 @@ export default {
     addBook() {
       userBookService.addBookToUser(this.userBook).then((response) => {
         if (response.status === 201) {
-          this.$router.push("/");
+          this.$router.push("/MyFamily");
           this.userBook.username = "";
         } else {
           alert("Check if username matches or error occurred");

@@ -74,9 +74,9 @@ export default {
                         numberOfWinners: "",
                         isActive: ""
             }
-            
+            this.$router.push('/');
                 }
-                this.$router.push('/');
+                
                 
             })
         },

@@ -9,7 +9,7 @@
     >
       <div class="addName">
         <label for="userName">Username: </label>
-        <input type="text" placeholder="userName" v-model="member.username" />
+        <input type="text" placeholder="username" v-model="member.username" />
       </div>
       <div class="password">
         <label for="password">Password: </label>
@@ -20,7 +20,7 @@
         />
       </div>
       <div class="confirm">
-        <label for="confirmPassword">Confirm Password: </label>
+        <label for="confirm password">Confirm Password: </label>
         <input
           type="password"
           placeholder="confirmPassword"
