@@ -82,8 +82,8 @@ export default {
               MemberService.isParent().then(
               response => {
                 console.log(response.data);
-                if (response.data.parent) {
-                  this.$router.push("/myFamily");
+                if (response.data.parent == true) {
+                  this.$router.push("/MyFamily");
                   this.$store.commit("SET_IS_PARENT", true);
                   this.$store.commit("SET_CURRENT_MEMBER", response.data)
                 } else if (!response.data.parent) {
