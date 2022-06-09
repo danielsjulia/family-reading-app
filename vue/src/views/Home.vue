@@ -147,7 +147,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 
 .home {
-  background-color: #FFE7D5;
+  background-color: #B1EEEE;
   border-radius: 10px;
 }
 
@@ -157,17 +157,20 @@ export default {
 }
 
 #home-header h1 {
-  text-shadow: 2px 2px #45547A;
-  color: #FFE7D5;
+  text-shadow: 2px 2px #FFE7D5;
+  color: #6328C3;
 }
 
 #home-header {
   display: flex;
   justify-content: space-evenly;
-  background-color: #EC5C67;
-  border: 5px solid #45547A;
-  border-radius: 10px;
+  align-items: center;
+  /* background-color: #EC5C67; */
+  /* border-bottom: 5px solid #6328C3; */
+  /* border-radius: 10px; */
   margin-top: 1vh;
+  /* width: 80%; */
+  text-align: center;
 }
 
 #familyFormContainer {

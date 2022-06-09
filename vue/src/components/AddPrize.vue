@@ -28,8 +28,8 @@
         </div>
         <br>
         <div class="button-container">
-            <button type="submit">Add Prize</button>
-            <button type="reset" @click.prevent="clearPrize()">Cancel</button>
+            <button id="btn1" type="submit">Add Prize</button>
+            <button id="btn2" type="reset" @click.prevent="clearPrize()">Cancel</button>
         </div> 
          <!-- type="cancel" value="cancel" type="submit" -->
 
@@ -92,16 +92,16 @@ export default {
 
 #div h2 {
     text-align: center;
-    text-shadow: 2px 2px #45547A;
-    color: #FFE7D5;
+    text-shadow: 2px 2px #e7737d;
+    color: lightgoldenrodyellow;
 }
 
 #div {
-    background-color: #EC5C67;;
+    background-color: #a271b4;
     padding: 10px;
-    border: 3px solid #45547A;
+    border: 3px solid #3e2c4b;
     border-radius: 10px;
-    box-shadow: 5px 5px #B1EEEE;
+    box-shadow: 5px 5px #FF8F65;
     font-family: 'Dosis', sans-serif;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -133,6 +133,10 @@ export default {
     box-shadow: 2px 2px #B1EEEE;
 }
 
+.input-container label {
+    color:lightgoldenrodyellow;
+}
+
 .button-container {
     display: block;
     justify-content: flex-end;
@@ -140,8 +144,9 @@ export default {
     align-items: flex-end;
 }
 
-.button-container button {
-    height: 40px;
+.button-container #btn1, #btn2 {
+    height: 50px;
+    font-size: 15px;
 }
 
 </style>

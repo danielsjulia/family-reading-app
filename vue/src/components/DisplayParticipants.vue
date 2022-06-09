@@ -66,7 +66,7 @@ export default {
 
 .participants h3 {
   text-shadow: 2px 2px #FFE7D5;
-  color: #EC5C67;
+  color: #6328C3;
 }
 
 .participants-table {

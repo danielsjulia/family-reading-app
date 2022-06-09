@@ -47,7 +47,7 @@ export default {
 
 
 .familyPage {
-  background-color: #FFE7D5;
+  background-color: #B1EEEE;
   border-radius: 10px;
   font-family: 'Dosis', sans-serif;
   
@@ -56,6 +56,7 @@ export default {
 .familyPage h1 {
   text-align: center;
   padding-top: 5vh;
+  /* color: #6328C3; */
 }
 
 .addMemberForm {

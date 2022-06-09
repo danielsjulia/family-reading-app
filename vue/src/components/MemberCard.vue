@@ -44,9 +44,11 @@ export default {
 }
 .parent {
   background:#a271b4 !important;
+  box-shadow: 10px 10px #FF8F65;
 }
 .child {
-  background:palegreen !important;
+  background:#FF8F65 !important;
+  box-shadow: 10px 10px #a271b4;
 }
 .member-card h1 {
   text-align: center;

@@ -107,7 +107,7 @@ export default {
    background-size: stretch;
   justify-content: center;
   align-content: center;
-  background-color: #FFE7D5;
+  background-color: #B1EEEE;
   /* width: 100%; */
 }
 
@@ -129,7 +129,7 @@ export default {
 }
 
 .button {
-  background-color: #dac508;
+  background-color: #ECC13F;
   border-radius: 50%;
   margin: 5px;
   padding: 15px;
