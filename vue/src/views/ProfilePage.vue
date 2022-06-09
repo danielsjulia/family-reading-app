@@ -29,9 +29,9 @@
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
-    <router-link class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in userBooks" v-bind:key="book.id">
+    <div class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in userBooks" v-bind:key="book.id">
       <book-card   v-bind:book = "book" v-bind:member ="thisMember" />
-    </router-link>
+    </div>
     </div>
     
      <!-- profile page-- need to setup so it takes Id and populates the profile 
