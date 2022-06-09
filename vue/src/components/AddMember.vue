@@ -1,6 +1,6 @@
 <template>
   <div class="addMemberForm" >
-    <button class= "button" type="button" @click="showForm()">Add Family Member</button>
+    <button class= "memberButton" type="button" @click="showForm()">Add Family Member</button>
 
     <form
       class="grid-box"
@@ -37,9 +37,9 @@
         />
       </div>
       <!-- <input type="checkbox" placeholder="isParent" v-model="member.isParent" /> -->
-      <div class="buttons">
-        <input class="button"  type="submit" value="submit" />
-        <input class="button" @click="cancel()" type="button" value="cancel" />
+      <div >
+        <input class="memberButton"  type="submit" value="submit" />
+        <input class="memberButton" @click="cancel()" type="button" value="cancel" />
       </div>
     </form>
   </div>
@@ -128,26 +128,26 @@ export default {
 
 }
 
-.button {
-  background-color: #dac508;
-  border-radius: 50%;
+.memberButton {
+  background-color:#FF8F65;
+  border-radius: 35%;
   margin: 5px;
   padding: 15px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.memberButton:hover {
   font-size: 16px;
-  font-weight: 800;
+  border: 2px solid black;
 }
 
-.button:hover {
-  box-shadow: 1px 1px 5px 3px #c699d1;
-}
-
-.submitButton {
-  background-color: #c5edff;
+/* .submitButton {
   margin: 5px;
   padding: 5px;
   font-size: 16px;
   font-weight: 800;
-}
+} */
 
 input[type=text] {
   padding: 5px;

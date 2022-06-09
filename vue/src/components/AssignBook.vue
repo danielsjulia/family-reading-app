@@ -40,8 +40,8 @@ export default {
     // add to user_book with (book_id, user_id) in user_book table on the database..
     addBook() {
       userBookService.addBookToUser(this.userBook).then((response) => {
-        if (response.status == 201) {
-          // this.$router.push("/allBooks");
+        if (response.status === 201) {
+          this.$router.push("/");
           this.userBook.username = "";
         } else {
           alert("Check if username matches or error occurred");
