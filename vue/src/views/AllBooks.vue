@@ -51,6 +51,9 @@ export default {
   text-align: center;
 
 }
+.book-container{
+  background-color:  #aeeaea;
+}
 
 .book-card{
   display: flex;
