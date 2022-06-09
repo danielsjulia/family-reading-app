@@ -1,6 +1,6 @@
 <template>
   <div class="card" v-bind:class="{ read: book.read }">
-    <router-link to="/bookDetail">
+    
       <h2 class="book-title">{{ book.title }}</h2>
       <img
         id="img"
@@ -10,8 +10,7 @@
         "
       />
       <h3 class="book-author">{{ book.author }}</h3>
-    </router-link>
-
+    
     <!-- <div id="assign-book" >
       <label for="uname">Assign Book:</label>
       <input
