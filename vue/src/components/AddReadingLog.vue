@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
       <!-- <button @click="showForm()">Add ReadingLog</button> -->
-    <h2 class="head1">Add to your reading log</h2>
+    <h2 class="read-head">Add to your reading log</h2>
 
     <!-- <FONT onMouseOver="this.innerHTML = 'WebNots Web Consulting Services'"
 onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
@@ -51,7 +51,7 @@ onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
     <span><input class="boxes" type="number" placeholder="StartingPage" v-model="readingLog.startingPage" /></span>
     <span><input class="boxes" type="number" placeholder="EndingPage" v-model="readingLog.endPage" /></span>
     <span><input class="boxes" type="text" placeholder="Notes" v-model="readingLog.notes" /></span>
-    <div class="button-container">
+    <div class="button-container-1">
         <button>NewReadingLog</button>
         <button>Cancel</button>
     </div> 
@@ -163,6 +163,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
 .form-container {
   background-color: rgb(240, 201, 102);
   /* padding: 10px; */
@@ -174,7 +176,7 @@ export default {
   align-items:center;
   font-size: 20px;
 }
-.form-container  * {
+.form-container * {
   /* margin-bottom: 10px; */
   margin:0;
 
@@ -190,8 +192,8 @@ export default {
   
 } */
 
-.head1{
-  padding:10px
+.read-head{
+  margin-bottom: 10px;
 }
 .boxes {
   height: 30px;
@@ -252,16 +254,20 @@ content: "Any Other";
   justify-content: space-around;
   
 }
-.button-container > button {
+.button-container-1 > button {
 
   background-color: white;
   border: 2px dotted black;
-  font-size:20px;
+  padding :5px 10px;
+  font-size:15px;
+  box-shadow: 2px 2px teal;
+  font-family: 'Dosis', sans-serif;
 }
-.button-container >button:hover {
-  /* background-color:turquoise; */
+.button-container-1 >button:hover {
+  /* background-color:turquoise;
   font-size: 20px;
-  /* border-radius: 50%; */
+  border-radius: 50%; */
+   box-shadow: 1px 1px 5px 3px yellow;
 }
 #minSelect {
   
@@ -312,8 +318,9 @@ content: "Any Other";
 }
 
 
-.button-container button {
-  margin: 5px;
+.button-container-1 button {
+  margin: 20px;
+  margin-top:25px;
   border-radius: 5px;
   border: none;
 }
