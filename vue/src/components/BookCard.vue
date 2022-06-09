@@ -83,6 +83,7 @@ export default {
   height: 260px;
   margin: 20px;
   padding: 5px;
+  padding-bottom: 10px;
   text-align: center;
   background-color: #7FFFD4;
   font-family: "Barlow Condensed", sans-serif;

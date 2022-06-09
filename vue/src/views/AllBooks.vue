@@ -49,7 +49,15 @@ export default {
 .head{
   font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
+}
 
+.head h1 {
+  padding-top: 10px;
+}
+
+.book-container {
+  background-color: #FFE7D5;
+  border-radius: 10px;
 }
 
 .book-card{

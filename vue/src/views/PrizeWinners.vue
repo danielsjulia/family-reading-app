@@ -42,6 +42,7 @@ export default {
             );
 
             const cheeringSound = new Audio(cheering);
+            cheeringSound.volume = 0.15;
             cheeringSound.play();
             
         }

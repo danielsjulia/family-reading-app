@@ -2,12 +2,29 @@
   <div class="prize-card">
     <router-link :to="{name:'PrizeWinners', params:{prize, winners}}" >  
         <h1 class="prize-name">{{prize.name}}</h1>
-        <h3 class="description">{{prize.description}}</h3>
-        <h3 class="end-date">Win by {{prize.endDate}}</h3>
-        <h4 class="num-of-winners">Only {{prize.numberOfWinners}} can win the prize</h4>
-        <h1>Read {{prize.milestone}} minutes</h1>
+        <h4 class="description">{{prize.description}}</h4>
+        <table>
+            <tr>
+                <td><h2>GOAL:</h2></td>
+                <td><p>Read {{prize.milestone}} minutes </p></td>
+            </tr>
+            <tr>
+                <td> <h2>WHEN:</h2> </td>
+                <td> <p>Between {{prize.startDate}} and {{prize.endDate}}</p> </td>
+            </tr>
+            <tr>
+                <td> <h2>WINNERS:</h2></td>
+                <td><p>Only {{prize.numberOfWinners}} member{{prize.numberOfWinners === 1 ? '' : 's'}} can win the prize</p> </td>
+            </tr>
+        </table>
+        <!-- <h3 class="end-date">from {{prize.startDate}} to {{prize.endDate}}</h3> -->
+        <!-- <h4 class="num-of-winners">Only {{prize.numberOfWinners}} can win the prize</h4> -->
     </router-link>
-        <display-participants v-bind:prize= "prize" />
+
+        <div id="participants-container">
+            <display-participants id="participants" v-bind:prize= "prize" />
+        </div>
+        
         <div v-if="this.$store.state.isParent == true">
         <button v-if="prize.isActive === false" @click.prevent="deletePrize(prize.prizeId)">Delete</button>
         <button @click.prevent="showUpdateForm=true">Edit</button>
@@ -83,6 +100,7 @@ export default {
 
 
 .prize-card{ 
+    /* text-decoration: none; */
     width: 100%;
     height: 100%;
     /* display: inline-flex;
@@ -95,8 +113,24 @@ export default {
     /* text-decoration: none; */
 }
 
+.prize-card a {
+    text-decoration: none;
+}
+
 .prize-name {
     text-transform: uppercase;
+}
+
+.prize-card table {
+    text-align: left;
+}
+
+.prize-card table tr td p {
+    padding-left: 10px;
+}
+
+#participants {
+    width: 80%;
 }
 
 </style>

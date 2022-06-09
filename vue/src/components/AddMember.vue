@@ -107,8 +107,8 @@ export default {
    background-size: stretch;
   justify-content: center;
   align-content: center;
-  background-color: #83d8da;
-  width: 100vw;
+  background-color: #FFE7D5;
+  /* width: 100%; */
 }
 
 .grid-box {

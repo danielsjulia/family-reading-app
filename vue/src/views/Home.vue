@@ -2,7 +2,7 @@
   <div class="home">
     <!-- <nav-bar /> -->
     <div id="home-header">
-      <h1>Welcome Home</h1>
+      <h1>Available Prizes | Read more to win!</h1>
     </div>
     
     <div id="familyFormContainer">

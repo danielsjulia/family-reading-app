@@ -125,13 +125,13 @@ export default {
 .prize-display .prize-card {
     display: inline-block;
     /* flex-grow: 1; */
-    background: #449aeb;
-    border: 1px green solid;
+    background: #B1EEEE;
+    border: 3px solid #45547A;
     border-radius: 60px;
     padding: 1rem;
     margin: 15px;
     text-align: center;
-    box-shadow: 10px 10px rgb(240, 100, 65);
+    box-shadow: 10px 10px #EC5C67;
     
     width: 25%;
 

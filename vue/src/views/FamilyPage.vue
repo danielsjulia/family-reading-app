@@ -3,10 +3,10 @@
     <!-- <add-family /> -->
       <h1>Welcome to {{this.$store.state.family.familyName}}'s home page!</h1>
       <div class="addMemberForm"  >
-        <add-member v-show="this.$store.state.isParent" />
+        <add-member id="add-member-form" v-show="this.$store.state.isParent" />
       </div>
       
-      <members />
+      <members id="display-members" />
       
   </div>
 </template>
@@ -47,19 +47,26 @@ export default {
 
 
 .familyPage {
-  background-color: #83d8da;
+  background-color: #FFE7D5;
+  border-radius: 10px;
   font-family: 'Dosis', sans-serif;
+  
 }
 
 .familyPage h1 {
   text-align: center;
+  padding-top: 5vh;
 }
 
 .addMemberForm {
-  width: 100vw;
+  /* width: 100vw;
   justify-content: center;
-  margin: 20px;
+  margin: 20px; */
   text-align: center;
+}
+
+#add-member-form, #display-members {
+  width: 100%;
 }
 
 </style>

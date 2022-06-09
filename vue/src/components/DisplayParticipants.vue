@@ -1,7 +1,11 @@
 <template>
   <div class="participants">
-
+      <h3>THE COMPETITORS:</h3>
        <table class="participants-table">
+         <!-- <tr>
+           <td>The</td>
+           <td>Competitors</td>
+         </tr> -->
         <tr id="header">
             <th>User</th>
             <th>Minutes Read</th>
@@ -51,12 +55,30 @@ export default {
 <style>
 
 .participants {
-  margin: 5% 30%;
+  /* margin: 5% 30%; */
+  margin:auto;
   justify-content: center;
   align-content: center;
   width: 40vw;
-  position: 500px;;
+  position: 500px;
+  text-align: center;
 }
+
+.participants h3 {
+  text-shadow: 2px 2px #FFE7D5;
+  color: #EC5C67;
+}
+
+.participants-table {
+  padding-left: 20%;
+  width: 100%;
+  margin-bottom: 1vh;
+}
+
+/* .participants h4 {
+  margin: 5% 30%;
+  align-content: left;
+} */
 /* 
 .participants-table {
    border-collapse: collapse;
