@@ -64,7 +64,7 @@ export default {
             {
                 if(response.status == 200){
                     this.$store.commit("Set_prize", response.data)
-                    window.alert("Prize added")
+                    //window.alert("Prize added")
                     this.prize ={
                         name:"",
                         description: "",

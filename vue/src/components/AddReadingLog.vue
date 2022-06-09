@@ -338,16 +338,16 @@ span>button>div>img {
   width: 50px;
   border-radius: 50%;
 }
-/* button {
+button {
   background-color: rgb(240, 201, 102);
   border: none;
   border-radius: 50%;
-} */
-/* button:hover {
+} 
+button:hover {
   font-size: 20px;
   transition: all 400ms;
   
-} */
+}
 
 
 </style>

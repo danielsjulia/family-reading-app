@@ -38,8 +38,8 @@
             <input class="boxes" type="number" placeholder="Number Of Winners" v-model="updatedPrize.numberOfWinners" />
             <br>
         <div class="button-container">
-            <button type="submit">Edit Prize</button>
-            <button type="reset" @click.prevent="clearPrize()">Cancel</button>
+            <button id="edit-btn1" type="submit">Edit Prize</button>
+            <button id="edit-btn2" type="reset" @click.prevent="clearPrize()">Cancel</button>
         </div> 
         </form>
   </div>
@@ -132,5 +132,13 @@ export default {
 #participants {
     width: 80%;
 }
+
+/* #edit-btn1, #edit-btn2 {
+    height: 15px !important;
+    background-color: darkorchid !important;
+    padding: 5px;
+    
+} */
+
 
 </style>

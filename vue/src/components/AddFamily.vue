@@ -71,7 +71,7 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: 4vh; 
-    background-color: #00B7A3;
+    background-color: #a271b4;
     width: 33%;
     text-align: center;
     padding: 10px;
