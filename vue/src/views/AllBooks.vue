@@ -59,6 +59,9 @@ export default {
   background-color: #FFE7D5;
   border-radius: 10px;
 }
+.book-container{
+  background-color:  #aeeaea;
+}
 
 .book-card{
   display: flex;

@@ -1,12 +1,12 @@
 <template>
   <div class="form-container">
       <!-- <button @click="showForm()">Add ReadingLog</button> -->
-    <h2>Add to your reading log</h2>
+    <h2 class="head1">Add to your reading log</h2>
 
     <!-- <FONT onMouseOver="this.innerHTML = 'WebNots Web Consulting Services'"
 onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
-
-    <h3>Select reading Time</h3>
+<!-- 
+    <h4 class="head1">Select reading Time</h4> -->
     <form  @submit.prevent="addNewReadingLog()" class="log-form form-display" >
     <span id = "minSelect" class= "options">
       <button value= 15 @click.prevent="readingLog.minutes = 15"><div class="minTime15 time"></div>15 min</button>
@@ -16,7 +16,7 @@ onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
       <span>{{readingLog.minutes}} minutes</span>
     </span>
     <span>
-      <h3>Select the Format of Book Reading</h3>
+      <!-- <h4 class="head1">Select the Format of Book Reading</h4> -->
     </span>
     <span id = "format" class ="options">
         <button class="format paper" value="Paper" @click.prevent="readingLog.format = 'Paper' ">
@@ -44,7 +44,7 @@ onMouseOut="this.innerHTML = 'WebNots'">WebNots</FONT> -->
         </select>
       </span>
     
-    <span>Select Date</span>
+    <!-- <span>Select Date</span> -->
     <span>
       <input class="boxes day" type="date" placeholder="date" v-model="readingLog.date" />
     </span>
@@ -165,17 +165,19 @@ export default {
 <style>
 .form-container {
   background-color: rgb(240, 201, 102);
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 10px;
-  box-shadow: 5px 5px magenta;
+  box-shadow: 5px 5px teal;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items:center;
-  font-size: 25px;
+  font-size: 20px;
 }
 .form-container  * {
-  margin-bottom: 10px;;
+  /* margin-bottom: 10px; */
+  margin:0;
+
 }
 .form-display {
   display:flex;
@@ -188,28 +190,22 @@ export default {
   
 } */
 
+.head1{
+  padding:10px
+}
 .boxes {
   height: 30px;
   width: 80%;
   margin: 10px;
   border-radius: 10px;
-  box-shadow: 2px 2px magenta;
+  box-shadow: 2px 2px teal;
 }
 
 #minutes {
   box-shadow: none;
 } 
 
-button {
-  background-color: rgb(240, 201, 102);
-  border: none;
-  border-radius: 50%;
-}
-button:hover {
-  font-size: 20px;
-  transition: all 400ms;
-  
-}
+
 .time:hover::after {
   font-size: 20px;
   color:white;
@@ -224,7 +220,7 @@ button:hover {
 
 
 .format:hover::after {
-  font-size: 20px;
+  font-size: 15px;
   color:white;
 
 }
@@ -257,9 +253,10 @@ content: "Any Other";
   
 }
 .button-container > button {
+
   background-color: white;
   border: 2px dotted black;
-  font-size: 15px;
+  font-size:20px;
 }
 .button-container >button:hover {
   background-color:turquoise;
@@ -326,7 +323,6 @@ content: "Any Other";
   width: 50px;
   border-radius: 50%;
   background-color: green;
-  
   border-radius: 50%;
 }
 
@@ -335,5 +331,16 @@ span>button>div>img {
   width: 50px;
   border-radius: 50%;
 }
+button {
+  background-color: rgb(240, 201, 102);
+  border: none;
+  border-radius: 50%;
+}
+button:hover {
+  font-size: 20px;
+  transition: all 400ms;
+  
+}
+
 
 </style>

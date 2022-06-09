@@ -108,11 +108,14 @@ body {
   padding: 0 1em;
   border: 5px solid #45547A;
   border-radius: 10px;
+  /* width: 97%;
+  position: fixed; */
 }
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* position: fixed; */
 }
 
 ul {
@@ -127,5 +130,5 @@ ul {
 .nav li {
   color: #ffffff;
   display: inline-block;
-}
+  }
 </style>

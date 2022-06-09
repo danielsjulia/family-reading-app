@@ -2,21 +2,20 @@
 
   <div class="member-Profile" > 
       
-      <span class = "name"> 
-        <br>
-        <h1>{{member.username}}'s page!</h1>
+           <div class = "name">  
+        <h1 class="head1" >{{member.username}}'s page!</h1>
         <!-- <h2>user's id: {{member.userId}}</h2>  -->
-        <div>
-        <h3>Total Minutes Read: {{this.readingLogTime}} minutes</h3>
-        </div>
-        <br>
-      </span>
+      
+      </div>
+     
       <div class="log-container" >
-        
-        <reading-log class="log" v-bind:member="member" v-bind:readingLogs="readingLogs" /> 
 
-        
         <add-reading-log class="add-log" v-bind:member="member" v-bind:userBooks="userBooks" @formSubmitted="forceRerender()" />
+        <div class= "logTable">
+
+        <h3 class="head2" >Total Minutes Read: {{this.readingLogTime}} minutes</h3>
+        <reading-log class="log" v-bind:member="member" v-bind:readingLogs="readingLogs" /> 
+        </div>
 
       </div>
       
@@ -24,16 +23,16 @@
       
       <!-- {{userBooks}}
       {{thisMember}} -->
-
-    
     <h2>Your Books</h2>
+
+    <div class="books">
     <!-- list each book associated with the user (retrieved from MemberService) -->
     <!-- router link goes to book's detail page -->
     <!-- link params passes along the member and book objects - to be used in adding a log for book -->
     <router-link class="profile" :to="{name:'book-page', params:{book, member}}" v-for="book in userBooks" v-bind:key="book.id">
       <book-card   v-bind:book = "book" v-bind:member ="thisMember" />
     </router-link>
-
+    </div>
     
      <!-- profile page-- need to setup so it takes Id and populates the profile 
 
@@ -147,23 +146,29 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 
 .name {
-  display: block;
-  width: 100vw;
-  padding: 0px !important;
+  /* display: block; */
+  /* width: 100vw; */
+  /* padding: 0px !important; */
   text-align: center;
-  
-
   font-family: 'Dosis', sans-serif;
+  margin:0;
+  padding:0;
 }
 
-.member-profile {
+.head1 , .head2{
+  margin:0;
+}
+.member-Profile{
+  background-color:  #aeeaea;
+}
+/* .member-profile {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
+} */
 
-.member-Profile {
+/* .member-Profile {
   background-color: lavender;
   padding: 1% 25%;
   display: block;
@@ -171,35 +176,51 @@ export default {
   align-self: center;
   height: 100vh;
 
-}
+} */
 
-.profile{
+/* .profile{
   display: inline-flex;
   flex-wrap: wrap;
-}
+} */
 
 .log-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-}
-.log {
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+  /* justify-content:space-evenly; */
+  /* height:100vh;  */
+  /* width: 80%; */
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "add-log   logTable" ;  
+  justify-items: center;
+  }
+/* .log {
   width: 100vw;
-}
+} */
 
-.log, .add-log, .name {
-  margin: 30px;
-  width: 100%;
-  align-self: center;
+.logTable {
+
+  /* width: 100%; */
+ 
+ margin:50px 20px  0 0 ;
   
 }
+.add-log{
+  height:79vh;
+  width: 35vw;
+  justify-content: center;
+}
 
-.member-Profile h2 {
+.member-Profile h2,.head2 {
   text-align: center;
   font-family: 'Dosis', sans-serif;
 }
 
-
+.books{
+  display: flex;
+  flex-direction:row;
+  margin-left: 7rem;
+}
 
 </style>
