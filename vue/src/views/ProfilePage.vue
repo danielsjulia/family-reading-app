@@ -207,7 +207,7 @@ export default {
   
 }
 .add-log{
-  height:79vh;
+  height:80vh;
   width: 35vw;
   justify-content: center;
 }
