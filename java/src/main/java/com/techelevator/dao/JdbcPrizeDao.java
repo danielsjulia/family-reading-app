@@ -148,6 +148,13 @@ public class JdbcPrizeDao implements PrizeDao{
         return participants;
     }
 
+    public void editPrize(Prize prize, long prizeId) {
+        String sql = "UPDATE prize SET prize_name = ?, description= ?, start_date = ?," +
+                " end_date = ?, milestone = ?, isActive = true, numberOfWinners = ? WHERE prize_id = ?;";
+        jdbcTemplate.update(sql, prize.getName(), prize.getDescription(), prize.getStartDate(),
+                prize.getEndDate(), prize.getMilestone(), prize.getNumberOfWinners(), prizeId);
+    }
+
     public boolean deleteInactivePrize(long prizeId) {
         String sql = "BEGIN TRANSACTION; " +
                 "DELETE from prize_user WHERE prize_id = ?; " +

@@ -22,6 +22,10 @@ export default {
         return axios.get(`/${prizeId}/participants`)
     },
 
+    updatePrize(prize, prizeId) {
+        return axios.put(`/editPrize/${prizeId}`, prize)
+    },
+
     deletePrize(prizeId) {
         return axios.delete(`/deletePrize/${prizeId}`)
     }
