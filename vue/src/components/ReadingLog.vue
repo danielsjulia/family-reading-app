@@ -7,13 +7,13 @@
             <!-- <th>BookId</th> -->
             <th>Title</th>
             <th>Date</th>
-            <th>Minutes Read</th>
+            <th>Minutes read</th>
             <th>Format</th>
             
             <!-- <th>username</th> -->
-            <th>StartingPage</th>
-            <th>EndingPage</th>
-            <th>Pages Read</th>
+            <th>Starting page</th>
+            <th>Ending page</th>
+            <th>Pages read</th>
             <th>Notes</th>
         
         </tr>

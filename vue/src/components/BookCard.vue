@@ -85,7 +85,7 @@ export default {
   padding: 5px;
   padding-bottom: 10px;
   text-align: center;
-  background-color: #7FFFD4;
+  background-color: #83d8da;
   font-family: "Barlow Condensed", sans-serif;
 }
 
