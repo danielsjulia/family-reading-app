@@ -77,4 +77,18 @@ public class PrizeController {
         return prizeDao.getPrizeParticipants(prizeId, familyId);
     }
 
+    @ApiOperation("Deleting a Prize")
+    @Transactional
+    @RequestMapping(path = "/editPrize/{prizeId}", method = RequestMethod.PUT)
+    public void editPrize(@RequestBody Prize prize, @PathVariable long prizeId) {
+        prizeDao.editPrize(prize, prizeId);
+    }
+
+    @ApiOperation("Deleting a Prize")
+    @Transactional
+    @RequestMapping(path = "/deletePrize/{prizeId}", method = RequestMethod.DELETE)
+    public void deletePrize(@PathVariable long prizeId) {
+        prizeDao.deleteInactivePrize(prizeId);
+    }
+
 }
