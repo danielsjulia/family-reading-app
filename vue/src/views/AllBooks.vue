@@ -9,12 +9,18 @@
 
     <!-- <p>test text</p>
     <router-link to= "/bookDetail" > -->
-  <div class ="book-card">
+  <div v-if="this.$store.state.isParent" class ="book-card">
     <book-card 
       v-bind:book="book"
       v-for="book in $store.state.allBooks"
       v-bind:key="book.id"
     />
+  </div>
+  <div v-if="!this.$store.state.isParent" class ="book-card">
+    <book-card-child  v-bind:book="book"
+      v-for="book in $store.state.allBooks"
+      v-bind:key="book.id"
+      />
   </div>
     <!-- v-on:click.native="details(book.isbn)"/> -->
     <!-- </router-link> -->
@@ -25,12 +31,14 @@
 import BookCard from "@/components/BookCard.vue";
 import AddABook from "./AddABook.vue";
 import MemberService from '../services/MemberService.js';
+import BookCardChild from '../components/book-card-child.vue';
 
 export default {
   name: "all-books",
   components: {
     BookCard,
     AddABook,
+    BookCardChild,
   },
   created() {
     MemberService.getAllBooks()
